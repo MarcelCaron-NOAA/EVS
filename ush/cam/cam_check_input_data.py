@@ -430,40 +430,36 @@ if proceed:
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    'conus',
-                    'rrfs.t{IHOUR}z.wrfprsf{FHR}.grib2'
-                ))
-                fcst_templates.append(os.path.join(
-                    COMINfcst,
-                    'rrfs.{IDATE}',
-                    'conus',
-                    'rrfs.t{IHOUR}z.wrfsfcf{FHR}.grib2'
+                    '{IHOUR}',
+                    'rrfs.t{IHOUR}z.prslev.f0{FHR}.grib2'
                 ))
             elif NEST == 'ak':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    'alaska',
-                    'rrfs.t{IHOUR}z.wrfprsf{FHR}.ak.grib2'
+                    '{IHOUR}',
+                    'rrfs.t{IHOUR}z.prslev.f0{FHR}.ak.grib2'
                 ))
+            elif NEST == 'hi':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    'alaska',
-                    'rrfs.t{IHOUR}z.wrfsfcf{FHR}.ak.grib2'
+                    '{IHOUR}',
+                    'rrfs.t{IHOUR}z.prslev.f0{FHR}.hi.grib2'
+                ))
+            elif NEST == 'pr':
+                fcst_templates.append(os.path.join(
+                    COMINfcst,
+                    'rrfs.{IDATE}',
+                    '{IHOUR}',
+                    'rrfs.t{IHOUR}z.prslev.f0{FHR}.pr.grib2'
                 ))
             else:
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    'conus',
-                    'rrfs.t{IHOUR}z.wrfprsf{FHR}.grib2'
-                ))
-                fcst_templates.append(os.path.join(
-                    COMINfcst,
-                    'rrfs.{IDATE}',
-                    'conus',
-                    'rrfs.t{IHOUR}z.wrfsfcf{FHR}.grib2'
+                    '{IHOUR}',
+                    'rrfs.t{IHOUR}z.prslev.f0{FHR}.grib2'
                 ))
         else:
             print(f"The provided MODELNAME ({MODELNAME}) is not recognized."
