@@ -561,6 +561,10 @@ class ModelSpecs():
                 'settings_key':'RRFS_A', 
                 'plot_name':'RRFS-A'
             },
+            'rrfs': {
+                'settings_key':'RRFS', 
+                'plot_name':'RRFS'
+            },
             'RRFS_A_AK': {
                 'settings_key':'RRFS_A', 
                 'plot_name':'RRFS-A Alaska'
@@ -689,6 +693,9 @@ class ModelSpecs():
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'NAM_NEST': {'color': '#1e3cff',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'RRFS': {'color': '#696969',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'RRFS_A': {'color': '#00dc00',

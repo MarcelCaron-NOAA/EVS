@@ -13,7 +13,7 @@ graphics = {
     'cam':{
         'precip':{
             'ccpa':{
-                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -186,7 +186,7 @@ graphics = {
                         }
                     },
                 },
-                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -333,7 +333,7 @@ graphics = {
                         }
                     },
                 },
-                'domain_group3, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'domain_group3, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -480,7 +480,7 @@ graphics = {
                         }
                     },
                 },
-                'domain_group4, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'domain_group4, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -627,7 +627,7 @@ graphics = {
                         }
                     },
                 },
-                'domain_group5, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'domain_group5, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -776,7 +776,7 @@ graphics = {
                 }
             },
             'mrms':{
-                'namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',

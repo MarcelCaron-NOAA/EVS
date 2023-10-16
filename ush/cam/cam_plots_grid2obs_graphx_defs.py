@@ -13,7 +13,7 @@ graphics = {
     'cam':{
         'grid2obs':{
             'ptype':{
-                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -41,7 +41,7 @@ graphics = {
                         }
                     }
                 },
-                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -71,7 +71,7 @@ graphics = {
                 },
             },
             'raob':{
-                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'stat_by_level':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -258,7 +258,7 @@ graphics = {
                         }
                     }
                 },
-                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'time_series':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -482,7 +482,7 @@ graphics = {
                         }
                     }
                 },
-                'namnest, hrrr': {
+                'namnest, hrrr, rrfs': {
                     'stat_by_level':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -512,7 +512,7 @@ graphics = {
                 }
             },
             'metar':{
-                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'lead_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -864,7 +864,7 @@ graphics = {
                         }
                     },
                 },
-                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr': {
+                'domain_group2, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs': {
                     'lead_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',

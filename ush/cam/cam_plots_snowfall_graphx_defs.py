@@ -13,7 +13,7 @@ graphics = {
     'cam':{
         'snowfall':{
             'nohrsc':{
-                'namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
+                'namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
