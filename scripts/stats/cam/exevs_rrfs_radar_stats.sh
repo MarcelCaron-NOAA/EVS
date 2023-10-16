@@ -165,7 +165,7 @@ if [ $cyc = 23 ]; then
 
    if [ "$(ls -A $COMOUTsmall)" ]; then
 
-      run_metplus.py -c $PARMevs/metplus_config/machine.conf $PARMevs/metplus_config/${COMPONENT}/${VERIF_CASE}/${STEP}/StatAnalysis_fcstCAM_obsMRMS_gatherByDay.conf
+      run_metplus.py -c $PARMevs/metplus_config/machine.conf $PARMevs/metplus_config/${STEP}/${COMPONENT}/${VERIF_CASE}/StatAnalysis_fcstCAM_obsMRMS_gatherByDay.conf
       export err=$?; err_chk
 
       # Copy output to $COMOUTfinal

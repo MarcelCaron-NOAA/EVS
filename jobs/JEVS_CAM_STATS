@@ -106,6 +106,7 @@ export COMINhiresw=${COMINhiresw:-$(compath.py ${envir}/com/hiresw/${hiresw_ver}
 export COMINhref=${COMINhref:-$(compath.py  href/$href_ver)}
 export COMINhrrr=${COMINhrrr:-$(compath.py ${envir}/com/hrrr/${hrrr_ver})}
 export COMINnam=${COMINnam:-$(compath.py ${envir}/com/nam/${nam_ver})}
+export COMINrrfs=${COMINrrfs:-/lfs/h2/emc/ptmp/emc.lam/${MODELNAME}/${rrfs_ver}/prod}
 export COMINobsproc=${COMINobsproc:-$(compath.py ${envir}/com/obsproc/${obsproc_ver})}
 export COMINmping=${COMINmping:-$(compath.py -o $NET/$evs_ver/prep/$COMPONENT)}
 export COMINprepbufr=${COMINprepbufr:-$(compath.py  obsproc/${obsproc_ver})}

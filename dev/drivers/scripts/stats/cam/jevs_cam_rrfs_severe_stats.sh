@@ -44,9 +44,7 @@ export MODELNAME=rrfs
 export modsys=rrfs
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${cyc}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMINfcst=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/prep/$COMPONENT
-export COMINspclsr=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/prep/$COMPONENT
-export COMINspcotlk=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/prep/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}/${evs_ver}
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/$STEP/$COMPONENT
 ############################################################
 
@@ -58,7 +56,7 @@ export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}
 export KEEPDATA=${KEEPDATA:-NO}
 
-export maillist=${maillist:-'logan.dawson@noaa.gov'}
+export maillist=${maillist:-'marcel.caron@noaa.gov'}
 
 if [ -z "$maillist" ]; then
 

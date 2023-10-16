@@ -107,6 +107,7 @@ export COMINhiresw=${COMINhiresw:-$(compath.py ${envir}/com/hiresw/${hiresw_ver}
 export COMINhrrr=${COMINhrrr:-$(compath.py ${envir}/com/hrrr/${hrrr_ver})}
 export COMINmrms=$DCOMROOT/ldmdata/obs/upperair/mrms
 export COMINnam=${COMINnam:-$(compath.py ${envir}/com/nam/${nam_ver})}
+export COMINrrfs=${COMINrrfs:-/lfs/h2/emc/ptmp/emc.lam/${MODELNAME}/${rrfs_ver}/prod}
 export COMINobsproc=${COMINobsproc:-$(compath.py ${envir}/com/obsproc/${obsproc_ver})}
 export COMINspc=${COMINspc:-$DCOMROOT}
 
