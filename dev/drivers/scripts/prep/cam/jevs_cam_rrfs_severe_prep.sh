@@ -4,7 +4,7 @@
 #PBS -q dev
 #PBS -A VERF-DEV
 #PBS -l walltime=00:30:00
-#PBS -l select=1:ncpus=10:mem=10GB
+#PBS -l select=1:ncpus=1:mem=10GB
 #PBS -l debug=true
 #PBS -V
 
@@ -32,7 +32,7 @@ module load prod_envir/${prod_envir_ver}
 
 source $HOMEevs/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
 
-export cyc=${cyc:-${cyc}}
+export vhr=${vhr:-${vhr}}
 
 
 ############################################################
@@ -44,12 +44,10 @@ export KEEPDATA=YES
 export VERIF_CASE=severe
 export MODELNAME=rrfs
 export modsys=rrfs
-export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${cyc}}
+export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${vhr}}
 export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}/${evs_ver}
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}/${evs_ver}/${STEP}/${COMPONENT}
-export USE_CFP=YES
-export nproc=10
 ############################################################
 
 export SENDMAIL=${SENDMAIL:-YES}
