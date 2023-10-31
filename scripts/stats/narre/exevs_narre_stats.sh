@@ -1,18 +1,13 @@
 #!/bin/ksh
 #################################################################
-# Purpose:   To run grid-to-grid verification on all global ensembles
+# Purpose:   Setup some paths and run narre stat ush scripts
 #
-# Log History:  12/01/2021 Binbin Zhou  
+# Last updated 10/27/2023: by  Binbin Zhou, Lynker@EMC/NCEP  
 ################################################################
 set -x
 
 export WORK=$DATA
 cd $WORK
-
-export MET_bin_exec='bin'
-export log_met_output_to_metplus=''
-export metplus_verbosity=2
-export met_verbosity=2
 
 export run_mpi=${run_mpi:-'yes'}
 export stats=${stats:-'yes'}
@@ -27,12 +22,9 @@ export MET_CONFIG=${METPLUS_BASE}/parm/met_config
 export maskpath=$MASKS
 
 
-#############################################################
-# Step 0: Run copygb to convert URMA data to 4km WRF grid
-#############################################################
-
 if [ $stats = yes ] ; then
  $USHevs/narre/evs_narre_stats.sh  
+ export err=$?; err_chk
 fi
 
 
