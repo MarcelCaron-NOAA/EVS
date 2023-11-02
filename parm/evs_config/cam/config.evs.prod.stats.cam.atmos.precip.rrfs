@@ -16,13 +16,13 @@ export MET_PLUS_OUT=${DATA}/${VERIF_CASE}/METplus_output
 export MET_CONFIG_OVERRIDES=""
 
 # Restart Settings
-export RESTART_DIR="${COMOUTsmall}/restart/c${cyc}"
+export RESTART_DIR="${COMOUTsmall}/restart/c${vhr}"
 export COMPLETED_JOBS_FILE="completed_jobs.txt"
 
 # Time Settings
 export FHR_END_FULL="60"
-export FHR_INCR_FULL="1"
-export FHR_END_SHORT="60"
+export FHR_INCR_FULL="6"
+export FHR_END_SHORT="18"
 
 # Model/Obs Settings
 export COMINfcst=${COMINrrfs}
@@ -30,7 +30,7 @@ export OBS_ACC="01"
 
 # Additional Verification Settings
 if [ "$ACC" = "01" ]; then
-    export FHR_GROUP_LIST="FULL"
+    export FHR_GROUP_LIST="SHORT FULL"
     export MODEL_ACC="01"
     export BUCKET_INTERVAL=$MODEL_ACC
     export FCST_LEV="A1"
@@ -51,7 +51,7 @@ if [ "$ACC" = "01" ]; then
     export MODEL_PCP_COMBINE_METHOD="ADD"
     export MODEL_PCP_COMBINE_COMMAND=""
 elif [ "$ACC" = "03" ]; then
-    export FHR_GROUP_LIST="FULL"
+    export FHR_GROUP_LIST="SHORT FULL"
     export MODEL_ACC="01"
     export BUCKET_INTERVAL=$MODEL_ACC
     export FCST_LEV="A3"

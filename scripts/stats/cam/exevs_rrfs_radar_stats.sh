@@ -49,8 +49,8 @@ while [ $fhr -le $fhr_max ]; do
    export fhr
 
    # Define initialization date/cycle for each forecast lead
-   export IDATE=`$NDATE -$fhr ${VDATE}${cyc} | cut -c 1-8`
-   export INIT_HR=`$NDATE -$fhr ${VDATE}${cyc} | cut -c 9-10`
+   export IDATE=`$NDATE -$fhr ${VDATE}${vhr} | cut -c 1-8`
+   export INIT_HR=`$NDATE -$fhr ${VDATE}${vhr} | cut -c 9-10`
 
    # Define forecast filename for each model 
    if [ ${MODELNAME} = rrfs ]; then
@@ -89,7 +89,7 @@ done
 #if [ $nfcst_ak = 0 ] || [ $nfcst_conus = 0 ]; then
 if [ $nfcst_conus = 0 ]; then
    export subject="${MODELNAME} Data Missing for EVS ${COMPONENT}"
-   echo "Warning: ${MODELNAME} forecast file(s) is missing for valid date ${VDATE}${cyc}. METplus will not run." > mailmsg
+   echo "Warning: ${MODELNAME} forecast file(s) is missing for valid date ${VDATE}${vhr}. METplus will not run." > mailmsg
    echo -e "`cat $DATA/missing_fcst_list`" >> mailmsg
    echo "Job ID: $jobid" >> mailmsg
    cat mailmsg | mail -s "$subject" $maillist
@@ -161,7 +161,7 @@ fi
 # Run METplus (StatAnalysis) if GridStat output exists
 ###################################################################
 
-if [ $cyc = 23 ]; then
+if [ $vhr = 23 ]; then
 
    if [ "$(ls -A $COMOUTsmall)" ]; then
 

@@ -16,7 +16,7 @@ export MET_PLUS_OUT=${DATA}/${VERIF_CASE}/METplus_output
 export MET_CONFIG_OVERRIDES=""
 
 # Restart Settings
-export RESTART_DIR="${COMOUTsmall}/restart/c${cyc}"
+export RESTART_DIR="${COMOUTsmall}/restart/c${vhr}"
 export COMPLETED_JOBS_FILE="completed_jobs.txt"
 
 # Time Settings
@@ -54,7 +54,7 @@ if [ "$NEST" = "conus" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 elif [ "$NEST" = "subreg" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
@@ -83,7 +83,7 @@ elif [ "$NEST" = "subreg" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 elif [ "$NEST" = "ak" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
@@ -112,7 +112,7 @@ elif [ "$NEST" = "ak" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 elif [ "$NEST" = "hi" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
@@ -141,7 +141,7 @@ elif [ "$NEST" = "hi" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 elif [ "$NEST" = "pr" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
@@ -170,7 +170,7 @@ elif [ "$NEST" = "pr" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 elif [ "$NEST" = "firewx" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
@@ -228,7 +228,7 @@ elif [ "$NEST" = "spc_otlk" ]; then
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
     export FHR_INCR_FULL="06"
-    export FHR_END_SHORT="24"
+    export FHR_END_SHORT="18"
     export FHR_INCR_SHORT="01"
 else
     echo "The provided NEST, $NEST, is not supported for $MODELNAME"

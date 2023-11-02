@@ -13,7 +13,7 @@ echo "BEGIN: $(basename ${BASH_SOURCE[0]})"
 
 # Time Settings
 export FHR_END_FULL="60"
-export FHR_END_SHORT="60"
+export FHR_END_SHORT="18"
 
 # Model/Obs Settings
 export OBS_ACC="01"

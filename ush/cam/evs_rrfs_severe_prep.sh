@@ -51,8 +51,8 @@ i=1
    export fhr_end
 
    # Define accumulation begin/end time
-   export ACCUM_BEG=${ACCUM_BEG:-`$NDATE $fhr ${IDATE}${cyc}`}
-   export ACCUM_END=${ACCUM_END:-`$NDATE $fhr_end ${IDATE}${cyc}`}
+   export ACCUM_BEG=${ACCUM_BEG:-`$NDATE $fhr ${IDATE}${vhr}`}
+   export ACCUM_END=${ACCUM_END:-`$NDATE $fhr_end ${IDATE}${vhr}`}
 
    # Increment fhr by 1 at the start of loop for each 24-h period
    # Correctly skips initial file (F00, F12, F24) that doesn't include necessary data
@@ -64,9 +64,9 @@ i=1
    while [ $i -le $min_file_req ]; do
 
       if [ $MEMNUM = ctl ]; then
-         export fcst_file=rrfs.${IDATE}/${cyc}/${MODELNAME}.t${cyc}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+         export fcst_file=rrfs.${IDATE}/${vhr}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
       else
-         export fcst_file=refs.${IDATE}/${cyc}/${MEMNUM}/${MODELNAME}.t${cyc}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+         export fcst_file=refs.${IDATE}/${vhr}/${MEMNUM}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
       fi
 
       if [ -s ${MODEL_INPUT_DIR}/$fcst_file ]; then
@@ -88,7 +88,7 @@ i=1
 
    if [ $nfiles -eq $min_file_req ]; then
 
-      echo "Found all $nfiles forecast files. Generating ${MODELNAME} SSPF for ${cyc}Z ${IDATE} cycle at F${fhr_end}"
+      echo "Found all $nfiles forecast files. Generating ${MODELNAME} SSPF for ${vhr}Z ${IDATE} cycle at F${fhr_end}"
 
       ${METPLUS_PATH}/ush/run_metplus.py -c $PARMevs/metplus_config/machine.conf $PARMevs/metplus_config/${STEP}/${COMPONENT}/${VERIF_CASE}/GenEnsProd_fcstRRFS_MXUPHL_SurrogateSevere.conf
       export err=$?; err_chk
@@ -96,7 +96,7 @@ i=1
    else
 
       export subject="${MODELNAME} ${MEMNUM} Forecast Data Missing for EVS ${COMPONENT}"
-      echo "Warning: Only $nfiles ${MODELNAME} ${MEMNUM} forecast files found for ${cyc}Z ${IDATE} cycle. $min_file_req files are required. METplus will not run." > mailmsg${JOBNUM}
+      echo "Warning: Only $nfiles ${MODELNAME} ${MEMNUM} forecast files found for ${vhr}Z ${IDATE} cycle. $min_file_req files are required. METplus will not run." > mailmsg${JOBNUM}
       echo "Job ID: $jobid" >> mailmsg${JOBNUM}
       cat mailmsg${JOBNUM} | mail -s "$subject" $maillist
 

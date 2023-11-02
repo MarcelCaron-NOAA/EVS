@@ -16,23 +16,23 @@ export MET_PLUS_OUT=${DATA}/${VERIF_CASE}/METplus_output
 export MET_CONFIG_OVERRIDES=""
 
 # Restart Settings
-export RESTART_DIR="${COMOUTsmall}/restart/c${cyc}"
+export RESTART_DIR="${COMOUTsmall}/restart/c${vhr}"
 export COMPLETED_JOBS_FILE="completed_jobs.txt"
 
 # Time Settings
 export FHR_END_FULL="60"
-export FHR_INCR_FULL="1"
-export FHR_END_SHORT="60"
+export FHR_INCR_FULL="6"
+export FHR_END_SHORT="18"
 
 # Model/Obs Settings
 export COMINfcst=${COMINrrfs}
 
 # Additional Verification Settings
 if [ "$ACC" = "06" ]; then
-    export FHR_GROUP_LIST="FULL"
-    export MODEL_ACC="01"
+    export FHR_GROUP_LIST="SHORT FULL"
+    export MODEL_ACC="06"
     export OBS_ACC="06"
-    export BUCKET_INTERVAL="1"
+    export BUCKET_INTERVAL="6"
     export FCST_LEV="A6"
     export FCST_THRESH="ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048"
     if [ "$NEST" = "conus" ]; then
@@ -42,11 +42,11 @@ if [ "$ACC" = "06" ]; then
         exit 1
     fi
     export OBS_THRESH="ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048"
-    export MODEL_PCP_COMBINE_METHOD="ADD"
+    export MODEL_PCP_COMBINE_METHOD="SUBTRACT"
     export MODEL_PCP_COMBINE_COMMAND=""
 elif [ "$ACC" = "24" ]; then
     export FHR_GROUP_LIST="FULL"
-    export MODEL_ACC="01"
+    export MODEL_ACC="24"
     export OBS_ACC="24"
     export BUCKET_INTERVAL="24"
     export FCST_LEV="A24"
@@ -58,7 +58,7 @@ elif [ "$ACC" = "24" ]; then
         exit 1
     fi
     export OBS_THRESH="ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048"
-    export MODEL_PCP_COMBINE_METHOD="ADD"
+    export MODEL_PCP_COMBINE_METHOD="SUBTRACT"
     export MODEL_PCP_COMBINE_COMMAND=""
 else
     echo "The provided ACC, $ACC, is not supported for $MODELNAME"

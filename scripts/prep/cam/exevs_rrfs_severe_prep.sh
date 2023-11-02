@@ -35,28 +35,28 @@ export MXUPHL25_THRESH1=160.0
 
 export MODEL_INPUT_DIR=${COMINrrfs}
 
-if [ $cyc -eq 00 ];then
+if [ $vhr -eq 00 ];then
    nloop=2
    fhr_beg1=12
    fhr_end1=36
    fhr_beg2=36
    fhr_end2=60
 
-elif [ $cyc -eq 06 ]; then
+elif [ $vhr -eq 06 ]; then
    nloop=2
    fhr_beg1=6
    fhr_end1=30
    fhr_beg2=30
    fhr_end2=54
 
-elif [ $cyc -eq 12 ]; then
+elif [ $vhr -eq 12 ]; then
    nloop=2
    fhr_beg1=0
    fhr_end1=24
    fhr_beg2=24
    fhr_end2=48
 
-elif [ $cyc -eq 18 ]; then
+elif [ $vhr -eq 18 ]; then
    nloop=1
    fhr_beg1=18
    fhr_end1=42
@@ -90,7 +90,7 @@ echo "${USHevs}/${COMPONENT}/evs_rrfs_severe_prep.sh $MEMNUM $njob" >> $DATA/poe
 njob=$((njob+1))
 
 
-for member in {1..9}; do
+for member in {1..5}; do
    MEMNUM="mem000${member}"
    echo "${USHevs}/${COMPONENT}/evs_rrfs_severe_prep.sh $MEMNUM $njob" >> $DATA/poescript
    njob=$((njob+1))
