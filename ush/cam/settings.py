@@ -86,6 +86,27 @@ class Paths():
         self.logo_left_path = f"{os.environ['FIXevs']}/logos/noaa.png"
         self.logo_right_path = f"{os.environ['FIXevs']}/logos/nws.png"
 
+        '''
+        Define special paths to model data if the head directory (data_dir)
+        and/or the file template (file_template) differ from the default 
+        head directory and file template.
+
+        Leave the entire dictionary blank if there are no such model data.
+        If such model data exists, use the model name as the name of the 
+        secondary dictionary, and use 'data_dir' and 'file_template' as keys
+        to this secondary dictionary.  The values of the keys are strings
+        representing the head directory and file template, respectively.
+        Leaving these strings blank ('') will tell the code to use the 
+        default value instead.
+        '''
+        self.special_paths = {
+                'rrfs': {
+                    'data_dir': "/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
+                    'file_template': '',
+                },
+        }
+
+
 class Presets():
     def __init__(self):
 
