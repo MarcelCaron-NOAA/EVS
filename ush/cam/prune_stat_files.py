@@ -73,10 +73,10 @@ def prune_data(data_dir, prune_dir, tmp_dir, output_base_template, valid_range,
             use_data_dir = paths.special_paths[model]['data_dir']
          else:
             use_data_dir = data_dir
-         if paths.special_paths[model]['file_template']
+         if paths.special_paths[model]['file_template']:
             use_file_template = paths.special_paths[model]['file_template']
          else:
-             use_file_template = output_base_template
+            use_file_template = output_base_template
       else:
          use_data_dir = data_dir
          use_file_template = output_base_template
