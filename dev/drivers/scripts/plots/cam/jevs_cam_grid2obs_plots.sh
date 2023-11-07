@@ -34,7 +34,7 @@ export VERIF_CASE="grid2obs"
 export MODELNAME=${COMPONENT}
 
 # EVS Settings
-export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
 export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}
 
@@ -51,7 +51,7 @@ export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
 export vhr=${vhr:-${vhr}}
 export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
 
