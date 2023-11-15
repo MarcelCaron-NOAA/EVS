@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #PBS -N jevs_mesoscale_sref_grid2obs_stats
 #PBS -j oe 
 #PBS -S /bin/bash
@@ -9,6 +7,8 @@
 #PBS -l place=vscatter,select=1:ncpus=4:mem=100GB
 #PBS -l debug=true
 
+
+set -x 
 #Total 2 parallel processes
 
 export OMP_NUM_THREADS=1
@@ -27,15 +27,16 @@ export MODELNAME=sref
 module reset
 module load prod_envir/${prod_envir_ver}
 source $HOMEevs/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
+export evs_ver=v1.0.0
+evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export KEEPDATA=YES
 export SENDMAIL=YES
 export SENDCOM=YES
 
-export cyc=00
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 

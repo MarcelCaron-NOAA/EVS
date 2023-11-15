@@ -1,8 +1,17 @@
 #!/bin/ksh
+###################################################################
+# Purpose:   Setup some paths and run href precip stat ush scripts
+#
+# Last updated 10/30/2023: by  Binbin Zhou, Lynker@EMC/NCEP
+###################################################################
+
 set -x
 
+#*************************************
 #check input data are available:
+#*************************************
 $USHevs/cam/evs_check_href_files.sh
+export err=$?; err_chk
 
 export WORK=$DATA
 cd $WORK
@@ -27,29 +36,38 @@ export maskpath=$MASKS
 export vday=$VDATE
 
 
-msg="$job HAS BEGUN"
-postmsg "$jlogfile" "$msg"
-
-
+#**********************************
+# Prepare CCPA data for validation
+#**********************************
 if [ $prepare = yes ] ; then
  for precip in ccpa01h03h ccpa24h apcp24h_conus  apcp24h_alaska mrms ; do
   $USHevs/cam/evs_href_preppare.sh  $precip
+  export err=$?; err_chk
  done
 fi
 
-
+#***************************************
+# Build a POE script to collect sub-jobs
+# **************************************
 > run_all_precip_poe.sh
+
+# Build sub-jobs for precip
 if [ $verif_precip = yes ] ; then
  $USHevs/cam/evs_href_precip.sh
+ export err=$?; err_chk
  cat ${DATA}/run_all_href_precip_poe.sh >> run_all_precip_poe.sh
 fi
 
+# Build sub-jobs for snowfall
 if [ $verif_snowfall = yes ] ; then
  $USHevs/cam/evs_href_snowfall.sh
+ export err=$?; err_chk
  cat ${DATA}/run_all_href_snowfall_poe.sh >> run_all_precip_poe.sh
 fi
 
-
+#*************************************************
+# Run the POE script to generate small stat files
+#*************************************************
 if [ -s ${DATA}/run_all_precip_poe.sh ]  ; then
   chmod 775 run_all_precip_poe.sh
 
@@ -61,8 +79,14 @@ if [ -s ${DATA}/run_all_precip_poe.sh ]  ; then
 
 fi
 
+export err=$?; err_chk
+
+#******************************************************************
+# Run gather job to combine the small stats to form a big stat file
+#******************************************************************
 if [ $gather = yes ] ; then
   $USHevs/cam/evs_href_gather.sh precip
+  export err=$?; err_chk
 fi
 
 # Cat the METplus log files
@@ -99,9 +123,4 @@ for log_dir in $log_dirs2; do
     fi
 done
 
-msg="JOB $job HAS COMPLETED NORMALLY"
-postmsg "$jlogfile" "$msg"
-
-
-
-exit 0
+export err=$?; err_chk

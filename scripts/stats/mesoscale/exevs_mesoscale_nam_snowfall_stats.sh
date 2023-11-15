@@ -8,12 +8,13 @@
 ###############################################################################
 
 set -x
-
-export VERIF_CASE_STEP_abbrev="snowfalls"
+  export machine=${machine:-"WCOSS2"} 
+  export VERIF_CASE_STEP_abbrev="snowfalls"
+  export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
 
 # Set run mode
-    export evs_run_mode=$evs_run_mode
-    source $config
+  export evs_run_mode=$evs_run_mode
+  source $config
 
 # Make directory
 mkdir -p $DATA/logs
@@ -26,9 +27,8 @@ mkdir -p $DATA/${RUN}.${VDATE}/$MODELNAME/$VERIF_CASE
 
 # Get NAM and NOHRSC
 python $USHevs/mesoscale/mesoscale_snowfall_stats_get_data.py
-status=$?
-[[ $status -ne 0 ]] && exit $status
-[[ $status -eq 0 ]] && echo "Succesfully ran mesoscale_snowfall_stats_get_data.py"
+
+    export err=$?; err_chk
 
 # Send for missing files
 if ls $DATA/mail_* 1> /dev/null 2>&1; then
@@ -38,7 +38,7 @@ if ls $DATA/mail_* 1> /dev/null 2>&1; then
 fi
 
 # What jobs to run
-if [ $cyc = 18 ]; then
+if [ $vhr = 18 ]; then
     JOB_GROUP_list="assemble_data generate_stats gather_stats"
 else
     JOB_GROUP_list="assemble_data generate_stats"
@@ -50,9 +50,9 @@ for group in $JOB_GROUP_list; do
     mkdir -p $DATA/jobs/$JOB_GROUP
     echo "Creating and running jobs for snowfall stats: ${JOB_GROUP}"
     python $USHevs/mesoscale/mesoscale_snowfall_stats_create_job_scripts.py
-    status=$?
-    [[ $status -ne 0 ]] && exit $status
-    [[ $status -eq 0 ]] && echo "Succesfully ran mesoscale_snowfall_stats_create_job_scripts.py"
+
+    export err=$?; err_chk
+
     chmod u+x $DATA/jobs/$JOB_GROUP/*
     group_ncount_job=$(ls -l $DATA/jobs/$JOB_GROUP/job* |wc -l)
     nc=1
@@ -83,9 +83,13 @@ for group in $JOB_GROUP_list; do
     if [ $JOB_GROUP = gather_stats ]; then
         # Copy output files into the correct EVS COMOUT directory
         if [ $SENDCOM = YES ]; then
-            cp -v $DATA/${MODELNAME}.${VDATE}/evs.${STEP}.${MODELNAME}.${RUN}.${VERIF_CASE}.v${VDATE}.stat $COMOUTfinal/.
+            cpreq -v $DATA/${MODELNAME}.${VDATE}/evs.${STEP}.${MODELNAME}.${RUN}.${VERIF_CASE}.v${VDATE}.stat $COMOUTfinal/.
         fi
     fi
 done
 
-exit
+echo "******************************"
+echo "Begin to print METplus Log files "
+  cat $DATA/logs/*
+echo "End to print METplus Log files "
+

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #PBS -N jevs_mesoscale_nam_grid2obs_stats_00
 #PBS -j oe
 #PBS -S /bin/bash
@@ -38,13 +36,6 @@ set -x
   export envir="prod"
   export evs_run_mode="production"
 
-  export ACCOUNT=VERF-DEV
-  export QUEUESERV="dev_transfer"
-  export QUEUE="dev"
-  export QUEUESHARED="dev_shared"
-  export PARTITION_BATCH=""
-
-
 # EVS Settings
   export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
 
@@ -56,6 +47,8 @@ source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
 source $HOMEevs/modulefiles/${COMPONENT}/${COMPONENT}_${STEP}.sh
+export evs_ver=v1.0.0
+evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export MET_CONFIG="${MET_PLUS_PATH}/parm/met_config"
 export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
@@ -63,15 +56,11 @@ export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
 # In production the following will be deleted (DATAROOT will be used instead, which already exists in the environment)
   export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
 
-# in production the following will be set to yesterday's date
-  export VDATE=$(date -d "today -1 day" +"%Y%m%d")
-
 # Developer Settings
-  export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver
-  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/$STEP/$COMPONENT
-  export COMOUTsmall=${COMOUT}/${RUN}.${VDATE}/${MODELNAME}/${VERIF_CASE}
+  export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
+  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
 
-  export cyc=$(date -d "today" +"%H")
+  export vhr=${vhr:-${vhr}}
   export maillist="roshan.shrestha@noaa.gov,alicia.bentley@noaa.gov"
   # export maillist="firstname.lastname@noaa.gov"
 

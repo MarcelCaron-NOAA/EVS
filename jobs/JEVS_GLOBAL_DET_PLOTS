@@ -27,7 +27,6 @@ export EXECevs=${EXECevs:-$HOMEevs/exec}
 export FIXevs=${FIXevs:-$HOMEevs/fix}
 export PARMevs=${PARMevs:-$HOMEevs/parm}
 export USHevs=${USHevs:-$HOMEevs/ush}
-export cartopyDataDir=${cartopyDataDir:-/apps/ops/prod/data/cartopy}
 
 ####################################
 # Run setpdy and initialize PDY variables
@@ -82,11 +81,6 @@ else
     $HOMEevs/scripts/${STEP}/${COMPONENT}/exevs_${COMPONENT}_${RUN}_${VERIF_CASE}_${STEP}.sh
 fi
 export err=$?; err_chk
-
-cat $pgmout
-
-msg="JOB $job HAS COMPLETED NORMALLY."
-postmsg "$jlogfile" "$msg"
 
 if [ "$KEEPDATA" != "YES" ] ; then
   cd $DATAROOT

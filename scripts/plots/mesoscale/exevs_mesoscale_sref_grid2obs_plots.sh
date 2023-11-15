@@ -1,7 +1,12 @@
 #!/bin/ksh
-
+#*******************************************************************************
+# Purpose: setup environment, paths, and run the sref grid2obs plotting python script
+# Last updated: 10/27/2023, Binbin Zhou Lynker@EMC/NCEP
+# ******************************************************************************
 set -x 
 
+export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
+export met_v=${met_ver:0:4}
 cd $DATA
 
 export prune_dir=$DATA/data
@@ -35,6 +40,10 @@ done
 export init_beg=$first_day
 export valid_beg=$first_day
 
+
+#*************************************************************************
+# Virtual link the  sref's stat data files of past 90 days
+#**************************************************************************
 n=0
 while [ $n -le $past_days ] ; do
   #hrs=`expr $n \* 24`
@@ -57,7 +66,9 @@ export plot_dir=$DATA/out/sfc_upper/${valid_beg}-${valid_end}
 
 
 verif_case=$VERIF_CASE
-
+#*****************************************
+# Build a POE file to collect sub-jobs
+# ****************************************
 > run_all_poe.sh
 
 for fcst_valid_hour in $fcst_valid_hours ; do
@@ -84,8 +95,7 @@ for fcst_valid_hour in $fcst_valid_hours ; do
    VARs='CAPEsfc DPT2m TCDC'
    score_types='lead_average threshold_average'
   else
-   echo $stats is wrong stat
-   exit
+   err_exit "$stats is wrong stat"
   fi   
 
   for score_type in $score_types ; do
@@ -122,6 +132,9 @@ for fcst_valid_hour in $fcst_valid_hours ; do
 
       for line_type in $line_tp ; do 
 
+	 #*********************
+	 # Build sub-jobs
+	 #*********************
          > run_${stats}.${score_type}.${lead}.${VAR}.${FCST_LEVEL_value}.${line_type}.${fcst_valid_hour}.sh  
 
 	if [ $VAR = UGRD ] || [ $VAR = VGRD ] || [ $VAR = HGT ] || [ $VAR = TMP ] ; then
@@ -198,14 +211,20 @@ done #end of fcst_valid_hours
 
 chmod +x run_all_poe.sh
 
-
+#***************************************************************************
+# Run the POE script in parallel or in sequence order to generate png files
+# **************************************************************************
 if [ $run_mpi = yes ] ; then
    mpiexec -np 216 -ppn 72 --cpu-bind verbose,depth cfp ${DATA}/run_all_poe.sh
 else
    ${DATA}/run_all_poe.sh
 fi
+export err=$?; err_chk
 
 
+#**************************************************
+# Change plot file names to meet the EVS standard
+#**************************************************
 cd $plot_dir
 
 for valid in 00z 06z 12z 18z ; do 
@@ -249,7 +268,7 @@ for var in hgt tmp ugrd vgrd prmsl rh dpt tcdc cape ; do
 	unit=m
 	var_level=${var}_${level}m
     elif [ $level = L0 ] ; then
-	unit=''
+	unit='non'
 	var_level=${var}_l0
     fi
 
@@ -270,11 +289,14 @@ for var in hgt tmp ugrd vgrd prmsl rh dpt tcdc cape ; do
 	 fi
 
       
-         if [ $unit = mb ] || [ $unit = m ] ; then	    
-            mv ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+         if [ $unit = mb ] || [ $unit = m ] ; then
+	   if [ -s ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}${end} ] ; then 
+             mv ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	   fi
          else
-           mv ${score_type}_regional_conus_valid_${valid}_${var}_${stat}${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
- 
+           if [ -s ${score_type}_regional_conus_valid_${valid}_${var}_${stat}${end} ] ; then
+             mv ${score_type}_regional_conus_valid_${valid}_${var}_${stat}${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	   fi 
          fi
                
       else
@@ -284,10 +306,13 @@ for var in hgt tmp ugrd vgrd prmsl rh dpt tcdc cape ; do
 	   end='f6_to_f87.png'
 
            if [ $unit = m ] ; then
-	    	   
-	     mv ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}_${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	    if [ -s ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}_${end} ] ; then	   
+	      mv ${score_type}_regional_conus_valid_${valid}_${level}${unit}_${var}_${stat}_${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	    fi
 	   else
-             mv ${score_type}_regional_conus_valid_${valid}_${var}_${stat}_${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	    if [ -s ${score_type}_regional_conus_valid_${valid}_${var}_${stat}_${end} ]; then
+              mv ${score_type}_regional_conus_valid_${valid}_${var}_${stat}_${end}  evs.sref.${stat}.${var_level}.last${past_days}days.${scoretype}_valid_${valid}.buk_conus.png
+	    fi
            fi
          fi
       fi	 
@@ -302,11 +327,11 @@ tar -cvf evs.plots.sref.grid2obs.past${past_days}days.v${VDATE}.tar *.png
 
 
 if [ $SENDCOM="YES" ]; then
- cp  evs.plots.sref.grid2obs.past${past_days}days.v${VDATE}.tar  $COMOUT/$STEP/$COMPONENT/$RUN.$VDATE/.  
+ cpreq  evs.plots.sref.grid2obs.past${past_days}days.v${VDATE}.tar  $COMOUTplots/.  
 fi
 
 if [ $SENDDBN = YES ] ; then
-   $DBNROOT/bin/dbn_alert MODEL EVS_RZDM $job $COMOUT/$STEP/$COMPONENT/$RUN.$VDATE/evs.plots.sref.grid2obs.past${past_days}days.v${VDATE}.tar
+   $DBNROOT/bin/dbn_alert MODEL EVS_RZDM $job $COMOUTplots/evs.plots.sref.grid2obs.past${past_days}days.v${VDATE}.tar
 fi
 
 

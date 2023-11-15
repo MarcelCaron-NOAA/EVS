@@ -1,5 +1,9 @@
 #!/bin/bash
-
+#*******************************************************************************
+# Purpose: setup environment, paths, and run the href precip spatial map plotting 
+#           python script
+# Last updated: 10/30/2023, Binbin Zhou Lynker@EMC/NCEP
+#******************************************************************************
 set -x 
 
 cd $DATA
@@ -45,6 +49,9 @@ export job_name=SL1L2/FBAR/24hrAccumMaps/CONUS/precip_spatial_map
 
 mkdir -p $DATA/grid2grid_plots/plot_output/atmos.${VDATE}/logs
 
+#*************************************************************
+# Virtual link the href's stat data files of past 31/90 days
+#*************************************************************
 for model in $model_list ; do
  MODEL=`echo $model | tr '[a-z]' '[A-Z]'`	
  target=$DATA/grid2grid_plots/data/$model
@@ -62,7 +69,11 @@ target=$DATA/grid2grid_plots/data/ccpa
 mkdir -p $target
 ln -sf $source/ccpa24h.t12z.G240.nc  $target/ccpa_precip_24hrAccum_valid${VDATE}12.nc
 
+#**************************************
+# Run spatial map python scripts
+# *************************************
 python $USHevs/cam/ush_href_plot_py/href_atmos_plots.py
+export err=$?; err_chk
 
 cd $DATA/grid2grid_plots/plot_output/atmos.${VDATE}/precip/SL1L2_FBAR_24hrAccumMaps_CONUS_precip_spatial_map/images
 
@@ -88,7 +99,7 @@ for log_dir in $log_dirs; do
 done
 
 if [ $SENDCOM="YES" ]; then
- cp evs.plots.href.precip.spatial.map.v${VDATE}.tar  $COMOUT/.  
+ cpreq evs.plots.href.precip.spatial.map.v${VDATE}.tar  $COMOUT/.  
 fi
 
 if [ $SENDDBN = YES ] ; then
