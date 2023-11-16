@@ -68,6 +68,8 @@ def prune_data(data_dir, prune_dir, tmp_dir, output_base_template, valid_range,
    # Get list of models and loop through
    for model in model_list:
       # Get input and output data
+      print(model)
+      print(paths.special_paths)
       if model in paths.special_paths:
          if paths.special_paths[model]['data_dir']:
             use_data_dir = paths.special_paths[model]['data_dir']
@@ -80,6 +82,8 @@ def prune_data(data_dir, prune_dir, tmp_dir, output_base_template, valid_range,
       else:
          use_data_dir = data_dir
          use_file_template = output_base_template
+      print(use_data_dir)
+      print(use_file_template)
       met_stat_files = []
       for valid in daterange(valid_range[0], valid_range[1], td(days=1)):
          met_stat_files = expand_met_stat_files(

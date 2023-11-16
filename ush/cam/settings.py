@@ -101,7 +101,7 @@ class Paths():
         '''
         self.special_paths = {
                 'rrfs': {
-                    'data_dir': "/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
+                    'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
                     'file_template': '',
                 },
         }
