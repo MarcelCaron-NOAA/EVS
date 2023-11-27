@@ -1,4 +1,21 @@
 #!/bin/ksh
+################################################################################################
+# Purpose: 
+#             1. Retrive/regrid analysis/observational data (to1 degree and to 1.5 degree for WMO)
+#             2. Retrive required fields from large opreational global ensemble forecast
+#                member files (grib2 GEFS, CMCE, and grib1 ECME ) and form smaller member files
+#             3. Regrid the smaller files to required grid (1x1 degree) for GEFS and CMCE
+#                But the retrived grib1 ECME files are still kept in original grid since wgrib
+#                has limited regrid capability for regriding grib1 files. The regrid for ECME
+#                will be done by METplus during the verification processes
+#             4. For CMCE grib2 files, reverse North-South direction (by wgrib2) since the CMCE
+#                grib2 files have reversed North-South direction to GEFS member files
+#             5. Store the well-formed analysis/observational, and  smaller ensemble member
+#                files in the evs prep sub-directory /prep/global_ens/atmos.YYYYMMDD
+#
+# Last updated 11/15/2023: by  Binbin Zhou, Lynker@EMC/NCEP
+#
+##################################################################################################
 set -x
 
 modnam=$1
@@ -11,11 +28,11 @@ export vdate=${vdate:-$vday$ihour}
 
 cd $WORK
 
-#############################################################
+####################################################################################
 #Get gfs analysis grib2 data in GRID#3 (1-degree global)
 #  and WMO 1.5 deg verification for 00Z
 # NOTE: There are no U10, V10 in GFS analysis, so use GFS*f000 as alternative
-############################################################
+###################################################################################
 if [ $modnam = gfsanl ]; then
   for ihour in 00 06 12 18 ; do
     if [ ! -s $COMINgfs/gfs.$vday/${ihour}/atmos/gfs.t${ihour}z.pgrb2.1p00.anl ] ; then
@@ -24,7 +41,7 @@ if [ $modnam = gfsanl ]; then
         echo "Warning: No GFS analysis available for ${vday}${ihour}" > mailmsg
         echo "Missing file is $COMINgfs/gfs.$vday/${ihour}/atmos/gfs.t${ihour}z.pgrb2.1p00.anl" >> mailmsg
         echo "Job ID: $jobid" >> mailmsg
-        cat mailmsg | mail -s "$subject" $maillist
+        cat mailmsg | mail -s "$subject" $MAILTO
       fi
     else
       cpreq -v $COMINgfs/gfs.$vday/${ihour}/atmos/gfs.t${ihour}z.pgrb2.1p00.anl $WORK/gfsanl.t${ihour}z.grid3.f000.grib2
@@ -35,7 +52,7 @@ if [ $modnam = gfsanl ]; then
         echo "Warning: No GFS F000 available for ${vday}${ihour}" > mailmsg
         echo "Missing file is $COMINgfs/gfs.$vday/${ihour}/atmos/gfs.t${ihour}z.pgrb2.1p00.f000" >> mailmsg
         echo "Job ID: $jobid" >> mailmsg
-        cat mailmsg | mail -s "$subject" $maillist
+        cat mailmsg | mail -s "$subject" $MAILTO
       fi
     else
       GFSf000=$COMINgfs/gfs.$vday/${ihour}/atmos/gfs.t${ihour}z.pgrb2.1p00.f000
@@ -72,7 +89,7 @@ if [ $modnam = cmcanl ] ; then
          echo "Warning: No CMC analysis available for ${vday}${ihour}" > mailmsg
          echo "Missing file is $cmcanl" >> mailmsg
          echo "Job ID: $jobid" >> mailmsg
-         cat mailmsg | mail -s "$subject" $maillist
+         cat mailmsg | mail -s "$subject" $MAILTO
        fi
       else
        >$WORK/cmce.upper.${ihour}.gec00.anl
@@ -109,9 +126,11 @@ if [ $modnam = cmcanl ] ; then
   fi
 fi
 
-###########################################
-#Get GFS member grib2 file in grid3 
-###########################################
+############################################################
+#Get GEFS member grib2 file in grid3 
+#  Note: for GEFS get data at all 4 cycles 00,06,12 and 18Z
+#        specified by $gens_ihour
+###########################################################
 if [ $modnam = gefs ] ; then
   total=30
   for ihour in $gens_ihour  ; do
@@ -135,7 +154,7 @@ if [ $modnam = gefs ] ; then
             echo "Warning: No GEFS Member ${mb} F${hhh} available for ${vday}${ihour}" > mailmsg
             echo "Missing file is $gefs" >> mailmsg
             echo "Job ID: $jobid" >> mailmsg
-            cat mailmsg | mail -s "$subject" $maillist
+            cat mailmsg | mail -s "$subject" $MAILTO
           fi
         else
           for level in 10 50 100 200 250 300 400 500 700 850 925 1000 ; do
@@ -172,7 +191,7 @@ if [ $modnam = gefs ] ; then
             echo "Warning: No GEFS Member ${mb} F${hhh} available for ${vday}${ihour}" > mailmsg
             echo "Missing file is $gefs_cvc" >> mailmsg
             echo "Job ID: $jobid" >> mailmsg
-            cat mailmsg | mail -s "$subject" $maillist
+            cat mailmsg | mail -s "$subject" $MAILTO
           fi
         else
           $WGRIB2 $gefs_cvc|grep "DPT:2 m"|$WGRIB2 -i $gefs_cvc -grib $WORK/grabgefs.${ihour}.${mb}.${hhh}
@@ -199,9 +218,11 @@ if [ $modnam = gefs ] ; then
   done # ihour
 fi
 
-###########################################
+##############################################################
 #Get CMCE member grib2 file in grid3 
-###########################################
+#  Note: for CMCE, get data at 2 cycles 00 and 12Z
+#        specified by $gens_ihour
+##############################################################
 if [ $modnam = cmce ] ; then
   total=20
   for ihour in $gens_ihour ; do
@@ -223,7 +244,7 @@ if [ $modnam = cmce ] ; then
             echo "Warning: No CMCE Member ${mb} F${h3} available for ${vday}${ihour}" > mailmsg
             echo "Missing file is $cmce" >> mailmsg
             echo "Job ID: $jobid" >> mailmsg
-            cat mailmsg | mail -s "$subject" $maillist
+            cat mailmsg | mail -s "$subject" $MAILTO
           fi
         else
           for level in 10 50 100 200 250 300 400 500 700 850 925 1000 ; do
@@ -254,13 +275,19 @@ if [ $modnam = cmce ] ; then
           cat $WORK/grabcmce.${ihour}.${mb}.${h3} >> $WORK/cmce.sfc.${ihour}.${mb}.${h3}
           $WGRIB2 $cmce|grep "CAPE:atmos col"|$WGRIB2 -i $cmce -grib $WORK/grabcmce.${ihour}.${mb}.${h3}
           cat $WORK/grabcmce.${ihour}.${mb}.${h3} >> $WORK/cmce.sfc.${ihour}.${mb}.${h3}
+	  #****************************************************************************************
+	  #Note:  SPFH is still not available. So close this one
           #$WGRIB2 $cmce|grep "SPFH:"|$WGRIB2 -i $cmce -grib $WORK/grabcmce.${ihour}.${mb}.${h3}
           #cat $WORK/grabcmce.${ihour}.${mb}.${h3} >> $WORK/cmce.sfc.${ihour}.${mb}.${h3}
           #echo "cmce.upper" | $EXECevs_g2g/evs_g2g_adjustCMC.x
           #cat $WORK/cmce.sfc >> $WORK/cmce.upper.adjusted
+          #*****************************************************************************************
+
+	  #********************************************************************************
           #In MET, not necessary to adjust upper level fields for CMCE members since
           #MET  uses string of field name to read data
-          #use WGRIB2 to reverse N-S grid direction and convert 0.5x0.5 deg to 1x1 deg
+          #Hrer, use WGRIB2 to reverse N-S grid direction and convert 0.5x0.5 deg to 1x1 deg
+	  #********************************************************************************
           cat $WORK/cmce.sfc.${ihour}.${mb}.${h3} >> $WORK/cmce.upper.${ihour}.${mb}.${h3}
           $WGRIB2 $WORK/cmce.upper.${ihour}.${mb}.${h3} -set_grib_type same -new_grid_winds earth -new_grid ncep grid 003  $WORK/cmce.ens${mb}.t${ihour}z.grid3.f${h3}.grib2
           [[ $SENDCOM="YES" ]] && cpreq -v $WORK/cmce.ens${mb}.t${ihour}z.grid3.f${h3}.grib2 $COMOUTcmce/cmce.ens${mb}.t${ihour}z.grid3.f${h3}.grib2
@@ -303,7 +330,7 @@ if [ $modnam = prepbufr ] ; then
           echo "Warning:  No prepbufr analysis available for ${vday}${ihour}" > mailmsg
           echo "Missing file is $COMINobsproc/gdas.${vday}/${ihour}/atmos/gdas.t${ihour}z.prepbufr"  >> mailmsg
           echo "Job ID: $jobid" >> mailmsg
-          cat mailmsg | mail -s "$subject" $maillist
+          cat mailmsg | mail -s "$subject" $MAILTO
 	fi
       fi 
       chmod +x run_pb2nc.${ihour}.sh
@@ -335,7 +362,7 @@ if [ $modnam = ccpa ] ; then
           echo "Warning:  No CCPA analysis available for ${INITDATE}${ihour}" > mailmsg
           echo "Missing file is $COMINccpa/ccpa.${vday}/$ihour/ccpa.t${ihour}z.06h.1p0.conus.gb2"  >> mailmsg
           echo "Job ID: $jobid" >> mailmsg
-          cat mailmsg | mail -s "$subject" $maillist
+          cat mailmsg | mail -s "$subject" $MAILTO
 	fi
     fi 
   done
@@ -362,7 +389,7 @@ if [ $modnam = ccpa ] ; then
                 echo "Warning: A 06h CCPA file is missing for 24h CCPA generation at ${vday}${ihour}" > mailmsg
                 echo "Missing file is $source_ccpa_file"  >> mailmsg
                 echo "Job ID: $jobid" >> mailmsg
-                cat mailmsg | mail -s "$subject" $maillist
+                cat mailmsg | mail -s "$subject" $MAILTO
             fi
         fi
         nccpa_file=`expr $nccpa_file + 1`
@@ -404,9 +431,9 @@ if [ $modnam = gefs_apcp06h ] ; then
    done
 fi 
 
-###########################################
-#Get GEFS members APCP 24 hour accumulation
-###########################################
+###############################################################
+#Get GEFS members APCP 24 hour accumulation through PcpCombine
+###############################################################
 if [ $modnam = gefs_apcp24h ] ; then
     export output_base=${WORK}/precip/gefs_apcp24h
     export model=gefs
@@ -456,9 +483,9 @@ if [ $modnam = cmce_apcp06h ] ; then
    done
 fi
 
-###########################################
-#Get CMCE members APCP 24 hour accumulation
-###########################################
+#################################################################
+#Get CMCE members APCP 24 hour accumulation through PcpCombine
+#################################################################
 if [ $modnam = cmce_apcp24h ] ; then
     export output_base=${WORK}/precip/cmce_apcp24h
     export model=cmce
@@ -484,9 +511,9 @@ if [ $modnam = cmce_apcp24h ] ; then
     [[ $SENDCOM="YES" ]] && cpreq -v ${output_base}/*.nc $COMOUTcmce/.
 fi
 
-###########################################
-#Get ECME members APCP 24 hour accumulation
-###########################################
+##############################################################
+#Get ECME members APCP 24 hour accumulation through PcpCombine
+##############################################################
 if [ $modnam = ecme_apcp24h ] ; then
   export lead
   export ihour
@@ -512,7 +539,7 @@ if [ $modnam = ecme_apcp24h ] ; then
 fi
 
 #############################################################
-# Get 24 hour NOHRSC
+# Get 24 hour NOHRSC snowfall data
 #############################################################
 if [ $modnam = nohrsc24h ] ; then
   for ihour in 00 12 ; do
@@ -526,15 +553,15 @@ if [ $modnam = nohrsc24h ] ; then
           echo "Warning:  No NOHRSC analysis available for ${vday}${ihour}" > mailmsg
           echo "Missing file is $snowfall"  >> mailmsg
           echo "Job ID: $jobid" >> mailmsg
-          cat mailmsg | mail -s "$subject" $maillist
+          cat mailmsg | mail -s "$subject" $MAILTO
 	fi
     fi
   done
 fi
 
-###########################################
-#Get GFS members WEASD & SNOD 24 hour accumulation
-###########################################
+###############################################################################
+#Get GFS members WEASD & SNOD 24 hour snowfall accumulation through PcpCombine
+###############################################################################
 if [ $modnam = gefs_snow24h ] ; then
    export output_base=${WORK}/snow/gefs_snow24h.${gens_ihour}
    export lead
@@ -563,9 +590,9 @@ if [ $modnam = gefs_snow24h ] ; then
    done
 fi
 
-###########################################
-#Get CMC members WEASD & SNOD 24 hour accumulation
-###########################################
+###############################################################################
+#Get CMC members WEASD & SNOD 24 hour snowfall accumulation through PcpCombine
+##############################################################################
 if [ $modnam = cmce_snow24h ] ; then
   export output_base=${WORK}/snow/cmce_snow24h.${gens_ihour}
   export ihour
@@ -594,9 +621,9 @@ if [ $modnam = cmce_snow24h ] ; then
   done
 fi
 
-###########################################
-#Get ECM members snow 24 hour accumulation
-###########################################
+#####################################################################
+#Get ECM members  24 hour snowfall accumulation through PcpCombine
+####################################################################
 if [ $modnam = ecme_snow24h ] ; then
     export ihour
     export mb
@@ -622,9 +649,9 @@ if [ $modnam = ecme_snow24h ] ; then
   done
 fi
 
-#############################################################
-# Get gfs 00Z forecasts 500mb Geopotential Heights
-############################################################
+#################################################################################
+# Get gfs 00Z forecasts 500mb Geopotential Heights for headline score comparison
+#################################################################################
 if [ $modnam = gfs ] ; then
   for ihour in 00  ; do
     for  hhh in 024 048 072 096  120 144 168 192 216 240 264 288 312 336 360 384 ; do     
@@ -635,7 +662,7 @@ if [ $modnam = gfs ] ; then
         echo "Warning: No GFS F${hhh} available for ${vday}${ihour}" > mailmsg
         echo "Missing file is $gfs" >> mailmsg
         echo "Job ID: $jobid" >> mailmsg
-        cat mailmsg | mail -s "$subject" $maillist
+        cat mailmsg | mail -s "$subject" $MAILTO
       fi
      else
        $WGRIB2  $gfs|grep "HGT:500 mb"|$WGRIB2 -i $gfs -grib $WORK/gfs.t${ihour}z.grid3.f${hhh}.grib2
@@ -646,7 +673,7 @@ if [ $modnam = gfs ] ; then
 fi
 
 #############################################################
-# Process OSI-SAF ice data
+# Process OSI-SAF ice data (using Mallory's python scripts)
 ############################################################
 if [ $modnam = osi_saf ] ; then
    osi_nh=$DCOMINosi_saf/$INITDATE/seaice/osisaf/ice_conc_nh_polstere-100_multi_${INITDATE}1200.nc
@@ -657,7 +684,7 @@ if [ $modnam = osi_saf ] ; then
           echo "Warning:  No OSI_SAF NH data  available for ${INITDATE}" > mailmsg
           echo "Missing file is $osi_nh"  >> mailmsg
           echo "Job ID: $jobid" >> mailmsg
-          cat mailmsg | mail -s "$subject" $maillist
+          cat mailmsg | mail -s "$subject" $MAILTO
         fi 
    else
          if [ ! -s $osi_sh ]; then
@@ -665,7 +692,7 @@ if [ $modnam = osi_saf ] ; then
           echo "Warning:  No OSI_SAF SH data  available for ${INITDATE}" > mailmsg
           echo "Missing file is $osi_sh"  >> mailmsg
           echo "Job ID: $jobid" >> mailmsg
-          cat mailmsg | mail -s "$subject" $maillist
+          cat mailmsg | mail -s "$subject" $MAILTO
          else
              python ${USHevs}/global_ens/global_ens_sea_ice_prep.py
              [[ $SENDCOM="YES" ]] &&  cpreq -v $WORK/atmos.${INITDATE}/osi_saf/*.nc $COMOUTosi_saf/.
@@ -673,12 +700,12 @@ if [ $modnam = osi_saf ] ; then
    fi
 fi
 
-###########################################
-#Get GFS members sea-ice concentration daily average
+#############################################################################
+#Get GEFS members sea-ice concentration daily average through PcpCombine
 # Ice concentration starts from f000. There is amount of ice at beginning.
 # So, for f024 ice concentation, it shoule be  averaged of f000, f006, f012
 # f018 and f024 
-###########################################
+############################################################################
 if [ $modnam = gefs_icec24h ] ; then
     export output_base=${WORK}/gefs_icec24h
     export model=gefs
@@ -705,9 +732,9 @@ if [ $modnam = gefs_icec24h ] ; then
     [[ $SENDCOM="YES" ]] && cpreq -v $output_base/gefs*icec*.nc $COMOUTgefs/.
 fi
 
-###########################################
-#Get GFS members sea-ice concentration weekly average
-###########################################
+###########################################################################
+#Get GEFS members sea-ice concentration weekly average through PcpCombine
+###########################################################################
 if [ $modnam = gefs_icec7day ] ; then
     export output_base=${WORK}/gefs_icec7day
     export model=gefs
@@ -731,9 +758,9 @@ if [ $modnam = gefs_icec7day ] ; then
    [[ $SENDCOM="YES" ]] && cpreq -v $output_base/gefs*icec*.nc $COMOUTgefs/.
 fi
 
-###########################################
-#Get GFS members sst daily average
-###########################################
+######################################################
+#Get GEFS members sst daily average through PcpCombine
+######################################################
 if [ $modnam = gefs_sst24h ] ; then
     export output_base=${WORK}/gefs_sst24h
     export model=gefs

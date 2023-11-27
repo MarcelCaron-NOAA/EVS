@@ -1,4 +1,13 @@
 #!/bin/ksh
+#*************************************************************************************************
+# Purpose:  Run NAEFS  prep job
+#             1. Retrieve bias-corrected GEFS and CMCE member files to form smaller grib2 files
+#             2. For APCP24h, only retrive bias-corrected GEFS files 
+#             3. Stored the smaller grib files in prep/global_ens/atmos.YYYYMMDD/gefs_bc, 
+#                and prep/global_ens/atmos.YYYYMMDD/cmce_bc
+#
+# Last updated 11/15/2023: by  Binbin Zhou, Lynker@EMC/NCEP
+#************************************************************************************************
 set -x
 
 modnam=$1
@@ -55,7 +64,7 @@ if [ $modnam = gefs_bc ] ; then
               echo "Warning: No GEFS BC member ${mb} F${hhh} available for ${vday}${ihour}" > mailmsg
               echo "Missing file is $gefs_bc" >> mailmsg
               echo "Job ID: $jobid" >> mailmsg
-              cat mailmsg | mail -s "$subject" $maillist
+              cat mailmsg | mail -s "$subject" $MAILTO
             fi
           fi  
           nfhrs=`expr $nfhrs + 12`
@@ -101,7 +110,9 @@ if [ $modnam = cmce_bc ] ; then
                cat $WORK/grabcmce.${ihour}.${mb}.${h3} >> $WORK/cmce.upper.${ihour}.${mb}.${h3}
                $WGRIB2  $cmce_bc|grep "VGRD:10 m "|$WGRIB2 -i $cmce_bc -grib $WORK/grabcmce.${ihour}.${mb}.${h3}
                cat $WORK/grabcmce.${ihour}.${mb}.${h3} >> $WORK/cmce.upper.${ihour}.${mb}.${h3}
+	       #*****************************************************************************
                #use WGRIB2 to reverse N-S grid direction and convert 0.5x0.5 deg to 1x1 deg
+	       #*****************************************************************************
 	       $WGRIB2 $WORK/cmce.upper.${ihour}.${mb}.${h3} -set_grib_type same -new_grid_winds earth -new_grid ncep grid 003  $WORK/cmce_bc.ens${mb}.t${ihour}z.grid3.f${h3}.grib2
                [[ $SENDCOM="YES" ]] && cpreq -v $WORK/cmce_bc.ens${mb}.t${ihour}z.grid3.f${h3}.grib2 $COMOUTcmce_bc/cmce_bc.ens${mb}.t${ihour}z.grid3.f${h3}.grib2
                rm -f  $WORK/cmce.upper.${ihour}.${mb}.${h3}
@@ -111,7 +122,7 @@ if [ $modnam = cmce_bc ] ; then
                  echo "Warning: No CMCE BC member ${mb} F${h3} available for ${vday}${ihour}" > mailmsg
                  echo "Missing file is $cmce_bc" >> mailmsg
                  echo "Job ID: $jobid" >> mailmsg
-                cat mailmsg | mail -s "$subject" $maillist
+                cat mailmsg | mail -s "$subject" $MAILTO
                fi
                echo "WARNING: $cmce_bc does not exist"
              fi
@@ -151,7 +162,7 @@ if [ $modnam = gefs_bc_apcp24h ] ; then
               echo "Warning: No GEFS BC member ${mb} F${hhh} available for ${vday}${ihour}" > mailmsg
               echo "Missing file is $apcp24_bc" >> mailmsg
               echo "Job ID: $jobid" >> mailmsg
-              cat mailmsg | mail -s "$subject" $maillist
+              cat mailmsg | mail -s "$subject" $MAILTO
             fi
           fi
         done

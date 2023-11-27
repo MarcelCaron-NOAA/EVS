@@ -135,6 +135,12 @@ class PrecipSpatialMap:
             }
             image_region_dict = {
                 'CONUS': 'conus',
+                'Alaska': 'alaska',
+                'Hawaii': 'hawaii',
+                'PuertoRico': 'prico'
+            }
+            stats_region_dict = {
+                'CONUS': 'conus',
                 'Alaska': 'ak',
                 'Hawaii': 'hi',
                 'PuertoRico': 'prico'

@@ -55,7 +55,7 @@ if proceed:
     max_num_files = 10
     COMPONENT = os.environ['COMPONENT']
     SENDMAIL = os.environ['SENDMAIL']
-    maillist = os.environ['maillist']
+    MAILTO = os.environ['MAILTO']
     VHR = os.environ['vhr']
     jobid = os.environ['jobid']
     FIXevs = os.environ['FIXevs']
@@ -551,7 +551,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
             if fcst_names:
                 if len(fcst_names) == 1:
@@ -603,7 +603,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
 
 
@@ -705,7 +705,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
             if anl_names.size > 0:
                 if len(anl_names) == 1:
@@ -737,7 +737,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
 
 
@@ -898,7 +898,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
             if gen_names.size > 0:
                 if len(gen_names) == 1:
@@ -930,7 +930,7 @@ if proceed:
                 ])
                 cutil.run_shell_command([
                     'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
-                    f'\"{maillist}\"'
+                    f'\"{MAILTO}\"'
                 ])
 
 
