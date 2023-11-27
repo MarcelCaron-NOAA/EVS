@@ -127,11 +127,17 @@ class PrecipSpatialMap:
                 image_forecast_hour = (
                     self.date_info_dict['forecast_hour'].zfill(3)
                 )
+            stats_region_dict = {
+                'CONUS': 'conus',
+                'Alaska': 'ak',
+                'Hawaii': 'hi', 
+                'PuertoRico': 'pr'
+            }
             image_region_dict = {
                 'CONUS': 'conus',
                 'Alaska': 'ak',
                 'Hawaii': 'hi',
-                'PuertoRico': 'pr'
+                'PuertoRico': 'prico'
             }
             image_name = os.path.join(
                 output_image_dir,
@@ -148,7 +154,7 @@ class PrecipSpatialMap:
                     valid_date_dt.strftime(f'{model_num_name}.%Y%m%d'),
                     valid_date_dt.strftime(
                        f'{model_num_name}.t%Hz.a24h.'
-                       + f'{image_region_dict[self.plot_info_dict["vx_mask"]]}'
+                       + f'{stats_region_dict[self.plot_info_dict["vx_mask"]]}'
                        + f'.nc'
                     ),
                 ))
@@ -172,7 +178,7 @@ class PrecipSpatialMap:
                        f'{model_num_name}.t%Hz.'
                        + f'f{self.date_info_dict["forecast_hour"].zfill(3)}.'
                        + f'a24h.'
-                       + f'{image_region_dict[self.plot_info_dict["vx_mask"]]}'
+                       + f'{stats_region_dict[self.plot_info_dict["vx_mask"]]}'
                        + f'.nc'
                     ),
                 )
