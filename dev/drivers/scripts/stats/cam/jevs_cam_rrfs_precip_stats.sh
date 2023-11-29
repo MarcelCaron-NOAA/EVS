@@ -43,14 +43,14 @@ export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
-source $HOMEevs/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
-export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
+source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
+evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
 export maillist="marcel.caron@noaa.gov"
 
