@@ -98,7 +98,7 @@ i=1
       export subject="${MODELNAME} ${MEMNUM} Forecast Data Missing for EVS ${COMPONENT}"
       echo "Warning: Only $nfiles ${MODELNAME} ${MEMNUM} forecast files found for ${vhr}Z ${IDATE} cycle. $min_file_req files are required. METplus will not run." > mailmsg${JOBNUM}
       echo "Job ID: $jobid" >> mailmsg${JOBNUM}
-      cat mailmsg${JOBNUM} | mail -s "$subject" $maillist
+      cat mailmsg${JOBNUM} | mail -s "$subject" $MAILTO
 
    fi
 

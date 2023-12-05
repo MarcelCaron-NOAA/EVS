@@ -92,7 +92,7 @@ if [ $nfcst_conus = 0 ]; then
    echo "Warning: ${MODELNAME} forecast file(s) is missing for valid date ${VDATE}${vhr}. METplus will not run." > mailmsg
    echo -e "`cat $DATA/missing_fcst_list`" >> mailmsg
    echo "Job ID: $jobid" >> mailmsg
-   cat mailmsg | mail -s "$subject" $maillist
+   cat mailmsg | mail -s "$subject" $MAILTO
 
 # Or proceed with running METplus
 else
