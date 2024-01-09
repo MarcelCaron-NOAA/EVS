@@ -134,8 +134,11 @@ elif [ ${MODELNAME} = rrfs ]; then
    fhr_inc=1
 
    export MODEL_INPUT_DIR=${COMINrrfs}
-   export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
-
+   if [ $DOMAIN = alaska ]; then
+      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2
+   elif [ $DOMAIN = conus ]; then
+      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
+   fi
 fi
 
 
@@ -205,7 +208,20 @@ while [ $fhr -le $fhr_max ]; do
       ihr_avail="00 06 12 18"
       export fcst_file=${modsys}.${IDATE}/${modsys}.t${INIT_HR}z.${DOMAIN}nest.hiresf$(printf "%02d" $fhr).tm00.grib2
    elif [ ${MODELNAME} = rrfs ]; then
-      export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+      if [ $fhr -le 18 ]; then
+         if [ $DOMAIN = alaska ]; then
+            ihr_avail="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+         else
+            ihr_avail="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+         fi
+      else
+         ihr_avail="00 06 12 18"
+      fi
+      if [ $DOMAIN = alaska ]; then
+         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).${DOM}.grib2
+      elif [ $DOMAIN = conus ]; then
+         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+      fi
    fi
 
    if echo "$ihr_avail" | grep -qw "$INIT_HR"; then

@@ -438,6 +438,26 @@ class ModelSpecs():
                 'settings_key':'HREFX_MEAN', 
                 'plot_name':'HREF-X Mean'
             },
+            'href': {
+                'settings_key':'HREF_MEAN', 
+                'plot_name':'HREF Mean'
+            },
+            'href_mean': {
+                'settings_key':'HREF_MEAN', 
+                'plot_name':'HREF Mean'
+            },
+            'href_avrg': {
+                'settings_key':'HREF_AVRG', 
+                'plot_name':'HREF Avg. of MEAN and PMMN'
+            },
+            'href_pmmn': {
+                'settings_key':'HREF_PMMN', 
+                'plot_name':'HREF Prob.-Matched Mean'
+            },
+            'href_lpmm': {
+                'settings_key':'HREF_LPMM', 
+                'plot_name':'HREF Local Prob.-Matched Mean'
+            },
             'NARRE_MEAN':{
                 'settings_key':'NARRE_MEAN', 
                 'plot_name':'NARRE Mean'

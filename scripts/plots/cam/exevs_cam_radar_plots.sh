@@ -25,7 +25,7 @@ set -x
 ############################################################
 
 export machine=${machine:-"WCOSS2"}
-export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn"
+export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn, rrfs"
 export VERIF_TYPE="mrms"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
@@ -81,7 +81,7 @@ mkdir -p ${LOG_DIR}
 mkdir -p ${OUTPUT_DIR}
 
 
-model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href_pmmn"
+model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href_pmmn rrfs"
 
 for model in ${model_list}; do
    n=0
@@ -96,6 +96,8 @@ for model in ${model_list}; do
 
       if [ ${model:0:4} = href ]; then
 	 origin=${COMIN}/stats/${COMPONENT}/${model:0:4}.${day}/${stat_file}
+      elif [ ${model} = rrfs ]; then
+     origin=/lfs/h2/emc/vpppg/noscrub/marcel.caron/${NET}/${evs_ver_2d}/stats/${COMPONENT}/${model}.${day}/${stat_file}
       else
 	 origin=${COMIN}/stats/${COMPONENT}/${model}.${day}/${stat_file}
       fi
