@@ -15,7 +15,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -23,7 +23,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -33,7 +33,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -41,7 +41,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -51,7 +51,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -59,7 +59,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -148,7 +148,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -156,7 +156,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -166,7 +166,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -174,7 +174,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -184,7 +184,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -192,7 +192,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -281,7 +281,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -289,7 +289,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -297,7 +297,7 @@ generate_stats_jobs_dict = {
                 'var2_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var2_fcst_thresholds': '',
                 'var2_fcst_options': '',
@@ -305,7 +305,7 @@ generate_stats_jobs_dict = {
                 'var2_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
@@ -315,7 +315,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -323,7 +323,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -331,7 +331,7 @@ generate_stats_jobs_dict = {
                 'var2_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var2_fcst_thresholds': '',
                 'var2_fcst_options': '',
@@ -339,7 +339,7 @@ generate_stats_jobs_dict = {
                 'var2_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
@@ -349,7 +349,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -357,7 +357,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -365,7 +365,7 @@ generate_stats_jobs_dict = {
                 'var2_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var2_fcst_thresholds': '',
                 'var2_fcst_options': '',
@@ -373,7 +373,7 @@ generate_stats_jobs_dict = {
                 'var2_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
@@ -522,7 +522,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -530,7 +530,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -540,7 +540,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -548,7 +548,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -558,7 +558,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -566,7 +566,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -655,7 +655,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -663,7 +663,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -673,7 +673,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -681,7 +681,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -691,7 +691,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
                                      + "P700, P675, P650, P625, P600, P575, "
-                                     + "P550, P525, P500, P450, P400, P350, "
+                                     + "P550, P525, P500, P400, "
                                      + "P300, P250, P200'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
@@ -699,7 +699,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
                                     + "P700, P675, P650, P625, P600, P575, "
-                                    + "P550, P525, P500, P450, P400, P350, "
+                                    + "P550, P525, P500, P400, "
                                     + "P300, P250, P200'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
@@ -1820,7 +1820,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_name': 'TCDC',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'lt10,gt10,gt50,gt90',
-                'var1_fcst_options': 'set_attr_level = \\"TOTAL\\";',
+                'var1_fcst_options': 'set_attr_level = \\"TOTAL\\"; GRIB2_ipdtmpl_index = [ 9 ]; GRIB2_ipdtmpl_val = [ 211 ];',
                 'var1_obs_name': 'TCDC',
                 'var1_obs_levels': 'L0',
                 'var1_obs_thresholds': 'lt10,gt10,gt50,gt90',

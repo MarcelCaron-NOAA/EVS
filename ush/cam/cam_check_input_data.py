@@ -55,7 +55,6 @@ if proceed:
     max_num_files = 10
     COMPONENT = os.environ['COMPONENT']
     SENDMAIL = os.environ['SENDMAIL']
-    MAILTO = os.environ['MAILTO']
     VHR = os.environ['vhr']
     jobid = os.environ['jobid']
     FIXevs = os.environ['FIXevs']
@@ -494,6 +493,13 @@ if proceed:
         for missing_fcst_path in missing_fcst_paths:
             print(missing_fcst_path)
         if send_mail and str(SENDMAIL) == "YES":
+            if 'MAILTO' in os.environ:
+               MAILTO = os.environ['MAILTO']
+            else:
+               raise RuntimeError(
+                  "\"MAILTO\" must be set in environment if SENDMAIL == "
+                  + "\"YES\""
+               )
             missing_data_flag+=1
             data_info = [
                 cutil.get_data_type(fname) 
@@ -648,6 +654,13 @@ if proceed:
         for missing_anl_path in missing_anl_paths:
             print(missing_anl_path)
         if send_mail and str(SENDMAIL) == "YES":
+            if 'MAILTO' in os.environ:
+               MAILTO = os.environ['MAILTO']
+            else:
+               raise RuntimeError(
+                  "\"MAILTO\" must be set in environment if SENDMAIL == "
+                  + "\"YES\""
+               )
             missing_data_flag+=1
             data_info = [
                 cutil.get_data_type(fname) 
@@ -841,6 +854,13 @@ if proceed:
         for missing_gen_path in missing_gen_paths:
             print(missing_gen_path)
         if send_mail and str(SENDMAIL) == "YES":
+            if 'MAILTO' in os.environ:
+               MAILTO = os.environ['MAILTO']
+            else:
+               raise RuntimeError(
+                  "\"MAILTO\" must be set in environment if SENDMAIL == "
+                  + "\"YES\""
+               )
             missing_data_flag+=1
             data_info = [
                 cutil.get_data_type(fname) 

@@ -111,7 +111,7 @@ for stats in csi_fbias ets_fbias ratio_pod_csi ; do
 	  FCST_LEVEL_values="ML"
        fi 	  
 
-       doms="dom1 dom2 dom3 dom4 dome5 dom6 dom7 dom8"
+       doms="dom1 dom2 dom3 dom4 dom5 dom6 dom7 dom8"
 
        for dom in $doms ; do 
 
@@ -159,7 +159,6 @@ for stats in csi_fbias ets_fbias ratio_pod_csi ; do
         echo "export verif_type=$verif_type" >> run_${stats}.${score_type}.${lead}.${VAR}.${dom}.${FCST_LEVEL_value}.${fcst_valid_hour}.sh
 
         echo "export log_level=DEBUG" >> run_${stats}.${score_type}.${lead}.${VAR}.${dom}.${FCST_LEVEL_value}.${fcst_valid_hour}.sh
-        echo "export met_ver=$met_v" >> run_${stats}.${score_type}.${lead}.${VAR}.${dom}.${FCST_LEVEL_value}.${fcst_valid_hour}.sh
 
         echo "export eval_period=TEST" >> run_${stats}.${score_type}.${lead}.${VAR}.${dom}.${FCST_LEVEL_value}.${fcst_valid_hour}.sh
 
@@ -222,7 +221,7 @@ chmod +x run_all_poe.sh
 # Run the POE script in parallel or in sequence order to generate png files
 #**************************************************************************
 if [ $run_mpi = yes ] ; then
-   mpiexec -np 704 -ppn 82 --cpu-bind verbose,depth cfp ${DATA}/run_all_poe.sh
+   mpiexec -np 704 -ppn 82 --cpu-bind verbose,core cfp ${DATA}/run_all_poe.sh
 else
   ${DATA}/run_all_poe.sh
 fi
