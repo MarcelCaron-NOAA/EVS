@@ -3418,6 +3418,7 @@ class Reference():
                         'APCP_24': {'fcst_var_names': ['APCP', 'APCP_24'],
                                     'fcst_var_levels': ['A24'],
                                     'fcst_var_thresholds': ('>=0.254, >=1.27,'
+                                                            + ' >=2.54,'
                                                             + ' >=6.35,'
                                                             + ' >=12.7,'
                                                             + ' >=25.4,'
@@ -3430,6 +3431,7 @@ class Reference():
                                     'obs_var_names': ['APCP', 'APCP_24', 'APCP_01_Z0'],
                                     'obs_var_levels': ['A24'],
                                     'obs_var_thresholds': ('>=0.254, >=1.27,'
+                                                           + ' >=2.54,'
                                                            + ' >=6.35,'
                                                            + ' >=12.7,'
                                                            + ' >=25.4,'

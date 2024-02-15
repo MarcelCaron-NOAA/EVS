@@ -11,7 +11,7 @@ export machine=${machine:-"WCOSS2"}
 export prune_dir=$DATA/data
 export save_dir=$DATA/out
 export output_base_dir=$DATA/stat_archive
-export log_metplus=$DATA/logs/GENS_verif_plotting_job.out
+export log_metplus=$DATA/logs/GENS_verif_plotting_job
 mkdir -p $prune_dir
 mkdir -p $save_dir
 mkdir -p $output_base_dir
@@ -222,7 +222,7 @@ chmod +x run_all_poe.sh
 # Run the POE script in parallel or in sequence order to generate png files
 #**************************************************************************
 if [ $run_mpi = yes ] ; then
-   mpiexec -np 768 -ppn 84 --cpu-bind verbose,core cfp ${DATA}/run_all_poe.sh
+   mpiexec -np 840 -ppn 84 --cpu-bind verbose,depth cfp ${DATA}/run_all_poe.sh
 else
   ${DATA}/run_all_poe.sh
 fi
@@ -311,8 +311,8 @@ if [ -d $log_dir ]; then
     fi
 fi
 
-if [ $SENDCOM="YES" ]; then
- cpreq  evs.plots.href.grid2obs.cape.past${past_days}days.v${VDATE}.tar  $COMOUT/.  
+if [ $SENDCOM = YES ] && [ -s evs.plots.href.grid2obs.cape.past${past_days}days.v${VDATE}.tar ] ; then
+ cp -v evs.plots.href.grid2obs.cape.past${past_days}days.v${VDATE}.tar  $COMOUT/.  
 fi
 
 if [ $SENDDBN = YES ] ; then
