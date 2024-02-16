@@ -45,7 +45,7 @@ export MODELNAME=cam
 export job=${PBS_JOBNAME:-jevs_cam_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_rrfs_v0.7.9/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_rrfs_v0.8.3/$evs_ver_2d/$STEP/$COMPONENT
 ############################################################
 
 export vhr=${vhr:-${vhr}}
