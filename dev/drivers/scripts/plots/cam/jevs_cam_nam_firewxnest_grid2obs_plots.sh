@@ -9,7 +9,7 @@
 
 export model=evs
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS
 
 source $HOMEevs/versions/run.ver
 
@@ -42,12 +42,12 @@ export modsys=nam
 export mod_ver=${nam_ver}
 
 source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
-evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
+export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
 
 # CALL executable job script here

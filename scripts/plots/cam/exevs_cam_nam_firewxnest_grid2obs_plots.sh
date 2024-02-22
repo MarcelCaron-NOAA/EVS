@@ -51,8 +51,8 @@ while [ $DATE -ge $ENDDATE ]; do
 	 cpreq $COMIN/stats/$COMPONENT/hrrr.$DAY/evs.stats.hrrr.${RUN}.${VERIF_CASE}.v${DAY}.stat $STATDIR
 	fi
 
-	if [ -e $COMIN/stats/$COMPONENT/rrfs.$DAY/evs.stats.rrfs.${RUN}.${VERIF_CASE}.v${DAY}.stat ]; then
-	 cpreq $COMIN/stats/$COMPONENT/rrfs.$DAY/evs.stats.rrfs.${RUN}.${VERIF_CASE}.v${DAY}.stat $STATDIR
+	if [ -e /lfs/h2/emc/vpppg/noscrub/marcel.caron/$NET/$evs_ver_2d/stats/$COMPONENT/rrfs.$DAY/evs.stats.rrfs.${RUN}.${VERIF_CASE}.v${DAY}.stat ]; then
+	 cpreq /lfs/h2/emc/vpppg/noscrub/marcel.caron/$NET/$evs_ver_2d/stats/$COMPONENT/rrfs.$DAY/evs.stats.rrfs.${RUN}.${VERIF_CASE}.v${DAY}.stat $STATDIR
 	fi
 
 	DATE=`$NDATE -24 $DATE`
