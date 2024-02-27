@@ -64,7 +64,6 @@ def expand_met_stat_files(met_stat_files, data_dir, output_base_template, RUN_ca
 def prune_data(data_dir, prune_dir, tmp_dir, output_base_template, valid_range, 
                eval_period, RUN_case, RUN_type, line_type, vx_mask, 
                fcst_var_names, var_name, model_list, interp_pnts):
-
    print("BEGIN: "+os.path.basename(__file__))
    # Get list of models and loop through
    for model in model_list:

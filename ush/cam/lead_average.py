@@ -1742,7 +1742,7 @@ if __name__ == "__main__":
 
     # list of points used in interpolation method
     INTERP_PNTS = check_INTERP_PTS(os.environ['INTERP_PNTS']).replace(' ','').split(',')
-
+    
     # At each value of the independent variable, whether or not to remove 
     # samples used to aggregate each statistic if the samples are not shared 
     # by all models.  Required to display sample sizes 

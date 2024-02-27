@@ -9,7 +9,7 @@
 
 export model=evs
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/test2/EVS
 
 source $HOMEevs/versions/run.ver
 
@@ -48,7 +48,7 @@ export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 
 export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/ptmp/$USER/${NET}_rrfs_noah_mp/$evs_ver_2d/$STEP/$COMPONENT
 
 # CALL executable job script here
 $HOMEevs/jobs/JEVS_CAM_PLOTS

@@ -22,7 +22,6 @@ sys.path.insert(0, os.path.abspath(SETTINGS_DIR))
 from prune_stat_files import prune_data
 from settings import ModelSpecs
 import plot_util
-
 model_colors = ModelSpecs()
 
 # =================== FUNCTIONS =========================
@@ -281,8 +280,8 @@ def change_model_column_name(df, logger, model):
         return df
     else:
         df['MODEL'] = df['MODEL'].apply(
-            lambda x: model
-            if plot_util.get_model_stats_key(model_colors.model_alias, model) == x
+            lambda x: model 
+            if plot_util.get_model_stats_key(model_colors.model_alias, model) == x 
             else x
         )
         return df
