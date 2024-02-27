@@ -121,6 +121,7 @@ else
     set -x
 fi
 
+NEST_LIST="conus ak" 
 # Generate MET Data
 export job_type="generate"
 export njob=1
