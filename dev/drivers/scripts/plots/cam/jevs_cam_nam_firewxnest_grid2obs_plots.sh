@@ -47,7 +47,7 @@ export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
+export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/ptmp/$USER/${NET}_rrfs_noah_mp/$evs_ver_2d/$STEP/$COMPONENT
 
 # CALL executable job script here
