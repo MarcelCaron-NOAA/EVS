@@ -112,6 +112,10 @@ class Paths():
                     'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}_rrfs_v0.8.3/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
                     'file_template': '',
                 },
+                'rrfs_firewx': {
+                    'data_dir': f"{os.environ['STAT_OUTPUT_BASE_DIR']}",
+                    'file_template': '',
+                },
         }
 
 
@@ -712,6 +716,11 @@ class ModelSpecs():
                 'settings_key':'RRFSV0.8.3', 
                 'stats_key':'rrfs', 
                 'plot_name':'RRFSv0.8.3'
+            },
+            'rrfs_firewx': {
+                'settings_key':'RRFS', 
+                'stats_key':'rrfs', 
+                'plot_name':'RRFS'
             },
             'RRFS_A_AK': {
                 'settings_key':'RRFS_A', 
