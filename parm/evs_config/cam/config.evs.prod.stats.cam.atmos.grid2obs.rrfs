@@ -136,7 +136,7 @@ elif [ "$NEST" = "hi" ]; then
         echo "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
         exit 1
     fi
-    export GRID_POLY_LIST="${FIXevs}/masks/Hawaii_G196.nc"
+    export MASK_POLY_LIST="${FIXevs}/masks/Hawaii_G196.nc"
     export NEST_INPUT_TEMPLATE=""
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
@@ -165,7 +165,7 @@ elif [ "$NEST" = "pr" ]; then
         echo "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
         exit 1
     fi
-    export GRID_POLY_LIST="${FIXevs}/masks/Puerto_Rico_G194.nc"
+    export MASK_POLY_LIST="${FIXevs}/masks/Puerto_Rico_G194.nc"
     export NEST_INPUT_TEMPLATE=""
     export MIN_IHOUR="00"
     export FHR_END_FULL="60"
