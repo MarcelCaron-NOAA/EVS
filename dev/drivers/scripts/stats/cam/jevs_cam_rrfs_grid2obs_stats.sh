@@ -50,7 +50,7 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}_rrfs_v0.8.3/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}_rrfs_${rrfs_ver}/$evs_ver_2d/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
 export MAILTO="marcel.caron@noaa.gov"
 
