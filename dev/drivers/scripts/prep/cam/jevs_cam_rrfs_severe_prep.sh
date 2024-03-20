@@ -25,7 +25,7 @@ export STEP=prep
 export COMPONENT=cam
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/test/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/exp/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
