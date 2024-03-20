@@ -25,7 +25,7 @@ export STEP=stats
 export COMPONENT=cam
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/para/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
@@ -47,7 +47,7 @@ export MODELNAME=rrfs
 export modsys=rrfs
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${vhr}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
 export USE_CFP=YES
 export nproc=3

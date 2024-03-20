@@ -3,7 +3,7 @@
 #PBS -S /bin/bash
 #PBS -q dev
 #PBS -A VERF-DEV
-#PBS -l walltime=1:50:00
+#PBS -l walltime=8:00:00
 #PBS -l place=vscatter:exclhost,select=1:ncpus=64
 #PBS -l debug=true
 #PBS -V
@@ -25,7 +25,7 @@ export COMPONENT=cam
 export STEP=plots
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/para/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
