@@ -9,7 +9,7 @@
 
 export model=evs
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/para/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/retro/EVS
 
 source $HOMEevs/versions/run.ver
 
@@ -27,7 +27,7 @@ module load prod_envir/${prod_envir_ver}
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=YES
-export SENDMAIL=YES
+export SENDMAIL=NO
 export SENDDBN=NO
 
 export vhr=00
@@ -48,7 +48,7 @@ export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 
 export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/ptmp/$USER/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
 
 # CALL executable job script here
 $HOMEevs/jobs/JEVS_CAM_PLOTS

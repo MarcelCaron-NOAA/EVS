@@ -507,10 +507,13 @@ if proceed:
             ]
             fcst_names = []
             unk_names = []
+            anl_names = []
             fcst_fnames = []
             unk_fnames = []
+            anl_fnames = []
             fcst_pnames = []
             unk_pnames = []
+            anl_pnames = []
             for i, info in enumerate(data_info):
                 if info[1] == "fcst":
                     fcst_names.append(info[0])
@@ -520,6 +523,10 @@ if proceed:
                     unk_names.append(info[0])
                     unk_fnames.append(missing_fcst_files[i])
                     unk_pnames.append(missing_fcst_paths[i])
+                elif info[1] == "anl":
+                    anl_names.append(info[0])
+                    anl_fnames.append(missing_fcst_files[i])
+                    anl_pnames.append(missing_fcst_paths[i])
                 else:
                     print(f"FATAL ERROR: Undefined data type for missing data file: {info[1]}"
                           + f"\nPlease edit the get_data_type() function in"
@@ -527,6 +534,7 @@ if proceed:
                     sys.exit(1)
             fcst_names = np.unique(fcst_names)
             unk_names = np.unique(unk_names)
+            anl_names = np.unique(anl_names)
             if unk_names.size > 0:
                 if len(unk_names) == 1:
                     DATAsubj = "Unrecognized"
@@ -544,6 +552,38 @@ if proceed:
                 else:
                     DATAmsg_body1 = (f"Missing files are:\n")
                     for pname in unk_pnames:
+                        DATAmsg_body1+=f"{pname}\n"
+                DATAmsg_body2 = f"Job ID: {jobid}"
+                cutil.run_shell_command([
+                    'echo', f'\"{DATAmsg_head}\"', '>mailmsg'
+                ])
+                cutil.run_shell_command([
+                    'echo', f'\"{DATAmsg_body1}\"', '>>mailmsg'
+                ])
+                cutil.run_shell_command([
+                    'echo', f'\"{DATAmsg_body2}\"', '>>mailmsg'
+                ])
+                cutil.run_shell_command([
+                    'cat', 'mailmsg', '|' , 'mail', '-s', f'\"{subject}\"', 
+                    f'\"{MAILTO}\"'
+                ])
+            if anl_names.size > 0:
+                if len(anl_names) == 1:
+                    DATAsubj = "Analysis"
+                else:
+                    DATAsubj = ', '.join(anl_names)
+                subject = f"{DATAsubj} Data Missing for EVS {COMPONENT}"
+                DATAmsg_head = (f"Warning: Some analysis data were unavailable"
+                                + f" for valid date {VDATE} and cycle {VHR}Z.")
+                if len(anl_fnames) > max_num_files:
+                    DATAmsg_body1 = (f"\nMissing files are: (showing"
+                                + f" {max_num_files} of"
+                                + f" {len(anl_pnames)} total files)\n")
+                    for pname in anl_pnames[:max_num_files]:
+                        DATAmsg_body1+=f"{pname}\n"
+                else:
+                    DATAmsg_body1 = (f"Missing files are:\n")
+                    for pname in anl_pnames:
                         DATAmsg_body1+=f"{pname}\n"
                 DATAmsg_body2 = f"Job ID: {jobid}"
                 cutil.run_shell_command([
