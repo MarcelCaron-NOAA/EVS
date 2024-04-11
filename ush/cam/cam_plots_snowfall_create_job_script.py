@@ -65,6 +65,7 @@ INTERP_PNTS = os.environ['INTERP_PNTS']
 PYTHONDONTWRITEBYTECODE = os.environ['PYTHONDONTWRITEBYTECODE']
 njob = os.environ['njob']
 COMPLETED_JOBS_FILE = os.environ['COMPLETED_JOBS_FILE']
+retro_num = os.environ['retro_num']
 
 # Make a dictionary of environment variables needed to run this particular job
 job_env_vars_dict = {
@@ -105,7 +106,8 @@ job_env_vars_dict = {
     'CONFIDENCE_INTERVALS': CONFIDENCE_INTERVALS,
     'INTERP_PNTS': INTERP_PNTS,
     'PLOT_TYPE': PLOT_TYPE,
-    'PYTHONDONTWRITEBYTECODE': PYTHONDONTWRITEBYTECODE
+    'PYTHONDONTWRITEBYTECODE': PYTHONDONTWRITEBYTECODE,
+    'retro_num': retro_num
 }
 job_iterate_over_env_lists_dict = {}
 job_iterate_over_custom_lists_dict = {}

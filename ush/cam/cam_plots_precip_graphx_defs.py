@@ -16,12 +16,12 @@ graphics = {
                 'domain_group1, fhr_group1, init_group1, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -109,12 +109,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -163,8 +163,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -189,12 +189,12 @@ graphics = {
                 'domain_group1, fhr_group2, init_group1, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -230,12 +230,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -258,8 +258,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -284,12 +284,12 @@ graphics = {
                 'domain_group1, fhr_group1, init_group2, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -325,12 +325,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -353,8 +353,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -379,12 +379,12 @@ graphics = {
                 'domain_group1, fhr_group2, init_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -420,12 +420,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -448,8 +448,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -474,12 +474,12 @@ graphics = {
                 'domain_group2, fhr_group1, init_group1, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -567,12 +567,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -621,12 +621,12 @@ graphics = {
                 'domain_group2, fhr_group2, init_group1, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -662,12 +662,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -690,12 +690,12 @@ graphics = {
                 'domain_group2, fhr_group1, init_group2, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -731,12 +731,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -759,12 +759,12 @@ graphics = {
                 'domain_group2, fhr_group2, init_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -800,12 +800,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_East',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -828,12 +828,12 @@ graphics = {
                 'domain_group3, fhr_group1, init_group1, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -921,12 +921,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -975,12 +975,12 @@ graphics = {
                 'domain_group3, fhr_group2, init_group1, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1016,12 +1016,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1044,12 +1044,12 @@ graphics = {
                 'domain_group3, fhr_group1, init_group2, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1085,12 +1085,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1113,12 +1113,12 @@ graphics = {
                 'domain_group3, fhr_group2, init_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1154,12 +1154,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_West',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1182,12 +1182,12 @@ graphics = {
                 'domain_group4, fhr_group1, init_group1, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -1275,12 +1275,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -1329,12 +1329,12 @@ graphics = {
                 'domain_group4, fhr_group2, init_group1, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1370,12 +1370,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1398,12 +1398,12 @@ graphics = {
                 'domain_group4, fhr_group1, init_group2, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1439,12 +1439,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1467,12 +1467,12 @@ graphics = {
                 'domain_group4, fhr_group2, init_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1508,12 +1508,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_Central',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1536,12 +1536,12 @@ graphics = {
                 'domain_group5, fhr_group1, init_group1, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -1629,12 +1629,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -1683,12 +1683,12 @@ graphics = {
                 'domain_group5, fhr_group2, init_group1, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1724,12 +1724,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1752,12 +1752,12 @@ graphics = {
                 'domain_group5, fhr_group1, init_group2, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1793,12 +1793,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1821,12 +1821,12 @@ graphics = {
                 'domain_group5, fhr_group2, init_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1862,12 +1862,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -1892,12 +1892,12 @@ graphics = {
                 'domain_group1, fhr_group1, init_group1, namnest, rrfs, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -1985,12 +1985,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_01':{
@@ -2039,8 +2039,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2065,12 +2065,12 @@ graphics = {
                 'domain_group1, fhr_group2, init_group1, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2106,12 +2106,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2134,8 +2134,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2160,12 +2160,12 @@ graphics = {
                 'domain_group1, fhr_group1, init_group2, namnest, rrfs, hireswarw, hireswarwmem2, hireswfv3, hrrr':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2201,12 +2201,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2229,8 +2229,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2255,12 +2255,12 @@ graphics = {
                 'domain_group1, fhr_group2, init_group2, namnest, rrfs, hireswfv3':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2296,12 +2296,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'APCP_24':{
@@ -2324,8 +2324,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Alaska',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2352,8 +2352,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'PuertoRico',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2380,8 +2380,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'PuertoRico',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2408,8 +2408,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'PuertoRico',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2436,8 +2436,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'PuertoRico',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2464,8 +2464,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Hawaii',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2492,8 +2492,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Hawaii',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2520,8 +2520,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Hawaii',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{
@@ -2548,8 +2548,8 @@ graphics = {
                         'DATE_TYPE':'VALID',
                         'VALID_BEG':'',
                         'VALID_END': (datetime.strptime(os.environ['VDATE'], '%Y%m%d')-td(days=1)).strftime('%Y%m%d'),
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'Hawaii',
                         'EVAL_PERIODS':['NA'],
                         'VARIABLES':{

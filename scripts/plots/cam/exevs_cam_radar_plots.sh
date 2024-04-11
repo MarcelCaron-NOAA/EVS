@@ -25,7 +25,7 @@ set -x
 ############################################################
 
 export machine=${machine:-"WCOSS2"}
-export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn, rrfs"
+export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn, rrfs_retro"
 export VERIF_TYPE="mrms"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
@@ -80,7 +80,7 @@ mkdir -p ${LOG_DIR}
 mkdir -p ${OUTPUT_DIR}
 
 
-model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href_pmmn rrfs"
+model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href_pmmn rrfs_retro"
 
 for model in ${model_list}; do
    n=0
@@ -97,6 +97,8 @@ for model in ${model_list}; do
 	 origin=${COMIN}/stats/${COMPONENT}/${model:0:4}.${day}/${stat_file}
       elif [ ${model} = rrfs ]; then
      origin=/lfs/h2/emc/vpppg/noscrub/marcel.caron/${NET}/${evs_ver_2d}/stats/${COMPONENT}/${model}.${day}/${stat_file}
+      elif [ ${model} = rrfs_retro ]; then
+     origin=/lfs/h2/emc/vpppg/noscrub/marcel.caron/${NET}_retro${retro_num}/${evs_ver_2d}/stats/${COMPONENT}/${model}.${day}/${stat_file}
       else
 	 origin=${COMIN}/stats/${COMPONENT}/${model}.${day}/${stat_file}
       fi
@@ -149,7 +151,7 @@ for PLOT_TYPE in ${PLOT_TYPES}; do
             # Loop over forecast initializations
             for FCST_INIT_HOUR in ${FCST_INIT_HOURS}; do
        
-               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob" >> $DATA/poescript
+               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob $retro_num" >> $DATA/poescript
                njob=$((njob+1))
 
             done

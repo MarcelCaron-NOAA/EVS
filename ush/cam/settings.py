@@ -104,6 +104,10 @@ class Paths():
                     'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
                     'file_template': '',
                 },
+                'rrfs_retro': {
+                    'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}_retro{os.environ['retro_num']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
+                    'file_template': '',
+                },
                 'rrfsv0_7_9': {
                     'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/{os.environ['NET']}/{os.environ['evs_ver_2d']}/stats/{os.environ['COMPONENT']}",
                     'file_template': '',
@@ -705,6 +709,11 @@ class ModelSpecs():
             'rrfs': {
                 'settings_key':'RRFS', 
                 'stats_key':'', 
+                'plot_name':'RRFS'
+            },
+            'rrfs_retro': {
+                'settings_key':'RRFS', 
+                'stats_key':'rrfs', 
                 'plot_name':'RRFS'
             },
             'rrfsv0_7_9': {

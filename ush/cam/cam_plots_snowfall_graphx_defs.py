@@ -16,12 +16,12 @@ graphics = {
                 'fcst_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_06':{
@@ -83,12 +83,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_06':{
@@ -124,12 +124,12 @@ graphics = {
                 'fcst_group2, namnest, hireswfv3, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{
@@ -165,12 +165,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{
@@ -193,12 +193,12 @@ graphics = {
                 'init_group1, fcst_group1, namnest, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'SNOD_06':{
@@ -260,12 +260,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'SNOD_06':{
@@ -301,12 +301,12 @@ graphics = {
                 'init_group1, fcst_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'SNOD_24':{
@@ -342,12 +342,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'SNOD_24':{
@@ -370,12 +370,12 @@ graphics = {
                 'init_group2, fcst_group1, namnest, hrrr, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{
@@ -437,12 +437,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{
@@ -478,12 +478,12 @@ graphics = {
                 'init_group2, fcst_group2, namnest, rrfs':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{
@@ -545,12 +545,12 @@ graphics = {
                     },
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
+                        'VALID_BEG':os.environ['RETRO_BEG'],
+                        'VALID_END':os.environ['RETRO_END'],
+                        'INIT_BEG':os.environ['RETRO_BEG'],
+                        'INIT_END':os.environ['RETRO_END'],
                         'VX_MASK_LIST':'CONUS,CONUS_East,CONUS_West,CONUS_Central,CONUS_South',
-                        'EVAL_PERIODS':['LAST31DAYS','LAST90DAYS'],
+                        'EVAL_PERIODS':['TEST'],
                         'VARIABLES':{
                             'ctc':{
                                 'WEASD_24':{

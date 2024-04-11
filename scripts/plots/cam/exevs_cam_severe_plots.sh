@@ -25,7 +25,7 @@ set -x
 ############################################################
 
 export machine=${machine:-"WCOSS2"}
-export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href, rrfs"
+export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href, rrfs_retro"
 export VERIF_TYPE="lsr"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
@@ -77,7 +77,7 @@ mkdir -p ${LOG_DIR}
 mkdir -p ${OUTPUT_DIR}
 
 
-model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href rrfs"
+model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href rrfs_retro"
 
 for model in ${model_list}; do
    n=0
@@ -153,7 +153,7 @@ for PLOT_TYPE in ${PLOT_TYPES}; do
          # Loop over forecast initializations
          for FCST_LEAD in ${FCST_LEADs}; do
 	
-            echo "${USHevs}/${COMPONENT}/evs_cam_plots_severe.sh $PLOT_TYPE $DOMAIN $LINE_TYPE $FCST_INIT_HOUR $FCST_LEAD $njob" >> $DATA/poescript
+            echo "${USHevs}/${COMPONENT}/evs_cam_plots_severe.sh $PLOT_TYPE $DOMAIN $LINE_TYPE $FCST_INIT_HOUR $FCST_LEAD $njob $retro_num" >> $DATA/poescript
             njob=$((njob+1))
 
 

@@ -19,9 +19,9 @@ export LINE_TYPE=$4
 export FCST_INIT_HOUR=$5
 export JOBNUM=$6
 export job_name="job${JOBNUM}"
+export retro_num=$7
 
 export LOG_TEMPLATE="${LOG_DIR}/EVS_verif_plotting_job${JOBNUM}_$($NDATE)_$$.out"
-
 
 ###################################################################
 # Set some additional variables based on job arguments
