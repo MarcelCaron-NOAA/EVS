@@ -43,11 +43,12 @@ export VERIF_CASE=radar
 export MODELNAME=${COMPONENT}
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${LINE_TYPE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/ptmp/${USER}/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
 export nproc=64
 export RETRO_BEG=${RETRO_BEG:-${RETRO_BEG}}
 export RETRO_END=${RETRO_END:-${RETRO_END}}
+export retro_num=${retro_num:-${retro_num}}
 ############################################################
 
 export vhr=${vhr:-${vhr}}

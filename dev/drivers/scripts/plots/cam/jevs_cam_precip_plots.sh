@@ -49,11 +49,12 @@ export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
 export vhr=${vhr:-${vhr}}
-export COMOUT=/lfs/h2/emc/ptmp/$USER/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
 export RETRO_BEG=${RETRO_BEG:-${RETRO_BEG}}
 export RETRO_END=${RETRO_END:-${RETRO_END}}
+export retro_num=${retro_num:-${retro_num}}
 
 # Job Settings and Run
 . ${HOMEevs}/jobs/JEVS_CAM_PLOTS

@@ -13,7 +13,7 @@ graphics = {
     'cam':{
         'snowfall':{
             'nohrsc':{
-                'fcst_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs':{
+                'fcst_group1, namnest, hireswarw, hireswarwmem2, hireswfv3, hrrr, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],
@@ -121,7 +121,7 @@ graphics = {
                         }
                     },
                 },
-                'fcst_group2, namnest, hireswfv3, rrfs':{
+                'fcst_group2, namnest, hireswfv3, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],
@@ -190,7 +190,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group1, fcst_group1, namnest, hrrr, rrfs':{
+                'init_group1, fcst_group1, namnest, hrrr, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],
@@ -298,7 +298,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group1, fcst_group2, namnest, rrfs':{
+                'init_group1, fcst_group2, namnest, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],
@@ -367,7 +367,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group2, fcst_group1, namnest, hrrr, rrfs':{
+                'init_group2, fcst_group1, namnest, hrrr, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],
@@ -475,7 +475,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group2, fcst_group2, namnest, rrfs':{
+                'init_group2, fcst_group2, namnest, rrfs_retro':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':os.environ['RETRO_BEG'],

@@ -29,7 +29,7 @@ export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn, rr
 export VERIF_TYPE="mrms"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
-export pastdays=`echo ${EVAL_PERIOD} | cut -c 5-6`
+export pastdays=`echo ${EVAL_PERIOD} | awk -F'[^0-9]+' '{print $2 }'`
 export VALID_BEG=""
 export VALID_END=""
 export INIT_BEG=""
@@ -151,7 +151,7 @@ for PLOT_TYPE in ${PLOT_TYPES}; do
             # Loop over forecast initializations
             for FCST_INIT_HOUR in ${FCST_INIT_HOURS}; do
        
-               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob $retro_num" >> $DATA/poescript
+               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob $FCST_LEAD $retro_num" >> $DATA/poescript
                njob=$((njob+1))
 
             done
