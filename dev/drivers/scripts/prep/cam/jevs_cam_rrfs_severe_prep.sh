@@ -25,7 +25,7 @@ export STEP=prep
 export COMPONENT=cam
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/test2/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/noah_mp/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
@@ -51,7 +51,7 @@ export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}/${evs_ver_2d}
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/${NET}_rrfs_noah_mp/${evs_ver_2d}/${STEP}/${COMPONENT}
 ############################################################
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}

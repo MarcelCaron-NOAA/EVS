@@ -9,7 +9,7 @@
 
 export model=evs
 
-export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/test2/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/noah_mp/EVS
 
 source $HOMEevs/versions/run.ver
 

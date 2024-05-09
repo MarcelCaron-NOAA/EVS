@@ -1,4 +1,4 @@
-#PBS -N jevs_cam_nam_firewxnest_grid2obs_stats_00
+#PBS -N jevs_cam_rrfs_firewxnest_grid2obs_stats
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q "dev"
@@ -11,7 +11,7 @@ export model=evs
 
 cd $PBS_O_WORKDIR
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/para/EVS
 
 source $HOMEevs/versions/run.ver
 
@@ -34,9 +34,9 @@ export STEP=stats
 export COMPONENT=cam
 export RUN=atmos
 export VERIF_CASE=grid2obs
-export MODELNAME=nam_firewxnest
-export modsys=nam
-export mod_ver=${nam_ver}
+export MODELNAME=rrfs_firewxnest
+export modsys=rrfs
+export mod_ver=${rrfs_ver}
 
 source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
 evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
@@ -47,13 +47,13 @@ export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
 
-export MAILTO=${MAILTO:-'perry.shafran@noaa.gov,alicia.bentley@noaa.gov'}
+export MAILTO=${MAILTO:-'marcel.caron@noaa.gov'}
 
 # CALL executable job script here
 $HOMEevs/jobs/JEVS_CAM_STATS
 
 ######################################################################
-## Purpose: This job will generate the grid2obs statistics for the NAM_FIREWXNEST
+## Purpose: This job will generate the grid2obs statistics for the RRFS_FIREWXNEST
 ##          model and generate stat files.
 #######################################################################
 #
