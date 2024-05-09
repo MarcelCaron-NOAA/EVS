@@ -22,9 +22,9 @@ export JOBNUM=$2
 export MODEL_INPUT_DIR=${COMINrrfs}
 
 if [ $MEMNUM = ctl ]; then
-   export MODEL_INPUT_TEMPLATE=rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/${MODELNAME}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
+   export MODEL_INPUT_TEMPLATE=rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/${MODELNAME}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2
 else
-   export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/${MEMNUM}/${MODELNAME}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
+   export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/${MEMNUM}/${MODELNAME}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2
 fi
 
 
@@ -64,9 +64,9 @@ i=1
    while [ $i -le $min_file_req ]; do
 
       if [ $MEMNUM = ctl ]; then
-         export fcst_file=rrfs.${IDATE}/${vhr}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+         export fcst_file=rrfs.${IDATE}/${vhr}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus.grib2
       else
-         export fcst_file=refs.${IDATE}/${vhr}/${MEMNUM}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+         export fcst_file=refs.${IDATE}/${vhr}/${MEMNUM}/${MODELNAME}.t${vhr}z.prslev.f$(printf "%03d" $fhr).conus.grib2
       fi
 
       if [ -s ${MODEL_INPUT_DIR}/$fcst_file ]; then
@@ -95,10 +95,12 @@ i=1
 
    else
 
-      export subject="${MODELNAME} ${MEMNUM} Forecast Data Missing for EVS ${COMPONENT}"
-      echo "Warning: Only $nfiles ${MODELNAME} ${MEMNUM} forecast files found for ${vhr}Z ${IDATE} cycle. $min_file_req files are required. METplus will not run." > mailmsg${JOBNUM}
-      echo "Job ID: $jobid" >> mailmsg${JOBNUM}
-      cat mailmsg${JOBNUM} | mail -s "$subject" $MAILTO
+      if [ $SENDMAIL = YES ]; then
+          export subject="${MODELNAME} ${MEMNUM} Forecast Data Missing for EVS ${COMPONENT}"
+          echo "Warning: Only $nfiles ${MODELNAME} ${MEMNUM} forecast files found for ${vhr}Z ${IDATE} cycle. $min_file_req files are required. METplus will not run." > mailmsg${JOBNUM}
+          echo "Job ID: $jobid" >> mailmsg${JOBNUM}
+          cat mailmsg${JOBNUM} | mail -s "$subject" $MAILTO
+      fi
 
    fi
 

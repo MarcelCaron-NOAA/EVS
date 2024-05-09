@@ -32,17 +32,17 @@ if [ "$NEST" = "conus" ]; then
     export FHR_GROUP_LIST="SHORT FULL"
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH SBCAPE MLCAPE HPBL"
         export VHOUR_LIST="00 06 12 18"
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc TCDC VIS CEILING PTYPE"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
     elif [ "$OBSNAME" = "mping" ]; then
         export COMINobs=${EVSINmping}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="PTYPE"
         export VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
     else
@@ -61,17 +61,17 @@ elif [ "$NEST" = "subreg" ]; then
     export FHR_GROUP_LIST="SHORT FULL"
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST=""
         export VHOUR_LIST="00 06 12 18"
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="TMP2m DPT2m RH2m UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc VIS CEILING"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
     elif [ "$OBSNAME" = "mping" ]; then
         export COMINobs=${EVSINmping}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST=""
         export VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
     else
