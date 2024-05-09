@@ -17,7 +17,8 @@ export DOMAIN=$2
 export var_name=$3
 export LINE_TYPE=$4
 export FCST_INIT_HOUR=$5
-export JOBNUM=$6
+export FCST_LEAD=$6
+export JOBNUM=$7
 export job_name="job${JOBNUM}"
 
 export LOG_TEMPLATE="${LOG_DIR}/EVS_verif_plotting_job${JOBNUM}_$($NDATE)_$$.out"

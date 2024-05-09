@@ -149,7 +149,7 @@ for PLOT_TYPE in ${PLOT_TYPES}; do
             # Loop over forecast initializations
             for FCST_INIT_HOUR in ${FCST_INIT_HOURS}; do
        
-               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob" >> $DATA/poescript
+               echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $FCST_LEAD $njob" >> $DATA/poescript
                njob=$((njob+1))
 
             done
