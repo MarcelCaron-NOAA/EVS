@@ -52,7 +52,7 @@ export vhr=${vhr:-${vhr}}
 export EVAL_PERIOD=${EVAL_PERIOD:-${EVAL_PERIOD}}
 export LINE_TYPE=${LINE_TYPE:-${LINE_TYPE}}
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}
