@@ -14,7 +14,7 @@ export model=evs
 export machine=WCOSS2
 
 # ECF Settings
-export SENDMAIL=YES
+export SENDMAIL=NO
 export SENDECF=YES
 export SENDCOM=YES
 export KEEPDATA=YES

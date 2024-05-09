@@ -23,7 +23,7 @@ export RUN=atmos
 export VERIF_CASE=precip
 export MODELNAME=href
 export KEEPDATA=YES
-export SENDMAIL=YES
+export SENDMAIL=NO
 
 module reset
 module load prod_envir/${prod_envir_ver}

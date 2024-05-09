@@ -54,7 +54,7 @@ export USE_CFP=YES
 export nproc=3
 ############################################################
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}
