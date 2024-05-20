@@ -351,13 +351,22 @@ def get_stat_file_line_type_columns(logger, met_version, line_type):
             'ME_OERR', 'RMSE_OERR', 'SPREAD_OERR', 'SPREAD_PLUS_OERR',
             'CRPSCL', 'CRPS_EMP', 'CRPSCL_EMP', 'CRPSS_EMP'
          ]
-      elif met_version >= 11.0:
+      elif met_version == 11.0:
          stat_file_line_type_columns = [
              'TOTAL', 'N_ENS', 'CRPS', 'CRPSS', 'IGN', 'ME', 'RMSE', 'SPREAD',
              'ME_OERR', 'RMSE_OERR', 'SPREAD_OERR', 'SPREAD_PLUS_OERR',
              'CRPSCL', 'CRPS_EMP', 'CRPSCL_EMP', 'CRPSS_EMP',
              'CRPS_EMP_FAIR', 'SPREAD_MD', 'MAE', 'MAE_OERR', 'BIAS_RATIO',
              'N_GE_OBS', 'ME_GE_OBS', 'N_LT_OBS', 'ME_LT_OBS'
+         ] 
+      elif met_version == 12.0:
+         stat_file_line_type_columns = [
+             'TOTAL', 'N_ENS', 'CRPS', 'CRPSS', 'IGN', 'ME', 'RMSE', 'SPREAD',
+             'ME_OERR', 'RMSE_OERR', 'SPREAD_OERR', 'SPREAD_PLUS_OERR',
+             'CRPSCL', 'CRPS_EMP', 'CRPSCL_EMP', 'CRPSS_EMP',
+             'CRPS_EMP_FAIR', 'SPREAD_MD', 'MAE', 'MAE_OERR', 'BIAS_RATIO',
+             'N_GE_OBS', 'ME_GE_OBS', 'N_LT_OBS', 'ME_LT_OBS', 'IGN_CONV_OERR',
+             'IGN_CORR_OERR'
          ] 
    elif line_type == 'PSTD':
       if met_version >= 6.0:
