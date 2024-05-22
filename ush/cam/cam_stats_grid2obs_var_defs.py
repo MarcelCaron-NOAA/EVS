@@ -837,7 +837,7 @@ generate_stats_jobs_dict = {
                                      + "P250, P225, P200, P175, P150, P125, "
                                      + "P100, P70, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
-                'var1_fcst_options': '',
+                'var1_fcst_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
                 'var1_obs_name': 'SPFH',
                 'var1_obs_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                     + "P850, P825, P800, P775, P750, P725, "
@@ -847,7 +847,7 @@ generate_stats_jobs_dict = {
                                     + "P250, P225, P200, P175, P150, P125, "
                                     + "P100, P70, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
-                'var1_obs_options': '',
+                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
             },
             'output_types': {
                 'CTC': 'NONE',
