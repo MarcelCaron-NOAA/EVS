@@ -722,6 +722,16 @@ class ModelSpecs():
                 'stats_key':'rrfs', 
                 'plot_name':'RRFS'
             },
+            'rrfs_firewxnest': {
+                'settings_key':'RRFS_FIREWXNEST', 
+                'stats_key':'rrfs_firewxnest', 
+                'plot_name':'RRFS FireWx Nest'
+            },
+            'nam_firewxnest': {
+                'settings_key':'NAM_FIREWXNEST', 
+                'stats_key':'nam_firewxnest', 
+                'plot_name':'NAM FireWx Nest'
+            },
             'RRFS_A_AK': {
                 'settings_key':'RRFS_A', 
                 'stats_key':'', 
@@ -860,8 +870,14 @@ class ModelSpecs():
             'NAM_NEST': {'color': '#1e3cff',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
+            'NAM_FIREWXNEST': {'color': '#1e3cff',
+                     'marker': '^', 'markersize': 11,
+                     'linestyle': 'solid', 'linewidth': 1.8},
             'RRFS': {'color': '#696969',
                      'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'RRFS_FIREWXNEST': {'color': '#696969',
+                     'marker': '^', 'markersize': 11,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'RRFSV0.8.3': {'color': '#8400c8',
                      'marker': 'o', 'markersize': 10,

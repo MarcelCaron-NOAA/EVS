@@ -1,4 +1,4 @@
-#PBS -N jevs_cam_nam_firewxnest_grid2obs_plots
+#PBS -N jevs_cam_firewxnest_grid2obs_plots
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q "dev"
@@ -27,7 +27,7 @@ module load prod_envir/${prod_envir_ver}
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=YES
-export SENDMAIL=YES
+export SENDMAIL=NO
 export SENDDBN=NO
 
 export vhr=00
@@ -37,9 +37,7 @@ export STEP=plots
 export COMPONENT=cam
 export RUN=atmos
 export VERIF_CASE=grid2obs
-export MODELNAME=nam_firewxnest
-export modsys=nam
-export mod_ver=${nam_ver}
+export MODELNAME=firewxnest
 
 source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
 export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
@@ -50,11 +48,14 @@ export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h1/ops/prod/com/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
 
+# Developer Settings
+export EVSINrrfs=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/stats/$COMPONENT/rrfs_${MODELNAME}
+
 # CALL executable job script here
 $HOMEevs/jobs/JEVS_CAM_PLOTS
 
 ######################################################################
-## Purpose: This job will generate the grid2obs statistics for the NAM_FIREWXNEST
+## Purpose: This job will generate the grid2obs statistics for the RRFS_FIREWXNEST
 ##          model and generate stat files.
 #######################################################################
 #
