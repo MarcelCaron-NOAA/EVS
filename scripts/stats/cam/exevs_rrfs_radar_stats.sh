@@ -29,7 +29,7 @@ if [ ${MODELNAME} = rrfs ]; then
    fhr_inc=1
 
    export MODEL_INPUT_DIR=${COMINrrfs}
-   export CONUS_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
+   export CONUS_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.grib2
 
 fi
 
@@ -54,7 +54,7 @@ while [ $fhr -le $fhr_max ]; do
 
    # Define forecast filename for each model 
    if [ ${MODELNAME} = rrfs ]; then
-      export conus_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).conus_3km.grib2
+      export conus_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).grib2
    fi
 
    # Check for the existence of each forecast file 
