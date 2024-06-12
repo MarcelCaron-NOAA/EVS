@@ -11,7 +11,7 @@ set -x
 
 export OMP_NUM_THREADS=1
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/retro/EVS
 source $HOMEevs/versions/run.ver
 
 export NET=evs
@@ -33,15 +33,18 @@ export vhr=00
 export run_mpi=yes
 export gather=yes
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_retro${retro_num}/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export jobid=$job.${PBS_JOBID:-$$}
+export RETRO_BEG=${RETRO_BEG:-${RETRO_BEG}}
+export RETRO_END=${RETRO_END:-${RETRO_END}}
+export retro_num=${retro_num:-${retro_num}}
 
 
-export MAILTO='alicia.bentley@noaa.gov,binbin.zhou@noaa.gov'
+export MAILTO='binbin.zhou@noaa.gov'
 if [ -z "$MAILTO" ]; then
 
   echo "MAILTO variable is not defined. Exiting without continuing."

@@ -34,7 +34,7 @@ export VERIF_CASE="snowfall"
 export MODELNAME="hrrr"
 
 # EVS Settings
-export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/retro/EVS
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
 export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
 
@@ -48,10 +48,13 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_retro${retro_num}/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/${NET}_retro${retro_num}/$evs_ver_2d/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
-export MAILTO="alicia.bentley@noaa.gov,marcel.caron@noaa.gov"
+export MAILTO="marcel.caron@noaa.gov"
+export RETRO_BEG=${RETRO_BEG:-${RETRO_BEG}}
+export RETRO_END=${RETRO_END:-${RETRO_END}}
+export retro_num=${retro_num:-${retro_num}}
 
 # Job Settings and Run
 . ${HOMEevs}/jobs/JEVS_CAM_STATS
