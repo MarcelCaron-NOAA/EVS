@@ -24,6 +24,9 @@ import cartopy.feature as cfeature
 from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 from cartopy import config
 from cam_plots_specs import PlotSpecs
+from settings import Paths
+
+paths = Paths()
 
 class PrecipSpatialMap:
     """
@@ -114,10 +117,16 @@ class PrecipSpatialMap:
             model_num_name = model_num_dict['name']
             model_num_plot_name = model_num_dict['plot_name']
             model_num_obs_name = model_num_dict['obs_name']
-            model_num_data_dir = os.path.join(
-                self.input_dir,
-                valid_date_dt.strftime('atmos.%Y%m%d'),
-            )
+            if model_num_name in paths.special_paths and paths.special_paths[model_num_name]['data_dir']:
+                model_num_data_dir = os.path.join(
+                    paths.special_paths[model_num_name]['data_dir'],
+                    valid_date_dt.strftime('atmos.%Y%m%d'),
+                )
+            else:
+                model_num_data_dir = os.path.join(
+                    self.input_dir,
+                    valid_date_dt.strftime('atmos.%Y%m%d'),
+                )
             make_plot = False
             if model_num == 'obs':
                 image_data_source = 'qpe'
