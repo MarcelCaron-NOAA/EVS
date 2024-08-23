@@ -335,17 +335,16 @@ if [ $SENDCOM = YES ]; then
             cp -v $FILE $COMOUTsmall/.
         done
     done
-    for DIR_PATH in $MET_PLUS_OUT/*/pcp_combine/*; do
-        DIR=$(echo ${DIR_PATH##*/})
-        if [ "$DIR" == "confs" ] || [ "$DIR" == "logs" ] || [ "$DIR" == "tmp" ]; then
-            continue
+    mkdir -p $COMOUTsmall/spatial_maps
+    for FILEn in $MET_PLUS_OUT/*/pcp_combine/*a24h*; do
+        if [ -f "$FILEn" ]; then
+            cp -vr $FILEn $COMOUTsmall/spatial_maps/.
         fi
-        mkdir -p $COMOUTsmall/$DIR
-        for FILEn in $DIR_PATH/*a24h*; do
-            if [ -f "$FILEn" ]; then
-                cp -vr $FILEn $COMOUTsmall/${DIR}/.
-            fi
-        done
+    done
+    for FILEn in $MET_PLUS_OUT/*/pcp_combine/*/*a24h*; do
+        if [ -f "$FILEn" ]; then
+            cp -vr $FILEn $COMOUTsmall/spatial_maps/.
+        fi
     done
 fi
 
