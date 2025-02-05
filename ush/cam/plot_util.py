@@ -2310,3 +2310,12 @@ def get_MCTC_cols_for_sum(n_cats, i_vals, ctc_metric_name):
         sys.exit(1)
     return cols
 
+def get_model_stats_key(model_alias_dict, requested_model):
+    if requested_model not in model_alias_dict:
+        return requested_model
+    else:
+        stats_key = model_alias_dict[requested_model]['stats_key']
+        if not stats_key:
+            return requested_model
+        else:
+            return stats_key

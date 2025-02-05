@@ -27,13 +27,12 @@ export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href_pmmn, rr
 export VERIF_TYPE="mrms"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
-export pastdays=`echo ${EVAL_PERIOD} | cut -c 5-6`
+export pastdays=`echo ${EVAL_PERIOD} | awk -F'[^0-9]+' '{print $2 }'`
 export VALID_BEG=""
 export VALID_END=""
 export INIT_BEG=""
 export INIT_END=""
 export FCST_VALID_HOUR=""
-export FCST_LEAD="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60"
 
 #PLOT_TYPES="threshold_average lead_average performance_diagram"
 DOMAINS="alaska conus"
@@ -118,26 +117,37 @@ njob=0
 #Loop over plot types
 for PLOT_TYPE in ${PLOT_TYPES}; do
 
-   # Loop over domains
-   for DOMAIN in ${DOMAINS}; do
+   if [ "$PLOT_TYPE" == "lead_average" ]; then
+      export FCST_LEADs="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60"
+   else
+      export FCST_LEADs="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60"
+   fi
+   
+   # Loop over fcst leads 
+   for FCST_LEAD in ${FCST_LEADs}; do
 
-      # Set list of fields based on domain
-      if [ "$DOMAIN" = "conus" ]; then
-         RADAR_FIELDS="REFC RETOP"
-      elif [ "$DOMAIN" = "alaska" ]; then
-         RADAR_FIELDS="REFC"
-      fi
+      # Loop over domains
+      for DOMAIN in ${DOMAINS}; do
+      
+         # Set list of fields based on domain
+         if [ "$DOMAIN" = "conus" ]; then
+            RADAR_FIELDS="REFC RETOP"
+         elif [ "$DOMAIN" = "alaska" ]; then
+            RADAR_FIELDS="REFC"
+         fi
 
-      # Loop over radar fields
-      for RADAR_FIELD in ${RADAR_FIELDS}; do
+         # Loop over radar fields
+         for RADAR_FIELD in ${RADAR_FIELDS}; do
 
-         # Loop over forecast initializations
-         for FCST_INIT_HOUR in ${FCST_INIT_HOURS}; do
-	
-            echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob" >> $DATA/poescript
-            mkdir -p ${DATA}/out/workdirs/job${njob}/logs
-            njob=$((njob+1))
+             # Loop over forecast initializations
+             for FCST_INIT_HOUR in ${FCST_INIT_HOURS}; do
+        
+                echo "${USHevs}/${COMPONENT}/evs_cam_plots_radar.sh $PLOT_TYPE $DOMAIN $RADAR_FIELD $LINE_TYPE $FCST_INIT_HOUR $njob" >> $DATA/poescript
+                mkdir -p ${DATA}/out/workdirs/job${njob}/logs
+                njob=$((njob+1))
 
+             done
+         
          done
 
       done

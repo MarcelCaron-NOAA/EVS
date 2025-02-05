@@ -30,28 +30,29 @@ module reset
 module load prod_envir/${prod_envir_ver}
 
 source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
-evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
+export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 
 ############################################################
 # For dev testing
 ############################################################
 export envir=prod
+export retro_name=${retro_name:-${retro_name}}
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export VERIF_CASE=radar
 export MODELNAME=${COMPONENT}
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${LINE_TYPE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}/$STEP/$COMPONENT
 export nproc=64
 ############################################################
 
 export vhr=${vhr:-${vhr}}
-export EVAL_PERIOD=${EVAL_PERIOD:-LAST31DAYS}
+export EVAL_PERIOD=${EVAL_PERIOD:-${retro_name}}
 export LINE_TYPE=${LINE_TYPE:-nbrcnt}
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}

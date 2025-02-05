@@ -376,12 +376,6 @@ if proceed:
                     'conus',
                     'hrrr.t{IHOUR}z.wrfprsf{FHR}.grib2'
                 ))
-                fcst_templates.append(os.path.join(
-                    COMINfcst,
-                    'hrrr.{IDATE}',
-                    'conus',
-                    'hrrr.t{IHOUR}z.wrfsfcf{FHR}.grib2'
-                ))
             elif NEST == 'ak':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
@@ -389,24 +383,12 @@ if proceed:
                     'alaska',
                     'hrrr.t{IHOUR}z.wrfprsf{FHR}.ak.grib2'
                 ))
-                fcst_templates.append(os.path.join(
-                    COMINfcst,
-                    'hrrr.{IDATE}',
-                    'alaska',
-                    'hrrr.t{IHOUR}z.wrfsfcf{FHR}.ak.grib2'
-                ))
             else:
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'hrrr.{IDATE}',
                     'conus',
                     'hrrr.t{IHOUR}z.wrfprsf{FHR}.grib2'
-                ))
-                fcst_templates.append(os.path.join(
-                    COMINfcst,
-                    'hrrr.{IDATE}',
-                    'conus',
-                    'hrrr.t{IHOUR}z.wrfsfcf{FHR}.grib2'
                 ))
         elif MODELNAME == 'rrfs':
             if NEST == 'conus':

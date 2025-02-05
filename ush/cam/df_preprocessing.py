@@ -20,8 +20,10 @@ from datetime import timedelta as td
 SETTINGS_DIR = os.environ['USH_DIR']
 sys.path.insert(0, os.path.abspath(SETTINGS_DIR))
 from prune_stat_files import prune_data
+from settings import ModelSpecs
 import plot_util
 
+model_colors = ModelSpecs()
 
 # =================== FUNCTIONS =========================
 
@@ -69,6 +71,8 @@ def run_prune_data(logger, stats_dir, prune_dir, output_base_template, verif_cas
         if len(os.listdir(stats_dir)):
             logger.info(f"Looking for stat files in {stats_dir} using the"
                         + f" template: {output_base_template}")
+            if any(interp_pnts):
+                interp_pnts = [' '+str(interp_pnt)+' ' for interp_pnt in interp_pnts]
             prune_data(
                 stats_dir, prune_dir, tmp_dir, output_base_template, valid_range, 
                 str(eval_period).upper(), str(verif_case).lower(), 
@@ -76,7 +80,7 @@ def run_prune_data(logger, stats_dir, prune_dir, output_base_template, verif_cas
                 str(domain), 
                 [' '+str(fcst_var_name)+' ' for fcst_var_name in fcst_var_names],
                 str(var_name).upper(), model_list, 
-                [' '+str(interp_pnt)+' ' for interp_pnt in interp_pnts]
+                interp_pnts
             )
         else:
             e1 = f"FATAL ERROR: {stats_dir} exists but is empty."
@@ -146,7 +150,7 @@ def create_df(logger, stats_dir, pruned_data_dir, line_type, date_range,
                 df_tmp[col_name] = df_tmp[col_name].astype(float)
             df_tmp = run_filters(
                 df_tmp, logger, verif_type, fcst_var_names, obs_var_names,
-                interp, domain, date_type, date_range, date_hours
+                interp, domain, date_type, date_range, date_hours, model
             )
             try:
                 df = pd.concat([df, df_tmp])
@@ -270,6 +274,19 @@ def filter_by_hour(df, logger, date_type, date_hours):
     check_empty(df, logger, 'filter_by_hour')
     return df
 
+def change_model_column_name(df, logger, model):
+    if df is None:
+        return df
+    if check_empty(df, logger, 'change_model_column_name'):
+        return df
+    else:
+        df['MODEL'] = df['MODEL'].apply(
+            lambda x: model
+            if plot_util.get_model_stats_key(model_colors.model_alias, model) == x
+            else x
+        )
+        return df
+
 def get_preprocessed_data(logger, stats_dir, prune_dir, output_base_template, 
                           verif_case, verif_type, line_type, date_type, 
                           date_range, eval_period, date_hours, fleads, 
@@ -293,7 +310,7 @@ def get_preprocessed_data(logger, stats_dir, prune_dir, output_base_template,
     return df
 
 def run_filters(df, logger, verif_type, fcst_var_names, obs_var_names,
-                interp, domain, date_type, date_range, date_hours):
+                interp, domain, date_type, date_range, date_hours, model):
     df = filter_by_level_type(df, logger, verif_type)
     df = filter_by_var_name(df, logger, fcst_var_names, obs_var_names)
     df = filter_by_interp(df, logger, interp)
@@ -303,4 +320,5 @@ def run_filters(df, logger, verif_type, fcst_var_names, obs_var_names,
     df = create_init_datetime(df, logger)
     df = filter_by_date_range(df, logger, date_type, date_range)
     df = filter_by_hour(df, logger, date_type, date_hours)
+    df = change_model_column_name(df, logger, model)
     return df

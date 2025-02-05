@@ -113,7 +113,7 @@ elif [ "$NEST" = "hi" ]; then
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.hi.grib2"
-        export VAR_NAME_LIST="TMP2m DPT2m UGRD_VGRD10m"
+        export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export GRID="FCST"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
     else
@@ -138,7 +138,7 @@ elif [ "$NEST" = "pr" ]; then
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.pr.grib2"
-        export VAR_NAME_LIST=""
+        export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export GRID="FCST"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
     else
@@ -156,13 +156,13 @@ elif [ "$NEST" = "firewx" ]; then
     export FHR_GROUP_LIST="FULL"
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="HPBL"
         export GRID="G240"
         export VHOUR_LIST="00 06 12 18"
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus.grib2"
         export VAR_NAME_LIST="TMP2m DPT2m RH2m UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export GRID="FCST"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"

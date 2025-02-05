@@ -46,9 +46,10 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 # Developer Settings
 export envir=prod
+export retro_name=${retro_name:-${retro_name}}
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
 export MAILTO="marcel.caron@noaa.gov,andrew.benjamin@noaa.gov"
 

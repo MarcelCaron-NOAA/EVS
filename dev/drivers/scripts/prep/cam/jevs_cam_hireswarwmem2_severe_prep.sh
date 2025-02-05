@@ -39,6 +39,7 @@ export vhr=${vhr:-${vhr}}
 # For dev testing
 ############################################################
 export envir=prod
+export retro_name=${retro_name:-${retro_name}}
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=YES
 export VERIF_CASE=severe
@@ -46,8 +47,8 @@ export MODELNAME=hireswarwmem2
 export modsys=hiresw
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${vhr}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}/$STEP/$COMPONENT
 ############################################################
 
 export SENDMAIL=${SENDMAIL:-YES}
