@@ -21,7 +21,7 @@ export RUN=atmos
 export VERIF_CASE=spcoutlook
 export MODELNAME=refs
 export KEEPDATA=YES
-export SENDMAIL=YES
+export SENDMAIL=NO
 
 module reset
 module load prod_envir/${prod_envir_ver}
@@ -41,7 +41,7 @@ export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export jobid=$job.${PBS_JOBID:-$$}
 export COMINrefs=/lfs/h2/emc/ptmp/emc.lam/para/com/refs/v1.0
 
-export MAILTO='andrew.benjamin@noaa.gov,binbin.zhou@noaa.gov'
+export MAILTO='marcel.caron@noaa.gov'
 if [ -z "$MAILTO" ]; then
 
   echo "MAILTO variable is not defined. Exiting without continuing."

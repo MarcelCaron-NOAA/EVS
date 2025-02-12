@@ -23,7 +23,7 @@ export RUN=atmos
 export VERIF_CASE=precip
 export MODELNAME=refs
 export KEEPDATA=YES
-export SENDMAIL=YES
+export SENDMAIL=NO
 
 module reset
 module load prod_envir/${prod_envir_ver}
@@ -47,7 +47,7 @@ export verif_snowfall=yes
 
 export gather=yes
 
-export MAILTO='andrew.benjamin@noaa.gov,binbin.zhou@noaa.gov'
+export MAILTO='marcel.caron@noaa.gov'
 
 if [ -z "$MAILTO" ]; then
 

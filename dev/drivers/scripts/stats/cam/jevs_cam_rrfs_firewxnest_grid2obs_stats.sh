@@ -26,7 +26,7 @@ module load prod_envir/${prod_envir_ver}
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=NO
-export SENDMAIL=YES
+export SENDMAIL=NO
 
 export vhr
 export NET=evs
@@ -48,7 +48,7 @@ export retro_name=${retro_name:-${retro_name}}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}/$STEP/$COMPONENT
 
-export MAILTO=${MAILTO:-'marcel.caron@noaa.gov,andrew.benjamin@noaa.gov'}
+export MAILTO=${MAILTO:-'marcel.caron@noaa.gov'}
 
 # CALL executable job script here
 $HOMEevs/jobs/JEVS_CAM_STATS

@@ -53,13 +53,13 @@ export vhr=${vhr:-${vhr}}
 export EVAL_PERIOD=${EVAL_PERIOD:-${retro_name}}
 export LINE_TYPE=${LINE_TYPE:-nbrctc}
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}
 export KEEPDATA=${KEEPDATA:-YES}
 
-export MAILTO=${MAILTO:-'marcel.caron@noaa.gov,andrew.benjamin@noaa.gov'}
+export MAILTO=${MAILTO:-'marcel.caron@noaa.gov'}
 
 if [ -z "$MAILTO" ]; then
 
