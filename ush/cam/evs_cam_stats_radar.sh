@@ -133,9 +133,9 @@ elif [ ${MODELNAME} = rrfs ]; then
 
    export MODEL_INPUT_DIR=${COMINrrfs}
    if [ $DOMAIN = alaska ]; then
-      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2
+      export MODEL_INPUT_TEMPLATE="${modsys}.{init?fmt=%Y%m%d}/??/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2"
    elif [ $DOMAIN = conus ]; then
-      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2
+      export MODEL_INPUT_TEMPLATE="${modsys}.{init?fmt=%Y%m%d}/??/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2"
    fi 
 fi
 

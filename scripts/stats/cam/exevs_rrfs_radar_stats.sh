@@ -30,7 +30,7 @@ if [ ${MODELNAME} = rrfs ]; then
    fhr_inc=1
 
    export MODEL_INPUT_DIR=${COMINrrfs}
-   export CONUS_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2
+   export CONUS_INPUT_TEMPLATE="${modsys}.{init?fmt=%Y%m%d}/??/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.conus_3km.grib2"
 
 fi
 
