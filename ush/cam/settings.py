@@ -674,6 +674,11 @@ class ModelSpecs():
                 'stats_key':'',
                 'plot_name':'NAM Fire Wx Nest'
             },
+            'nam': {
+                'settings_key':'NAM', 
+                'stats_key':'',
+                'plot_name':'NAM'
+            },
             'namnest': {
                 'settings_key':'NAM_NEST', 
                 'stats_key':'',
@@ -851,7 +856,7 @@ class ModelSpecs():
             'HRRR': {'color': '#fb2020',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'NAM': {'color': '#1e3cff',
+            'NAM': {'color': '000000',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'NAM_NEST': {'color': '#1e3cff',
