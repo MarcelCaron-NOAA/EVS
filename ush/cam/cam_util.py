@@ -729,7 +729,7 @@ def copy_data_to_restart(data_dir, restart_dir, met_tool=None, net=None,
 def fname_constructor(template_str, IDATE="YYYYmmdd", IHOUR="HH", 
                       VDATE="YYYYmmdd", VHOUR="HH", VDATEHOUR="YYYYmmddHH",
                       VDATEm1H="YYYYmmdd", VDATEHOURm1H="YYYYmmddHH", 
-                      FHR="HH", LVL="0", OFFSET="HH"):
+                      FHR="HH", LVL="0", OFFSET="HH", IHOUR_GRP="HH"):
     template_str = template_str.replace('{IDATE}', IDATE)
     template_str = template_str.replace('{IHOUR}', IHOUR)
     template_str = template_str.replace('{VDATE}', VDATE)
@@ -740,6 +740,7 @@ def fname_constructor(template_str, IDATE="YYYYmmdd", IHOUR="HH",
     template_str = template_str.replace('{FHR}', FHR)
     template_str = template_str.replace('{LVL}', LVL)
     template_str = template_str.replace('{OFFSET}', OFFSET)
+    template_str = template_str.replace('{IHOUR_GRP}', IHOUR_GRP)
     return template_str
 
 # Create a list of prepbufr file paths

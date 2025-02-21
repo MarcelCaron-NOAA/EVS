@@ -395,35 +395,35 @@ if proceed:
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    '{IHOUR}',
+                    '{IHOUR_GRP}',
                     'rrfs.t{IHOUR}z.prslev.f0{FHR}.conus.grib2'
                 ))
             elif NEST == 'ak':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    '{IHOUR}',
+                    '{IHOUR_GRP}',
                     'rrfs.t{IHOUR}z.prslev.f0{FHR}.ak.grib2'
                 ))
             elif NEST == 'hi':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    '{IHOUR}',
+                    '{IHOUR_GRP}',
                     'rrfs.t{IHOUR}z.prslev.f0{FHR}.hi.grib2'
                 ))
             elif NEST == 'pr':
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    '{IHOUR}',
+                    '{IHOUR_GRP}',
                     'rrfs.t{IHOUR}z.prslev.f0{FHR}.pr.grib2'
                 ))
             else:
                 fcst_templates.append(os.path.join(
                     COMINfcst,
                     'rrfs.{IDATE}',
-                    '{IHOUR}',
+                    '{IHOUR_GRP}',
                     'rrfs.t{IHOUR}z.prslev.f0{FHR}.conus.grib2'
                 ))
         else:
@@ -437,10 +437,18 @@ if proceed:
         for i, FHR in enumerate(leads):
             IDATE = inits_list[v][i].strftime('%Y%m%d')
             IHOUR = inits_list[v][i].strftime('%H')
+            if int(IHOUR) >= 0 and int(IHOUR) < 6:
+                IHOUR_GRP = "00"
+            if int(IHOUR) >= 6 and int(IHOUR) < 12:
+                IHOUR_GRP = "06"
+            if int(IHOUR) >= 12 and int(IHOUR) < 18:
+                IHOUR_GRP = "12"
+            else:
+                IHOUR_GRP = "18"
             for template in fcst_templates:
                 fcst_paths.append(cutil.fname_constructor(
                         template, IDATE=IDATE, IHOUR=IHOUR, 
-                        FHR=str(int(FHR)).zfill(2)
+                        FHR=str(int(FHR)).zfill(2), IHOUR_GRP=IHOUR_GRP
                 ))
     fcst_paths = np.unique(fcst_paths)
     
