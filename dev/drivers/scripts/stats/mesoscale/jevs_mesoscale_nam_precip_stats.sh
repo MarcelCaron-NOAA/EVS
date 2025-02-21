@@ -18,7 +18,7 @@ export SENDCOM=YES
 export KEEPDATA=YES
 export SENDDBN=NO
 export SENDDBN_NTC=
-export SENDMAIL=YES
+export SENDMAIL=NO
 export job=${PBS_JOBNAME:-jevs_nam_precip_stats}
 export jobid=$job.${PBS_JOBID:-$$}
 export SITE=$(cat /etc/cluster_name)  
@@ -38,7 +38,7 @@ export USE_CFP=YES
 export nproc=128  
 export evs_run_mode="production"
 
-export MAILTO="perry.shafran@noaa.gov,andrew.benjamin@noaa.gov"
+export MAILTO="marcel.caron@noaa.gov"
 # export MAILTO="firstname.lastname@noaa.gov"
 
 export config=$HOMEevs/parm/evs_config/mesoscale/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
@@ -49,9 +49,10 @@ module load prod_envir/${prod_envir_ver}
 source $HOMEevs/dev/modulefiles/${COMPONENT}/${COMPONENT}_${STEP}.sh
 evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
+export retro_name=${retro_name:-${retro_name}}
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}/$STEP/cam
 
 # Job Settings and Run
 ${HOMEevs}/jobs/JEVS_MESOSCALE_STATS
