@@ -20,7 +20,7 @@ export RESTART_DIR="${COMOUTsmall}/restart/c${vhr}"
 export COMPLETED_JOBS_FILE="completed_jobs.txt"
 
 # Time Settings
-export FHR_END_FULL="60"
+export FHR_END_FULL="84"
 export FHR_INCR_FULL="6"
 export FHR_END_SHORT="18"
 
