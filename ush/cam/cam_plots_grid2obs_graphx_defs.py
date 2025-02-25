@@ -2293,7 +2293,7 @@ graphics = {
                             },
                         }
                     },
-                }
+                },
                 'var_group2, domain_group3, forecast_group3, init_group2, rrfs': {
                     'stat_by_level':{
                         'DATE_TYPE':'INIT',
