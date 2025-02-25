@@ -36,7 +36,7 @@ set -x
   export evs_run_mode="production"
 
 # EVS Settings
-  export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+  export HOMEevs="/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/retro/EVS"
 
 
 # EVS configuration

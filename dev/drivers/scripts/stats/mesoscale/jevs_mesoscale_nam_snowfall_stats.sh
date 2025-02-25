@@ -27,7 +27,7 @@ export NET="evs"
 export RUN="atmos"
 export vhr=${vhr:-${vhr}}
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+export HOMEevs="/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/retro/EVS"
 
 export STEP="stats"
 export COMPONENT="mesoscale"
@@ -51,6 +51,7 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export retro_name=${retro_name:-${retro_name}}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}
+export DCOMINnohrsc=${DCOMINnohrsc:-${DCOMINsnow}}
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}/$STEP/cam
 
