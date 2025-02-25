@@ -27,7 +27,7 @@ export MODELS="hrrr, namnest, hireswarw, hireswarwmem2, hireswfv3, href, rrfs"
 export VERIF_TYPE="lsr"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
-export pastdays=`echo ${EVAL_PERIOD} | cut -c 5-6`
+export pastdays=31
 export VALID_BEG=""
 export VALID_END=""
 export INIT_BEG=""
@@ -76,7 +76,7 @@ model_list="hrrr namnest hireswarw hireswarwmem2 hireswfv3 href rrfs"
 
 for model in ${model_list}; do
    n=0
-   while [ $n -le $pastdays ]; do
+   while [ "$n" -le "$pastdays" ]; do
       hrs=$((n*24))
       day=`$NDATE -$hrs ${VDATE}00 | cut -c 1-8`
 
