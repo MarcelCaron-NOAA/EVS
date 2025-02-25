@@ -24,7 +24,7 @@ STEP = os.environ['STEP']
 VERIF_CASE = os.environ['VERIF_CASE']
 njob = os.environ['njob']
 eval_period = os.environ['EVAL_PERIOD']
-if eval_period == "last31days":
+if eval_period in ["last31days","Summer2023","Winter2024","Spring2024"]:
     graphics = graphics31
 elif eval_period == "last90days":
     graphics = graphics90

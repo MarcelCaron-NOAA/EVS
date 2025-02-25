@@ -59,7 +59,7 @@ if VERIF_CASE == "precip":
         OBSNAME = os.environ['OBSNAME']
     elif STEP == 'plots':
         EVAL_PERIOD = os.environ['EVAL_PERIOD']
-        if EVAL_PERIOD == 'last31days':
+        if EVAL_PERIOD in ['last31days','Summer2023','Winter2024','Spring2024']:
             all_eval_periods = cutil.get_all_eval_periods(graphics_pcp31)
         elif EVAL_PERIOD == 'last90days':
             all_eval_periods = cutil.get_all_eval_periods(graphics_pcp90)
