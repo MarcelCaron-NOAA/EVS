@@ -36,7 +36,7 @@ set -x
   export evs_run_mode="production"
 
 # EVS Settings
-  export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+  export HOMEevs=/lfs/h2/emc/vpppg/save/${USER}/EVS_rrfs/realtime/EVS
 
 
 # EVS configuration
@@ -55,11 +55,11 @@ export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
   export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
 
 # Developer Settings
-  export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
-  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
+  export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime
+  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
 
   export vhr=${vhr:-${vhr}}
-  export MAILTO="perry.shafran@noaa.gov,andrew.benjamin@noaa.gov"
+  export MAILTO="marcel.caron@noaa.gov"
   # export MAILTO="firstname.lastname@noaa.gov"
 
 # Job Settings and Run

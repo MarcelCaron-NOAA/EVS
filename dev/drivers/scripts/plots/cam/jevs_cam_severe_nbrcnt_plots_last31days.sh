@@ -24,7 +24,7 @@ export COMPONENT=cam
 export STEP=plots
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/realtime/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
@@ -42,8 +42,8 @@ export VERIF_CASE=severe
 export MODELNAME=${COMPONENT}
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${LINE_TYPE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime
+export COMOUT=/lfs/h2/emc/vpppg/ptmp/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
 export nproc=64
 ############################################################
 
@@ -57,7 +57,7 @@ export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}
 export KEEPDATA=${KEEPDATA:-YES}
 
-export MAILTO=${MAILTO:-'marcel.caron@noaa.gov,andrew.benjamin@noaa.gov'}
+export MAILTO=${MAILTO:-'marcel.caron@noaa.gov'}
 
 if [ -z "$MAILTO" ]; then
 
