@@ -98,7 +98,7 @@ elif [ "$NEST" = "hi" ]; then
         export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         export GRID="G196"
     elif [ "$OBSNAME" = "metar" ]; then
-        export VAR_NAME_LIST="TMP2m DPT2m UGRD_VGRD10m"
+        export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export GRID="FCST"
     else
         err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
@@ -116,7 +116,7 @@ elif [ "$NEST" = "pr" ]; then
         export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         export GRID="G194"
     elif [ "$OBSNAME" = "metar" ]; then
-        export VAR_NAME_LIST=""
+        export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export GRID="FCST"
     else
         err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
