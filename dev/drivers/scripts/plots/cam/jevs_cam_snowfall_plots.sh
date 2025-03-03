@@ -52,6 +52,7 @@ export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}
 export vhr=${vhr:-${vhr}}
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/${retro_name}/$STEP/$COMPONENT
+export EVAL_PERIOD="${retro_name}"
 
 # Job Settings and Run
 . ${HOMEevs}/jobs/JEVS_CAM_PLOTS
