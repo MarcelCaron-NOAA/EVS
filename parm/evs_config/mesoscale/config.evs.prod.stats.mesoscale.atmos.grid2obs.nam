@@ -36,7 +36,6 @@ export job=${NET}_${COMPONENT}_${RUN}
 export job_name=${NET}'_'${COMPONENT}'_'${RUN}'_'${VERIF_CASE}'_'${STEP}
 
 # Additional Verification Settings
-export GRID="FCST"
 
 if [ "$OBSNAME" = "raob" ]; then
     export VHOUR_LIST="00 06 12 18"
@@ -52,8 +51,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
+      export GRID="FCST"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST=""
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -72,9 +73,11 @@ fi
     export FHR_GROUP_LIST="FULL"
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
-      export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
+      export VAR_NAME_LIST="SBCAPE MLCAPE HPBL SPFH"
+      export GRID="G240"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc TCDC VIS CEILING"
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -94,8 +97,10 @@ fi
           export VHOUR_LIST="00 06 12 18"
 	  if [ "$OBSNAME" = "raob" ]; then
 		  export VAR_NAME_LIST=""
+          export GRID="G240"
 	  elif [ "$OBSNAME" = "metar" ]; then
 		  export VAR_NAME_LIST="PTYPE"
+          export GRID="FCST"
 	  else
 		  err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
 	  fi
@@ -114,8 +119,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST=""
+      export GRID="G240"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST=""
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -134,8 +141,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST=""
+      export GRID="G218"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc VIS CEILING"
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -155,8 +164,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH SBCAPE MLCAPE HPBL"
+      export GRID="G091"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc TCDC VIS CEILING"
+      export GRID="FCST"
     else 
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -175,8 +186,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST=""
+      export GRID="G091"
     elif [ "$OBSNAME" = "metar" ]; then
       export VAR_NAME_LIST=""
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
@@ -194,8 +207,10 @@ fi
     export MODEL_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.awip32{lead?fmt=%2H}.tm00.grib2"
     if [ "$OBSNAME" = "raob" ]; then
       export VAR_NAME_LIST="SBCAPE MLCAPE"
+      export GRID="G240"
     elif [ "$OBSNAME" = "metar" ]; then
        export VAR_NAME_LIST=""
+      export GRID="FCST"
     else
       err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
