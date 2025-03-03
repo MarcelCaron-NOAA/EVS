@@ -326,6 +326,9 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         plt.close(num)
         logger.info("========================================")
         return None
+
+    df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)    
+
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
         df, bool_success = plot_util.equalize_samples(logger, df, group_by)
@@ -425,7 +428,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
     )
     if sample_equalization:
         pivot_counts = pd.pivot_table(
-            df_aggregated, values='COUNTS', columns='MODEL',
+            df_aggregated, values='EVENTS', columns='MODEL',
             index='FCST_THRESH_VALUE'
         )
     pivot_metric1 = pivot_metric1.dropna() 
@@ -767,13 +770,14 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
             f'{opt}{thresh_label} {units}'
             for thresh_label in thresh_labels
         ]
-    
+
     if sample_equalization:
         counts = pivot_counts.mean(axis=1, skipna=True).fillna('')
         counts = [
             str(int(count)) if not isinstance(count,str) else count 
             for count in counts
         ]
+        counts = [counts[i] for i in thresh_argsort]
         labels = [
             label+f' ({counts[l]})' 
             for l, label in enumerate(labels)
@@ -901,7 +905,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
     ax.legend(
         handles, labels, framealpha=1, 
         bbox_to_anchor=(0.5, -0.15), ncol=5, frameon=True, numpoints=1, 
-        borderpad=.8, labelspacing=1.) 
+        borderpad=.8, labelspacing=1.0, columnspacing=1.0) 
     ax.grid(
         visible=True, which='major', axis='both', alpha=.35, linestyle='--', 
         linewidth=.5, c='black', zorder=0
