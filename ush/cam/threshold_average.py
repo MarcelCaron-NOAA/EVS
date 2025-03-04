@@ -274,6 +274,8 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
         logger.info("========================================")
         return None
     
+    df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)
+
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
         df, bool_success = plot_util.equalize_samples(logger, df, group_by)
@@ -396,7 +398,7 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
     )
     if sample_equalization:
         pivot_counts = pd.pivot_table(
-            df_aggregated, values='COUNTS', columns='MODEL',
+            df_aggregated, values='EVENTS', columns='MODEL',
             index='FCST_THRESH_VALUE'
         )
     pivot_metric = pivot_metric.dropna()
@@ -763,6 +765,7 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
 
     if sample_equalization:
         counts = pivot_counts.mean(axis=1, skipna=True).fillna('')
+        counts = [counts[i] for i in x_vals_argsort]
         for count, xval in zip(counts, x_vals.tolist()):
             if not isinstance(count, str):
                 count = str(int(count))
