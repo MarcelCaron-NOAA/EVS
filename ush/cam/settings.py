@@ -856,7 +856,7 @@ class ModelSpecs():
             'HRRR': {'color': '#fb2020',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'NAM': {'color': '000000',
+            'NAM': {'color': '#000000',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'NAM_NEST': {'color': '#1e3cff',
@@ -930,6 +930,10 @@ class Reference():
         '''
         self.unit_conversions = {
             'kg/m^2': {
+                'convert_to': 'in',
+                'formula': self.formulas.mm_to_in
+            },
+            'mm': {
                 'convert_to': 'in',
                 'formula': self.formulas.mm_to_in
             },
