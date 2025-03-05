@@ -641,7 +641,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['6','18','30','42'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -652,7 +652,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['6','18','30','42'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -678,7 +678,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['6','18','30','42'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -689,7 +689,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['6','18','30','42'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -789,7 +789,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['54'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -800,7 +800,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['54'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -826,7 +826,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['54'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -837,7 +837,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['54'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -937,7 +937,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['66','78'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -948,7 +948,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['66','78'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -974,7 +974,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['66','78'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -985,7 +985,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['66','78'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1235,7 +1235,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1246,7 +1246,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1272,7 +1272,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1283,7 +1283,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1311,7 +1311,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1322,7 +1322,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1348,7 +1348,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1359,7 +1359,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1387,7 +1387,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1398,7 +1398,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1424,7 +1424,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1435,7 +1435,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1463,7 +1463,7 @@ graphics = {
                             'sl1l2':{
                                 'SBCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':[''],
@@ -1474,7 +1474,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':[''],
@@ -1611,7 +1611,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1622,7 +1622,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1648,7 +1648,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1659,7 +1659,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['0','6','12','18','24','30','36','42','48'],
+                                    'FCST_LEADS':['0','12','24','36','48'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1687,7 +1687,7 @@ graphics = {
                             'sl1l2':{
                                 'SBCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':[''],
@@ -1698,7 +1698,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':[''],
@@ -1796,7 +1796,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1807,7 +1807,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1833,7 +1833,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1844,7 +1844,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['54','60'],
+                                    'FCST_LEADS':['60'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1872,7 +1872,7 @@ graphics = {
                             'sl1l2':{
                                 'SBCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':[''],
@@ -1883,7 +1883,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['fbar,obar'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':[''],
@@ -1981,7 +1981,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -1992,7 +1992,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['csi','fbias'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -2018,7 +2018,7 @@ graphics = {
                             'ctc':{
                                 'SBCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['L0'],
                                     'OBS_LEVELs':['L100000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
@@ -2029,7 +2029,7 @@ graphics = {
                                 },
                                 'MLCAPE':{
                                     'STATSs':['sratio,pod,csi'],
-                                    'FCST_LEADS':['66','72','78','84'],
+                                    'FCST_LEADS':['72','84'],
                                     'FCST_LEVELs':['P90-0'],
                                     'OBS_LEVELs':['L90000-0'],
                                     'FCST_THRESHs':['>=250,>=500,>=1000,>=2000'],
