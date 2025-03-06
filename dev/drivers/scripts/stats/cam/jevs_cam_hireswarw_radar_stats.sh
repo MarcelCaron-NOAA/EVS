@@ -41,7 +41,7 @@ export vhr=${vhr:-${vhr}}
 ############################################################
 export envir=prod
 export retro_name=${retro_name:-${retro_name}}
-export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
+export DATAROOT=/lfs/h2/emc/ptmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=YES
 export VERIF_CASE=radar
 export MODELNAME=hireswarw

@@ -52,7 +52,7 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 export retro_name=${retro_name:-${retro_name}}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}
 export DCOMINnohrsc=${DCOMINnohrsc:-${DCOMINsnow}}
-export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
+export DATAROOT=/lfs/h2/emc/ptmp/$USER/evs_test/$envir/tmp
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/${retro_name}/$STEP/cam
 
 # Job Settings and Run

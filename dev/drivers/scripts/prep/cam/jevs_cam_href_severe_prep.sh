@@ -39,7 +39,7 @@ export vhr=${vhr:-${vhr}}
 # For dev testing
 ############################################################
 export envir=prod
-export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
+export DATAROOT=/lfs/h2/emc/ptmp/${USER}/evs_test/$envir/tmp
 export KEEPDATA=YES
 export VERIF_CASE=severe
 export MODELNAME=href
