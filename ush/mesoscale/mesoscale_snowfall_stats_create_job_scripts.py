@@ -368,7 +368,7 @@ njob = 0
 if JOB_GROUP == 'assemble_data':
     for VHOUR in VHOUR_LIST:
         accum_list = ['06']
-        if int(VHOUR) == 00 or int(VHOUR) == 12:
+        if int(VHOUR) in [0, 6, 12, 18]:
             accum_list.append('24')
         # Loop through and write job script for dates
         for accum in accum_list:
@@ -556,7 +556,7 @@ if JOB_GROUP == 'assemble_data':
 elif JOB_GROUP == 'generate_stats':
     for VHOUR in VHOUR_LIST:
         accum_list = ['06']
-        if int(VHOUR) == 00 or int(VHOUR) == 12:
+        if int(VHOUR) in [0, 6, 12, 18]:
             accum_list.append('24')
         # Loop through and write job script for dates
         for accum in accum_list:
