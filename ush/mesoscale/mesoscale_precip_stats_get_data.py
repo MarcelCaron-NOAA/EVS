@@ -40,7 +40,7 @@ for VHOUR in VHOUR_LIST:
     accum_list = ['01']
     if int(VHOUR) % 3 == 0:
         accum_list.append('03')
-    if int(VHOUR) == 12:
+    if int(VHOUR) in [0,6,12,18]:
         accum_list.append('24')
     for accum in accum_list:
         accum_end_dt = datetime.datetime.strptime(VDATE+VHOUR, '%Y%m%d%H')
