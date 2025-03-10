@@ -915,6 +915,10 @@ class Reference():
                 'convert_to': 'in',
                 'formula': self.formulas.mm_to_in
             },
+            'mm': {
+                'convert_to': 'in',
+                'formula': self.formulas.mm_to_in
+            },
             'K': {
                 'convert_to': 'F',
                 'formula': self.formulas.K_to_F
