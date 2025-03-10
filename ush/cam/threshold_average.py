@@ -274,6 +274,8 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
         logger.info("========================================")
         return None
     
+    df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)
+
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
         df, bool_success = plot_util.equalize_samples(logger, df, group_by)
@@ -286,7 +288,7 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
             return None
     df_groups = df.groupby(group_by)
     # Aggregate unit statistics before calculating metrics
-    if str(line_type).upper() == 'CTC':
+    if str(line_type).upper() in ['CTC','NBRCTC']:
         df_aggregated = df_groups.sum()
     else:
         df_aggregated = df_groups.mean()
@@ -396,10 +398,16 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
     )
     if sample_equalization:
         pivot_counts = pd.pivot_table(
-            df_aggregated, values='COUNTS', columns='MODEL',
+            df_aggregated, values='EVENTS', columns='MODEL',
             index='FCST_THRESH_VALUE'
         )
     pivot_metric = pivot_metric.dropna()
+    if sample_equalization:
+        for thresh_idx in np.unique(pivot_counts.index):
+            if thresh_idx not in pivot_metric.index:
+                pivot_counts.drop(
+                    labels=thresh_idx, inplace=True, errors='ignore'
+                )
     if confidence_intervals:
         pivot_ci_lower = pd.pivot_table(
             df_aggregated, values=str(metric_name).upper()+'_BLERR', 
@@ -762,7 +770,9 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
     )
 
     if sample_equalization:
+        
         counts = pivot_counts.mean(axis=1, skipna=True).fillna('')
+        counts = [counts[i] for i in x_vals_argsort]
         for count, xval in zip(counts, x_vals.tolist()):
             if not isinstance(count, str):
                 count = str(int(count))
