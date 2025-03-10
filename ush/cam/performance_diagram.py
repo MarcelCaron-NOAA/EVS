@@ -115,7 +115,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         plt.close(num)
         logger.info("========================================")
         return None
-    if str(line_type).upper() in ['MCTC', 'CTC'] and np.array(thresh).size == 0:
+    if str(line_type).upper() in ['MCTC', 'CTC', 'NBRCTC'] and np.array(thresh).size == 0:
         logger.warning(f"Empty list of thresholds. Continuing onto next"
                        + f" plot...")
         logger.info("========================================")
@@ -327,7 +327,8 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         logger.info("========================================")
         return None
 
-    df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)    
+    if str(line_type).upper() in ['CTC','NBRCTC']:
+        df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)    
 
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
@@ -427,10 +428,16 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         index='FCST_THRESH_VALUE'
     )
     if sample_equalization:
-        pivot_counts = pd.pivot_table(
-            df_aggregated, values='EVENTS', columns='MODEL',
-            index='FCST_THRESH_VALUE'
-        )
+        if str(line_type).upper() in ['MCTC']:
+            pivot_counts = pd.pivot_table(
+                df_aggregated, values='COUNTS', columns='MODEL',
+                index='FCST_THRESH_VALUE'
+            )
+        else:
+            pivot_counts = pd.pivot_table(
+                df_aggregated, values='EVENTS', columns='MODEL',
+                index='FCST_THRESH_VALUE'
+            )
     pivot_metric1 = pivot_metric1.dropna() 
     pivot_metric2 = pivot_metric2.dropna() 
     pivot_metric3 = pivot_metric3.dropna() 
@@ -438,7 +445,8 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         np.concatenate([
             pivot_metric1.index, 
             pivot_metric2.index, 
-            pivot_metric3.index
+            pivot_metric3.index,
+            pivot_counts.index
         ])
     )
     all_model_col = np.unique(
@@ -473,7 +481,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
                 pivot_ci_upper2.index
             ])
         )
-        
+    
     for thresh_idx in all_thresh_idx:
         if np.any([
                 thresh_idx not in pivot_metric.index for pivot_metric 
