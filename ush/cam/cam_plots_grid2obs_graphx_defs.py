@@ -81,7 +81,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -229,7 +229,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -377,7 +377,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -2204,7 +2204,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'SPFH':{
@@ -2232,7 +2232,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'SPFH':{
@@ -4072,7 +4072,7 @@ graphics = {
                         'VX_MASK_LISTs':['Hawaii'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'ctc':{
                                 'DPT2m':{
@@ -4111,7 +4111,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['0','12'],
+                        'FCST_INIT_HOURS':['6','18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'TMP2m':{
@@ -4227,7 +4227,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':['0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23'],
-                        'FCST_INIT_HOURS':['0,12'],
+                        'FCST_INIT_HOURS':['6,18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'TMP2m':{
@@ -4498,7 +4498,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':['0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23'],
-                        'FCST_INIT_HOURS':['0,12'],
+                        'FCST_INIT_HOURS':['6,18'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'TMP2m':{
