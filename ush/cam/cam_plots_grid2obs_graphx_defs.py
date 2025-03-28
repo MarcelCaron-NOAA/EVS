@@ -81,7 +81,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -229,7 +229,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -377,7 +377,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'HGT':{
@@ -2204,7 +2204,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'SPFH':{
@@ -4111,7 +4111,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'sl1l2':{
                                 'TMP2m':{
@@ -4207,122 +4207,6 @@ graphics = {
                                 'UGRD_VGRD10m':{
                                     'STATSs':['bcrmse,me'],
                                     'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84'],
-                                    'FCST_LEVELs':['Z10'],
-                                    'OBS_LEVELs':['Z10'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''], 
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                }
-                            },
-                        }
-                    },
-                    'valid_hour_average':{
-                        'DATE_TYPE':'INIT',
-                        'VALID_BEG':'',
-                        'VALID_END':'',
-                        'INIT_BEG':'',
-                        'INIT_END':'',
-                        'VX_MASK_LISTs':['PuertoRico'],
-                        'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
-                        'FCST_VALID_HOURS':['0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23'],
-                        'FCST_INIT_HOURS':['6,18'],
-                        'VARIABLES':{
-                            'sl1l2':{
-                                'TMP2m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z2'],
-                                    'OBS_LEVELs':['Z2'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'DPT2m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z2'],
-                                    'OBS_LEVELs':['Z2'],
-                                    'FCST_THRESHs':['','','','',''],
-                                    'OBS_THRESHs':['','>=277.594','>=283.15','>=288.706','>=294.261'],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'RH2m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z2'],
-                                    'OBS_LEVELs':['Z2'],
-                                    'FCST_THRESHs':['','','','',''],
-                                    'OBS_THRESHs':['','<=15','<=20','<=25','<=30'],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'MSLP':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z0'],
-                                    'OBS_LEVELs':['Z0'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'UGRD10m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z10'],
-                                    'OBS_LEVELs':['Z10'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'VGRD10m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z10'],
-                                    'OBS_LEVELs':['Z10'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'WIND10m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z10'],
-                                    'OBS_LEVELs':['Z10'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                                'GUSTsfc':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
-                                    'FCST_LEVELs':['Z0'],
-                                    'OBS_LEVELs':['Z0'],
-                                    'FCST_THRESHs':[''],
-                                    'OBS_THRESHs':[''],
-                                    'CONFIDENCE_INTERVALS':'False',
-                                    'INTERP':'BILIN',
-                                    'INTERP_PNTSs':[''],
-                                },
-                            },
-                            'vl1l2':{
-                                'UGRD_VGRD10m':{
-                                    'STATSs':['bcrmse,me'],
-                                    'FCST_LEADS':['0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
                                     'FCST_LEVELs':['Z10'],
                                     'OBS_LEVELs':['Z10'],
                                     'FCST_THRESHs':[''],
@@ -4343,7 +4227,7 @@ graphics = {
                         'VX_MASK_LISTs':['PuertoRico'],
                         'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
                         'FCST_VALID_HOURS':[''],
-                        'FCST_INIT_HOURS':['6','18'],
+                        'FCST_INIT_HOURS':['0','12'],
                         'VARIABLES':{
                             'ctc':{
                                 'DPT2m':{
