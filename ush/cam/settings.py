@@ -3700,7 +3700,7 @@ class Reference():
                                     'fcst_var_levels': ['A03','A3'],
                                     'fcst_var_thresholds': '',
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0', 'A03'],
+                                    'obs_var_names': ['MultiSensor_QPE_03H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0', 'A03'],
                                     'obs_var_levels': ['A03','A3','Z0'],
                                     'obs_var_thresholds': '',
                                     'obs_var_options': '',
@@ -3709,7 +3709,7 @@ class Reference():
                                     'fcst_var_levels': ['A06','A6'],
                                     'fcst_var_thresholds': '',
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0', 'A06'],
+                                    'obs_var_names': ['MultiSensor_QPE_06H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0', 'A06'],
                                     'obs_var_levels': ['A06','A6','Z0'],
                                     'obs_var_thresholds': '',
                                     'obs_var_options': '',
@@ -3718,7 +3718,7 @@ class Reference():
                                     'fcst_var_levels': ['A24'],
                                     'fcst_var_thresholds': '',
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
+                                    'obs_var_names': ['MultiSensor_QPE_24H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
                                     'obs_var_levels': ['A24','Z0'],
                                     'obs_var_thresholds': '',
                                     'obs_var_options': '',
@@ -3761,7 +3761,7 @@ class Reference():
                                                             + ' >=25.4,'
                                                             + ' >=50.8,'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0', 'A03'],
+                                    'obs_var_names': ['MultiSensor_QPE_03H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0', 'A03'],
                                     'obs_var_levels': ['A03','A3','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=1.27,'
                                                            + ' >=2.54,'
@@ -3784,7 +3784,7 @@ class Reference():
                                                             + ' >=76.2,'
                                                             + ' >=101.6'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0','A06'],
+                                    'obs_var_names': ['MultiSensor_QPE_06H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0','A06'],
                                     'obs_var_levels': ['A06','A6','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=2.54,'
                                                            + ' >=6.35,'
@@ -3809,7 +3809,7 @@ class Reference():
                                                             + ' >=101.6'
                                                             + ' >=152.4'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
+                                    'obs_var_names': ['MultiSensor_QPE_24H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
                                     'obs_var_levels': ['A24','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=2.54,'
                                                            + ' >=6.35,'
@@ -3861,7 +3861,7 @@ class Reference():
                                                             + ' >=25.4,'
                                                             + ' >=50.8,'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0','A03'],
+                                    'obs_var_names': ['MultiSensor_QPE_03H_Pass2_Z0', 'APCP', 'APCP_03', 'APCP_01_Z0','A03'],
                                     'obs_var_levels': ['A03','A3','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=1.27,'
                                                            + ' >=2.54,'
@@ -3884,7 +3884,7 @@ class Reference():
                                                             + ' >=76.2,'
                                                             + ' >=101.6'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0','A06'],
+                                    'obs_var_names': ['MultiSensor_QPE_06H_Pass2_Z0', 'APCP', 'APCP_06', 'APCP_01_Z0','A06'],
                                     'obs_var_levels': ['A06','A6','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=2.54,'
                                                            + ' >=6.35,'
@@ -3909,7 +3909,7 @@ class Reference():
                                                             + ' >=101.6'
                                                             + ' >=152.4'),
                                     'fcst_var_options': '',
-                                    'obs_var_names': ['MultiSensor_QPE_01H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
+                                    'obs_var_names': ['MultiSensor_QPE_24H_Pass2_Z0', 'APCP', 'APCP_24', 'APCP_01_Z0','A24'],
                                     'obs_var_levels': ['A24','Z0'],
                                     'obs_var_thresholds': ('>=0.254, >=2.54,'
                                                            + ' >=6.35,'
