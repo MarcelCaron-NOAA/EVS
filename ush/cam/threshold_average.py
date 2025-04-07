@@ -274,7 +274,10 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
         logger.info("========================================")
         return None
     
-    df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)
+    if str(line_type).upper() in ['CTC','NBRCTC']:
+        df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)
+    elif str(line_type).upper() in ['NBRCNT']: 
+        df['EVENTS'] = np.array(df['O_RATE'].values*df['TOTAL'].values>0).astype(int)
 
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
@@ -294,6 +297,8 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
         df_aggregated = df_groups.mean()
     if sample_equalization:
         df_aggregated['COUNTS']=df_groups.size()
+    if str(line_type).upper() in ['NBRCNT']:
+        df_aggregated['EVENTS'] = np.array(df_aggregated['EVENTS']*df_aggregated['COUNTS']).astype(int)
     # Remove data if they exist for some but not all models at some value of 
     # the indep. variable. Otherwise plot_util.calculate_stat will throw an 
     # error
@@ -770,7 +775,6 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
     )
 
     if sample_equalization:
-        
         counts = pivot_counts.mean(axis=1, skipna=True).fillna('')
         counts = [counts[i] for i in x_vals_argsort]
         for count, xval in zip(counts, x_vals.tolist()):
