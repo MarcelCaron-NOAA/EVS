@@ -63,7 +63,7 @@ fi
 
 if [ ${MODELNAME} = hireswarw ]; then
 
-   fhr_min=1
+   fhr_min=0
    fhr_max=48
    fhr_inc=1
    
@@ -72,7 +72,7 @@ if [ ${MODELNAME} = hireswarw ]; then
 
 elif [ ${MODELNAME} = hireswarwmem2 ]; then
 
-   fhr_min=1
+   fhr_min=0
    fhr_max=48
    fhr_inc=1
 
@@ -81,7 +81,7 @@ elif [ ${MODELNAME} = hireswarwmem2 ]; then
 
 elif [ ${MODELNAME} = hireswfv3 ]; then
 
-   fhr_min=1
+   fhr_min=0
    fhr_max=60
    fhr_inc=1
 
