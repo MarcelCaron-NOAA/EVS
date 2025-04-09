@@ -81,7 +81,7 @@ elif [ ${MODELNAME} = hireswarwmem2 ]; then
 
 elif [ ${MODELNAME} = hireswfv3 ]; then
 
-   fhr_min=1
+   fhr_min=0
    fhr_max=60
    fhr_inc=1
 
@@ -133,9 +133,9 @@ elif [ ${MODELNAME} = rrfs ]; then
 
    export MODEL_INPUT_DIR=${COMINrrfs}
    if [ $DOMAIN = alaska ]; then
-      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2
+      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.${DOM}.grib2
    elif [ $DOMAIN = conus ]; then
-      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.f{lead?fmt=%3H}.${DOM}.grib2
+      export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.${DOM}.grib2
    fi 
 fi
 
@@ -216,9 +216,9 @@ while [ $fhr -le $fhr_max ]; do
          ihr_avail="00 06 12 18"
       fi
       if [ $DOMAIN = alaska ]; then
-         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).${DOM}.grib2
+         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.3km.f$(printf "%03d" $fhr).${DOM}.grib2
       elif [ $DOMAIN = conus ]; then
-         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.f$(printf "%03d" $fhr).${DOM}.grib2
+         export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.3km.f$(printf "%03d" $fhr).${DOM}.grib2
       fi
    fi
 
