@@ -22,7 +22,7 @@ import string_template_substitution
 import plot_util
 from settings import Paths, ModelSpecs
 
-path = Paths()
+paths = Paths()
 model_colors = ModelSpecs()
 
 def daterange(start, end, td):

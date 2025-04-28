@@ -23,6 +23,7 @@ from prune_stat_files import prune_data
 from settings import ModelSpecs
 import plot_util
 
+model_colors = ModelSpecs()
 
 # =================== FUNCTIONS =========================
 
