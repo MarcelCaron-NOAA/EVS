@@ -89,13 +89,13 @@ MEMNUM="ctl"
 echo "${USHevs}/${COMPONENT}/evs_rrfs_severe_prep.sh $MEMNUM $njob" >> $DATA/poescript
 njob=$((njob+1))
 
-
-for member in {1..5}; do
-   MEMNUM="${member}"
-
-   echo "${USHevs}/${COMPONENT}/evs_rrfs_severe_prep.sh $MEMNUM $njob" >> $DATA/poescript
-   njob=$((njob+1))
-done
+# Muting because we are not verifying REFS severe in the RRFS realtime experiment
+#for member in {1..5}; do
+#   MEMNUM="${member}"
+#
+#   echo "${USHevs}/${COMPONENT}/evs_rrfs_severe_prep.sh $MEMNUM $njob" >> $DATA/poescript
+#   njob=$((njob+1))
+#done
 
 
 ###################################################################
