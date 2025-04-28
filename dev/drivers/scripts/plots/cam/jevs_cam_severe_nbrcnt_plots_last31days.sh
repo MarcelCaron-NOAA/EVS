@@ -43,7 +43,7 @@ export MODELNAME=${COMPONENT}
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${LINE_TYPE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime
-export COMOUT=/lfs/h2/emc/vpppg/ptmp/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/ptmp/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
 export nproc=64
 ############################################################
 
