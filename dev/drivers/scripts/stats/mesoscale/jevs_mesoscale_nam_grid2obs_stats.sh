@@ -56,7 +56,7 @@ export PYTHONPATH=$HOMEevs/ush/$COMPONENT:$PYTHONPATH
 
 # Developer Settings
   export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime
-  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
+  export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime/$STEP/cam
 
   export vhr=${vhr:-${vhr}}
   export MAILTO="marcel.caron@noaa.gov"

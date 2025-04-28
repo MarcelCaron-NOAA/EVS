@@ -51,7 +51,7 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/realtime/$STEP/cam
 
 # Job Settings and Run
 ${HOMEevs}/jobs/JEVS_MESOSCALE_STATS
