@@ -817,7 +817,10 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
         [f'{date_hour:02d}' for date_hour in date_hours],
         ', ', '', 'Z', 'and ', ''
     )
-    date_start_string = date_range[0].strftime('%d %b %Y')
+    if not df.empty and date_type in df.columns and not df[date_type].isna().all():
+        date_start_string = df[date_type].min().strftime('%d %b %Y')
+    else:
+        date_start_string = date_range[0].strftime('%d %b %Y')
     date_end_string = date_range[1].strftime('%d %b %Y')
     metric_string = metric_long_name
     if str(level).upper() in ['CEILING', 'TOTAL', 'PBL']:
