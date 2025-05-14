@@ -14,7 +14,7 @@ export OBSDIR=OBS
 mkdir -p $DATA/$OBSDIR
 export modsys=rrfs
 export regionnest=firewx
-export outtyp=prslev
+export outtyp="prslev.1p5km"
 
 model1=`echo $MODELNAME | tr a-z A-Z`
 export model1
@@ -44,18 +44,18 @@ do
      aday=`echo $adate |cut -c1-8`
      acyc=`echo $adate |cut -c9-10`
      if [ $acyc = 00 -o $acyc = 06 -o $acyc = 12 -o $acyc = 18 ]; then
-     if [ -e $COMINrrfs/rrfs.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2 ]
+     if [ -e $COMINrrfs/firewx.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2 ]
      then
        echo $fhr >> $DATA/fcstlist
        let "fcstnum=fcstnum+1"
      else
        echo $fhr >> $DATA/fcstmiss
        let "fcstmiss=fcstmiss+1"
-       echo "WARNING: File $COMINrrfs/rrfs.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2 is missing."
+       echo "WARNING: File $COMINrrfs/firewx.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2 is missing."
        if [ $SENDMAIL = "YES" ]; then
         export subject="RRFS Firewx File Missing for EVS ${COMPONENT}"
         echo "Warning: The RRFS Firewx file is missing for valid date ${VDATE}." > mailmsg
-        echo "Missing file is $COMINrrfs/rrfs.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2" >> mailmsg
+        echo "Missing file is $COMINrrfs/firewx.${aday}/${acyc}/rrfs.t${acyc}z.${outtyp}.f${fhr}.${regionnest}.grib2" >> mailmsg
         echo "Job ID: $jobid" >> mailmsg
         cat mailmsg | mail -s "$subject" $MAILTO
        fi
