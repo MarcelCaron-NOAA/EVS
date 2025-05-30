@@ -120,6 +120,17 @@ then
  obfound=1
  mkdir -p $DATA/$OBSDIR/nam.${obday}
   cp -v $COMINobsproc/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum} $DATA/$OBSDIR/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum}
+  split_by_subset $DATA/$OBSDIR/nam.${obday}/nam.t${obcyc}z.prepbufr/tm${tmnum}
+  for subset in ADPUPA ADPSFC MSONET SFCSHP; do
+    if [ -e $subset ]; then
+      cat $subset >> prepbufr.tmp
+    fi
+  done
+  if [ -e prepbufr.tmp ]; then
+    mv prepbufr.tmp $DATA/$OBSDIR/nam.$obday/nam.t${obcyc}z.prepbufr.tm${tmnum}
+  else
+    obfound=0
+  fi
 else
   echo "WARNING: File $COMINobsproc/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum} is missing."
   if [ $SENDMAIL = "YES" ]; then
@@ -174,21 +185,3 @@ else
   echo "NUMFCST, NUMOBS", $fcstnum, $obfound
 
 fi
-
-# Cat the METplus log files
-log_dirs="$DATA/logs/*"
-for log_dir in $log_dirs; do
-    if [ -d $log_dir ]; then
-        log_file_count=$(find $log_dir -type f | wc -l)
-        if [[ $log_file_count -ne 0 ]]; then
-            log_files=("$log_dir"/*)
-            for log_file in "${log_files[@]}"; do
-                if [ -f "$log_file" ]; then
-                    echo "Start: $log_file"
-                    cat "$log_file"
-                    echo "End: $log_file"
-                fi
-            done
-        fi
-    fi
-done
