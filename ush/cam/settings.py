@@ -103,6 +103,14 @@ class Paths():
                 'data_dir': f"/path/to/stat/files/directory",
                 'file_template': 'Use.to.overwrite.default.template.format.stat',
             },
+            'hrrrctl': {
+                'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/evs/v2.0/Radiosonde2025A/stats/cam",
+                'file_template': 'hrrr.{valid?fmt=%Y%m%d}/evs.stats.hrrr.atmos.severe.v{valid?fmt=%Y%m%d}.stat',
+            },
+            'hrrrexp': {
+                'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/evs/v2.0/Radiosonde2025B/stats/cam",
+                'file_template': 'hrrr.{valid?fmt=%Y%m%d}/evs.stats.hrrr.atmos.severe.v{valid?fmt=%Y%m%d}.stat',
+            },
         }
 
 class Presets():
@@ -699,6 +707,16 @@ class ModelSpecs():
                 'stats_key':'',
                 'plot_name':'HRRR'
             },
+            'hrrrctl': {
+                'settings_key':'HRRR_CTL', 
+                'stats_key':'hrrr',
+                'plot_name':'HRRR (Ctl.)'
+            },
+            'hrrrexp': {
+                'settings_key':'HRRR_EXP', 
+                'stats_key':'hrrr',
+                'plot_name':'HRRR (Exp.)'
+            },
             'NAMNA': {
                 'settings_key':'NAM', 
                 'stats_key':'',
@@ -856,7 +874,10 @@ class ModelSpecs():
             'HRRR': {'color': '#fb2020',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'NAM': {'color': '#000000',
+            'HRRR_CTL': {'color': '#000000',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'HRRR_EXP': {'color': '#fb2020',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'NAM_NEST': {'color': '#1e3cff',
@@ -1022,9 +1043,9 @@ class Reference():
                                     'SNOD': 'Accum. Snow Depth',
                                     'SNOD_06': ('6-hour Accum. Snow Depth'),
                                     'SNOD_24': ('24-hour Accum. Snow Depth'),
-                                    'ASNOW': 'Total Snowfall',
-                                    'ASNOW_06': ('6-hour Total Snowfall'),
-                                    'ASNOW_24': ('24-hour Total Snowfall'),
+                                    'ASNOW': 'Accumulated Snowfall',
+                                    'ASNOW_06': ('6-hour Accumulated Snowfall'),
+                                    'ASNOW_24': ('24-hour Accumulated Snowfall'),
                                     'APCP': ('Accumulated'
                                                 + ' Precipitation'),
                                     'APCP_01': ('Accumulated'
