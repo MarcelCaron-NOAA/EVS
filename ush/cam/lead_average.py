@@ -389,7 +389,7 @@ def plot_lead_average(df: pd.DataFrame, logger: logging.Logger,
             if str(df['OBS_VAR'].tolist()[0]).upper() in ['CEILING']:
                 if units in ['m', 'gpm']:
                     units = 'gpm'
-            elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL']:
+            elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL','PBL']:
                 unit_convert = False
             elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HGT']:
                 unit_convert = False
@@ -986,7 +986,7 @@ def plot_lead_average(df: pd.DataFrame, logger: logging.Logger,
     if str(var_long_name_key).upper() == 'HGT':
         if str(df['OBS_VAR'].tolist()[0]).upper() in ['CEILING']:
             var_long_name_key = 'HGTCLDCEIL'
-        elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL']:
+        elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL','PBL']:
             var_long_name_key = 'HPBL'
     var_long_name = variable_translator[var_long_name_key]
     if unit_convert:
@@ -1113,7 +1113,7 @@ def plot_lead_average(df: pd.DataFrame, logger: logging.Logger,
         var_savename = 'ASNOW'
     elif any(field in var_savename.upper() for field in ['SNOD']):
         var_savename = 'SNOD'
-    elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL']:
+    elif str(df['OBS_VAR'].tolist()[0]).upper() in ['HPBL','PBL']:
         var_savename = 'HPBL'
     elif str(df['OBS_VAR'].tolist()[0]).upper() in ['MSLET','MSLMA','PRMSL']:
         var_savename = 'MSLET'
