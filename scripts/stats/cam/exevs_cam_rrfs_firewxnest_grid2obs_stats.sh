@@ -120,7 +120,7 @@ then
  obfound=1
  mkdir -p $DATA/$OBSDIR/nam.${obday}
   cp -v $COMINobsproc/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum} $DATA/$OBSDIR/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum}
-  split_by_subset $DATA/$OBSDIR/nam.${obday}/nam.t${obcyc}z.prepbufr/tm${tmnum}
+  split_by_subset $DATA/$OBSDIR/nam.${obday}/nam.t${obcyc}z.prepbufr.tm${tmnum}
   for subset in ADPUPA ADPSFC MSONET SFCSHP; do
     if [ -e $subset ]; then
       cat $subset >> prepbufr.tmp
