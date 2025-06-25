@@ -3,7 +3,7 @@
 #PBS -j oe
 #PBS -q dev
 #PBS -A VERF-DEV
-#PBS -l walltime=03:15:00
+#PBS -l walltime=04:15:00
 #PBS -l place=vscatter:exclhost,select=1:ncpus=128:ompthreads=1:mem=256GB
 #PBS -l debug=true
 
@@ -15,7 +15,7 @@ export machine=WCOSS2
 export SENDMAIL=YES
 export SENDECF=YES
 export SENDCOM=YES
-export KEEPDATA=YES
+export KEEPDATA=NO
 export SENDDBN=NO
 export SENDDBN_NTC=
 export job=${PBS_JOBNAME:-jevs_cam_rrfs_precip_stats}
