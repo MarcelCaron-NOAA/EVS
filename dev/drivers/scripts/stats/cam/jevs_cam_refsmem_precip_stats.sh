@@ -1,5 +1,5 @@
 #PBS -S /bin/bash
-#PBS -N jevs_cam_hrrr_precip_stats
+#PBS -N jevs_cam_refsmem_precip_stats
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
@@ -19,8 +19,6 @@ export SENDCOM=YES
 export KEEPDATA=NO
 export SENDDBN=NO
 export SENDDBN_NTC=
-export job=${PBS_JOBNAME:-jevs_cam_hrrr_precip_stats}
-export jobid=$job.${PBS_JOBID:-$$}
 export SITE=$(cat /etc/cluster_name)
 export USE_CFP=YES
 export nproc=128
@@ -31,12 +29,15 @@ export STEP="stats"
 export COMPONENT="cam"
 export RUN="atmos"
 export VERIF_CASE="precip"
-export MODELNAME="hrrr"
+export mem=${mem:-1}
+export MODELNAME="refsmem${mem}"
+export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}}
+export jobid=$job.${PBS_JOBID:-$$}
 
 # EVS Settings
 export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
-export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
+export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.refsmem
 
 # Load Modules
 source $HOMEevs/versions/run.ver

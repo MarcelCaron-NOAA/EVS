@@ -11,6 +11,7 @@ Run By: scripts/stats/cam/exevs_hireswarw_grid2obs_stats.sh
         scripts/stats/cam/exevs_hireswfv3_grid2obs_stats.sh
         scripts/stats/cam/exevs_hrrr_grid2obs_stats.sh
         scripts/stats/cam/exevs_namnest_grid2obs_stats.sh
+        scripts/stats/cam/exevs_refsmem_grid2obs_stats.sh
 '''
 import os
 from datetime import datetime

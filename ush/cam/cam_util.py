@@ -90,6 +90,12 @@ def get_data_type(fname):
             'not':[],
             'type': 'fcst'
         },
+        'REFS Member Forecast': {
+            'and':['rrfs','m00'],
+            'or':[''],
+            'not':[],
+            'type': 'fcst'
+        },
     }
     for k in data_type_dict:
         if not data_type_dict[k]['and'] or not any(data_type_dict[k]['and']):

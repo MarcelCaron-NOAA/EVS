@@ -175,6 +175,14 @@ if job_type in ['generate', 'reformat']:
                            MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
                            MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
                            MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
+                        elif MODELNAME == "refsmem":
+                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
+                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
+                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
                         else:
                            MODEL_PCP_COMBINE_grib2_pdt = ""
                            MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""

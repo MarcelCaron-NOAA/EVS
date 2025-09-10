@@ -125,6 +125,19 @@ elif [ ${MODELNAME} = namnest ]; then
    export MODEL_INPUT_DIR=${COMINnam}
    export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/${modsys}.t{init?fmt=%2H}z.${DOMAIN}nest.hiresf{lead?fmt=%2H}.tm00.grib2
 
+elif [[ ${MODELNAME} == *refsmem* ]]; then
+
+   fhr_min=0
+   fhr_max=60
+   fhr_inc=1
+
+   export MODEL_INPUT_DIR=${COMINrefsmem}
+   if [[ "$mem" == "ctl" ]]; then
+      export MODEL_INPUT_TEMPLATE=rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%2H}.${DOM}.grib2
+   else
+      export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%2H}.${DOM}.grib2
+   fi
+
 fi
 
 

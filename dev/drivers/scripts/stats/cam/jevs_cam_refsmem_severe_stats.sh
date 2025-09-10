@@ -1,4 +1,4 @@
-#PBS -N jevs_cam_hrrr_severe_stats_00
+#PBS -N jevs_cam_refsmem_severe_stats_00
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
@@ -40,8 +40,8 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export VERIF_CASE=severe
-export MODELNAME=hrrr
-export modsys=hrrr
+export MODELNAME=refsmem${mem}
+export modsys=rrfs
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d

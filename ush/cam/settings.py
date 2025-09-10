@@ -620,7 +620,31 @@ class ModelSpecs():
             'wafs': {
                 'settings_key':'WAFS', 
                 'plot_name':'WAFS'
-            }
+            },
+            'refsmemctl': {
+                'settings_key':'REFS_MEM_CTL', 
+                'plot_name':'REFS Control'
+            },
+            'refsmem1': {
+                'settings_key':'REFS_MEM_1', 
+                'plot_name':'REFS Mem. 1'
+            },
+            'refsmem2': {
+                'settings_key':'REFS_MEM_2', 
+                'plot_name':'REFS Mem. 2'
+            },
+            'refsmem3': {
+                'settings_key':'REFS_MEM_3', 
+                'plot_name':'REFS Mem. 3'
+            },
+            'refsmem4': {
+                'settings_key':'REFS_MEM_4', 
+                'plot_name':'REFS Mem. 4'
+            },
+            'refsmem5': {
+                'settings_key':'REFS_MEM_5', 
+                'plot_name':'REFS Mem. 5'
+            },
         }
 
         '''
@@ -717,6 +741,24 @@ class ModelSpecs():
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'NAM_NEST': {'color': '#1e3cff',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_CTL': {'color': '#000000',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_1': {'color': '#00dc00',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_2': {'color': '#e69f00',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_3': {'color': '#56b4e9',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_4': {'color': '#696969',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
+            'REFS_MEM_5': {'color': '#8400c8',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'RRFS_A': {'color': '#00dc00',
