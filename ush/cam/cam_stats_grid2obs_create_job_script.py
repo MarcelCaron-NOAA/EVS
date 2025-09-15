@@ -123,53 +123,102 @@ if job_type == 'generate':
     plot_this_var = False
     if VAR_NAME in var_defs:
         if VERIF_TYPE in var_defs[VAR_NAME]:
-            if MODELNAME in var_defs[VAR_NAME][VERIF_TYPE]:
-                plot_this_var = True
-                var_def = var_defs[VAR_NAME][VERIF_TYPE][MODELNAME]
-                FCST_VAR1_NAME = var_def['var1_fcst_name']
-                FCST_VAR1_LEVELS = var_def['var1_fcst_levels']
-                FCST_VAR1_THRESHOLDS = var_def['var1_fcst_thresholds']
-                FCST_VAR1_OPTIONS = var_def['var1_fcst_options']
-                OBS_VAR1_NAME = var_def['var1_obs_name']
-                OBS_VAR1_LEVELS = var_def['var1_obs_levels']
-                OBS_VAR1_THRESHOLDS = var_def['var1_obs_thresholds']
-                OBS_VAR1_OPTIONS = var_def['var1_obs_options']
-                if 'var2_fcst_name' in var_def:
-                    FCST_VAR2_NAME = var_def['var2_fcst_name']
-                    FCST_VAR2_LEVELS = var_def['var2_fcst_levels']
-                    FCST_VAR2_THRESHOLDS = var_def['var2_fcst_thresholds']
-                    FCST_VAR2_OPTIONS = var_def['var2_fcst_options']
-                    OBS_VAR2_NAME = var_def['var2_obs_name']
-                    OBS_VAR2_LEVELS = var_def['var2_obs_levels']
-                    OBS_VAR2_THRESHOLDS = var_def['var2_obs_thresholds']
-                    OBS_VAR2_OPTIONS = var_def['var2_obs_options']
-                else:
-                    FCST_VAR2_NAME = ''
-                    FCST_VAR2_LEVELS = ''
-                    FCST_VAR2_THRESHOLDS = ''
-                    FCST_VAR2_OPTIONS = ''
-                    OBS_VAR2_NAME = ''
-                    OBS_VAR2_LEVELS = ''
-                    OBS_VAR2_THRESHOLDS = ''
-                    OBS_VAR2_OPTIONS = ''
-                OUTPUT_FLAG_CTC = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CTC']
-                )
-                OUTPUT_FLAG_SL1L2 = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['SL1L2']
-                )
-                OUTPUT_FLAG_VL1L2 = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VL1L2']
-                )
-                OUTPUT_FLAG_CNT = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CNT']
-                )
-                OUTPUT_FLAG_VCNT = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VCNT']
-                )
-                OUTPUT_FLAG_MCTC = (
-                    var_defs[VAR_NAME][VERIF_TYPE]['output_types']['MCTC']
-                )
+            if 'refsmem' in MODELNAME:
+                if 'refsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
+                    plot_this_var = True
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['refsmem']
+                    FCST_VAR1_NAME = var_def['var1_fcst_name']
+                    FCST_VAR1_LEVELS = var_def['var1_fcst_levels']
+                    FCST_VAR1_THRESHOLDS = var_def['var1_fcst_thresholds']
+                    FCST_VAR1_OPTIONS = var_def['var1_fcst_options']
+                    OBS_VAR1_NAME = var_def['var1_obs_name']
+                    OBS_VAR1_LEVELS = var_def['var1_obs_levels']
+                    OBS_VAR1_THRESHOLDS = var_def['var1_obs_thresholds']
+                    OBS_VAR1_OPTIONS = var_def['var1_obs_options']
+                    if 'var2_fcst_name' in var_def:
+                        FCST_VAR2_NAME = var_def['var2_fcst_name']
+                        FCST_VAR2_LEVELS = var_def['var2_fcst_levels']
+                        FCST_VAR2_THRESHOLDS = var_def['var2_fcst_thresholds']
+                        FCST_VAR2_OPTIONS = var_def['var2_fcst_options']
+                        OBS_VAR2_NAME = var_def['var2_obs_name']
+                        OBS_VAR2_LEVELS = var_def['var2_obs_levels']
+                        OBS_VAR2_THRESHOLDS = var_def['var2_obs_thresholds']
+                        OBS_VAR2_OPTIONS = var_def['var2_obs_options']
+                    else:
+                        FCST_VAR2_NAME = ''
+                        FCST_VAR2_LEVELS = ''
+                        FCST_VAR2_THRESHOLDS = ''
+                        FCST_VAR2_OPTIONS = ''
+                        OBS_VAR2_NAME = ''
+                        OBS_VAR2_LEVELS = ''
+                        OBS_VAR2_THRESHOLDS = ''
+                        OBS_VAR2_OPTIONS = ''
+                    OUTPUT_FLAG_CTC = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CTC']
+                    )
+                    OUTPUT_FLAG_SL1L2 = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['SL1L2']
+                    )
+                    OUTPUT_FLAG_VL1L2 = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VL1L2']
+                    )
+                    OUTPUT_FLAG_CNT = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CNT']
+                    )
+                    OUTPUT_FLAG_VCNT = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VCNT']
+                    )
+                    OUTPUT_FLAG_MCTC = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['MCTC']
+                    )
+            else:
+                if MODELNAME in var_defs[VAR_NAME][VERIF_TYPE]:
+                    plot_this_var = True
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE][MODELNAME]
+                    FCST_VAR1_NAME = var_def['var1_fcst_name']
+                    FCST_VAR1_LEVELS = var_def['var1_fcst_levels']
+                    FCST_VAR1_THRESHOLDS = var_def['var1_fcst_thresholds']
+                    FCST_VAR1_OPTIONS = var_def['var1_fcst_options']
+                    OBS_VAR1_NAME = var_def['var1_obs_name']
+                    OBS_VAR1_LEVELS = var_def['var1_obs_levels']
+                    OBS_VAR1_THRESHOLDS = var_def['var1_obs_thresholds']
+                    OBS_VAR1_OPTIONS = var_def['var1_obs_options']
+                    if 'var2_fcst_name' in var_def:
+                        FCST_VAR2_NAME = var_def['var2_fcst_name']
+                        FCST_VAR2_LEVELS = var_def['var2_fcst_levels']
+                        FCST_VAR2_THRESHOLDS = var_def['var2_fcst_thresholds']
+                        FCST_VAR2_OPTIONS = var_def['var2_fcst_options']
+                        OBS_VAR2_NAME = var_def['var2_obs_name']
+                        OBS_VAR2_LEVELS = var_def['var2_obs_levels']
+                        OBS_VAR2_THRESHOLDS = var_def['var2_obs_thresholds']
+                        OBS_VAR2_OPTIONS = var_def['var2_obs_options']
+                    else:
+                        FCST_VAR2_NAME = ''
+                        FCST_VAR2_LEVELS = ''
+                        FCST_VAR2_THRESHOLDS = ''
+                        FCST_VAR2_OPTIONS = ''
+                        OBS_VAR2_NAME = ''
+                        OBS_VAR2_LEVELS = ''
+                        OBS_VAR2_THRESHOLDS = ''
+                        OBS_VAR2_OPTIONS = ''
+                    OUTPUT_FLAG_CTC = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CTC']
+                    )
+                    OUTPUT_FLAG_SL1L2 = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['SL1L2']
+                    )
+                    OUTPUT_FLAG_VL1L2 = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VL1L2']
+                    )
+                    OUTPUT_FLAG_CNT = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['CNT']
+                    )
+                    OUTPUT_FLAG_VCNT = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['VCNT']
+                    )
+                    OUTPUT_FLAG_MCTC = (
+                        var_defs[VAR_NAME][VERIF_TYPE]['output_types']['MCTC']
+                    )
     if not plot_this_var:
         print(f"FATAL ERROR: VAR_NAME \"{VAR_NAME}\" is not valid for VERIF_TYPE "
               + f"\"{VERIF_TYPE}\" and MODEL \"{MODELNAME}\". Check "

@@ -127,78 +127,111 @@ if job_type in ['generate', 'reformat']:
     plot_this_var = False
     if VAR_NAME in var_defs:
         if VERIF_TYPE in var_defs[VAR_NAME]:
-            if MODELNAME in var_defs[VAR_NAME][VERIF_TYPE]:
-                plot_this_var = True
-                var_def = var_defs[VAR_NAME][VERIF_TYPE][MODELNAME]
-                FCST_VAR_NAME = var_def['var1_fcst_name']
-                FCST_VAR_LEVELS = var_def['var1_fcst_levels']
-                FCST_VAR_THRESHOLDS = var_def['var1_fcst_thresholds']
-                FCST_VAR_OPTIONS = var_def['var1_fcst_options']
-                OBS_VAR_NAME = var_def['var1_obs_name']
-                OBS_VAR_LEVELS = var_def['var1_obs_levels']
-                OBS_VAR_THRESHOLDS = var_def['var1_obs_thresholds']
-                OBS_VAR_OPTIONS = var_def['var1_obs_options']
-                if job_type == 'reformat':
-                    MODEL_PCP_COMBINE_COMMAND = MODEL_PCP_COMBINE_COMMAND.replace(
-                        '{FCST_VAR_NAME}', FCST_VAR_NAME
-                    )
-                    if 'WEASD' in FCST_VAR_NAME:
-                        if MODELNAME == "hireswarw":
-                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                        elif MODELNAME == "hireswarwmem2":
-                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ 0 ];"
-                        elif MODELNAME == "hireswfv3":
-                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
-                        elif MODELNAME == "hrrr":
-                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
-                        elif MODELNAME == "refsmem":
-                           MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
+            if 'refsmem' in MODELNAME:
+                if 'refsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
+                    plot_this_var = True
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['refsmem']
+                    FCST_VAR_NAME = var_def['var1_fcst_name']
+                    FCST_VAR_LEVELS = var_def['var1_fcst_levels']
+                    FCST_VAR_THRESHOLDS = var_def['var1_fcst_thresholds']
+                    FCST_VAR_OPTIONS = var_def['var1_fcst_options']
+                    OBS_VAR_NAME = var_def['var1_obs_name']
+                    OBS_VAR_LEVELS = var_def['var1_obs_levels']
+                    OBS_VAR_THRESHOLDS = var_def['var1_obs_thresholds']
+                    OBS_VAR_OPTIONS = var_def['var1_obs_options']
+                    if job_type == 'reformat':
+                        MODEL_PCP_COMBINE_COMMAND = MODEL_PCP_COMBINE_COMMAND.replace(
+                            '{FCST_VAR_NAME}', FCST_VAR_NAME
+                        )
+                        if 'WEASD' in FCST_VAR_NAME:
+                            MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                            MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                            MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
+                            MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                            MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
+                            MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                            MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
                         else:
-                           MODEL_PCP_COMBINE_grib2_pdt = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_val1 = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_idx2 = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_val2 = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_idx3 = ""
-                           MODEL_PCP_COMBINE_grib2_pdt_val3 = ""
-                    else:
-                        MODEL_PCP_COMBINE_grib2_pdt = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_val1 = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_idx2 = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_val2 = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_idx3 = ""
-                        MODEL_PCP_COMBINE_grib2_pdt_val3 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val1 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx2 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val2 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx3 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val3 = ""
+            else:
+                if MODELNAME in var_defs[VAR_NAME][VERIF_TYPE]:
+                    plot_this_var = True
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE][MODELNAME]
+                    FCST_VAR_NAME = var_def['var1_fcst_name']
+                    FCST_VAR_LEVELS = var_def['var1_fcst_levels']
+                    FCST_VAR_THRESHOLDS = var_def['var1_fcst_thresholds']
+                    FCST_VAR_OPTIONS = var_def['var1_fcst_options']
+                    OBS_VAR_NAME = var_def['var1_obs_name']
+                    OBS_VAR_LEVELS = var_def['var1_obs_levels']
+                    OBS_VAR_THRESHOLDS = var_def['var1_obs_thresholds']
+                    OBS_VAR_OPTIONS = var_def['var1_obs_options']
+                    if job_type == 'reformat':
+                        MODEL_PCP_COMBINE_COMMAND = MODEL_PCP_COMBINE_COMMAND.replace(
+                            '{FCST_VAR_NAME}', FCST_VAR_NAME
+                        )
+                        if 'WEASD' in FCST_VAR_NAME:
+                            if MODELNAME == "hireswarw":
+                               MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                            elif MODELNAME == "hireswarwmem2":
+                               MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ 0 ];"
+                            elif MODELNAME == "hireswfv3":
+                               MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
+                            elif MODELNAME == "hrrr":
+                               MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
+                            elif MODELNAME == "refsmem":
+                               MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
+                            else:
+                               MODEL_PCP_COMBINE_grib2_pdt = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_val1 = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_idx2 = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_val2 = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_idx3 = ""
+                               MODEL_PCP_COMBINE_grib2_pdt_val3 = ""
+                        else:
+                            MODEL_PCP_COMBINE_grib2_pdt = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx1 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val1 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx2 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val2 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_idx3 = ""
+                            MODEL_PCP_COMBINE_grib2_pdt_val3 = ""
     if not plot_this_var:
         print(f"FATAL ERROR: VAR_NAME \"{VAR_NAME}\" is not valid for VERIF_TYPE "
               + f"\"{VERIF_TYPE}\" and MODEL \"{MODELNAME}\". Check "
