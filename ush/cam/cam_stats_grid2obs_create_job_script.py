@@ -64,6 +64,7 @@ if job_type == 'reformat':
         GRID_POLY_LIST = os.environ['GRID_POLY_LIST']
     if NEST == 'firewx':
         GRID_POLY_LIST = os.environ['GRID_POLY_LIST']
+        NEST_INPUT_TEMPLATE = os.environ['NEST_INPUT_TEMPLATE']
     OBSNAME = os.environ['OBSNAME']
     obs_avail = cutil.get_obs_avail(
         os.path.join(DATA, VERIF_CASE, 'data', VERIF_TYPE, 'prepbufr'), 
@@ -271,6 +272,7 @@ if job_type == 'reformat':
         job_env_vars_dict['GRID_POLY_LIST'] = GRID_POLY_LIST
     if NEST == 'firewx':
         job_env_vars_dict['GRID_POLY_LIST'] = GRID_POLY_LIST
+        job_env_vars_dict['NEST_INPUT_TEMPLATE'] = NEST_INPUT_TEMPLATE
     job_dependent_vars['FHR_START'] = {
         'exec_value': '',
         'bash_value': (

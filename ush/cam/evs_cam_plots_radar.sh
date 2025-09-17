@@ -17,6 +17,7 @@ export LINE_TYPE=$4
 export FCST_INIT_HOUR=$5
 export JOBNUM=$6
 export job_name="job${JOBNUM}"
+export FCST_LEAD=$7
 
 export SAVE_DIR=${DATA}/out/workdirs/job${JOBNUM}
 export LOG_DIR=${SAVE_DIR}/logs

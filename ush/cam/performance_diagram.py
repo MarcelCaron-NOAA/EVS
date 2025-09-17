@@ -116,7 +116,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         plt.close(num)
         logger.info("========================================")
         return None
-    if str(line_type).upper() in ['MCTC', 'CTC'] and np.array(thresh).size == 0:
+    if str(line_type).upper() in ['MCTC', 'CTC', 'NBRCTC'] and np.array(thresh).size == 0:
         logger.warning(f"Empty list of thresholds. Continuing onto next"
                        + f" plot...")
         logger.info("========================================")
@@ -327,6 +327,8 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         plt.close(num)
         logger.info("========================================")
         return None
+    if str(line_type).upper() in ['CTC','NBRCTC']:
+        df['EVENTS'] = np.array(df['FY_OY'].values+df['FN_OY'].values>0).astype(int)
     group_by = ['MODEL','FCST_THRESH_VALUE']
     if sample_equalization:
         df, bool_success = plot_util.equalize_samples(logger, df, group_by)
@@ -425,10 +427,16 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         index='FCST_THRESH_VALUE'
     )
     if sample_equalization:
-        pivot_counts = pd.pivot_table(
-            df_aggregated, values='COUNTS', columns='MODEL',
-            index='FCST_THRESH_VALUE'
-        )
+        if str(line_type).upper() in ['MCTC']:
+            pivot_counts = pd.pivot_table(
+                df_aggregated, values='COUNTS', columns='MODEL',
+                index='FCST_THRESH_VALUE'
+            )
+        else:
+            pivot_counts = pd.pivot_table(
+                df_aggregated, values='EVENTS', columns='MODEL',
+                index='FCST_THRESH_VALUE'
+            )
     pivot_metric1 = pivot_metric1.dropna() 
     pivot_metric2 = pivot_metric2.dropna() 
     pivot_metric3 = pivot_metric3.dropna() 
@@ -436,7 +444,8 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         np.concatenate([
             pivot_metric1.index, 
             pivot_metric2.index, 
-            pivot_metric3.index
+            pivot_metric3.index,
+            pivot_counts.index
         ])
     )
     all_model_col = np.unique(
@@ -775,6 +784,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
             str(int(count)) if not isinstance(count,str) else count 
             for count in counts
         ]
+        counts = [counts[i] for i in thresh_argsort]
         labels = [
             label+f' ({counts[l]})' 
             for l, label in enumerate(labels)
@@ -902,7 +912,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
     ax.legend(
         handles, labels, framealpha=1, 
         bbox_to_anchor=(0.5, -0.15), ncol=5, frameon=True, numpoints=1, 
-        borderpad=.8, labelspacing=1.) 
+        borderpad=.8, labelspacing=1.0, columnspacing=1.0) 
     ax.grid(
         visible=True, which='major', axis='both', alpha=.35, linestyle='--', 
         linewidth=.5, c='black', zorder=0
@@ -952,7 +962,10 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
         [f'{date_hour:02d}' for date_hour in date_hours],
         ', ', '', 'Z', 'and ', ''
     )
-    date_start_string = date_range[0].strftime('%d %b %Y')
+    if not df.empty and date_type in df.columns and not df[date_type].isna().all():
+        date_start_string = df[date_type].min().strftime('%d %b %Y')
+    else:
+        date_start_string = date_range[0].strftime('%d %b %Y')
     date_end_string = date_range[1].strftime('%d %b %Y')
     if str(level).upper() in ['CEILING', 'TOTAL', 'PBL']:
         if str(level).upper() == 'CEILING':
@@ -1013,9 +1026,13 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
             level_string = f'{level_num}-hour '
             level_savename = f'A{level_num.zfill(2)}'
         elif 'Z' in str(level):
-            level_num = df['OBS_LEV'].tolist()[0].replace('A', '').replace('0', '')
-            level_string = f''
-            level_savename= f'A{level_num.zfill(2)}'
+            if str(verif_type).lower() in ['nohrsc']:
+                level_num = df['OBS_LEV'].tolist()[0].replace('A', '').replace('0', '')
+                level_string = f''
+                level_savename= f'A{level_num.zfill(2)}'
+            else:
+                level_string = f''
+                level_savename = f'{level}'
         else:
             level_string = f''
             level_savename = f'{level}'

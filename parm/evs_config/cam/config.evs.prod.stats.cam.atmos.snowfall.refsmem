@@ -28,6 +28,9 @@ export FHR_END_SHORT="60"
 export COMINfcst=${COMINrefsmem}
 
 # Additional Verification Settings
+export USE_ZERO_ACCUM_WEASD="True"
+export USE_ZERO_ACCUM_SNOD="True"
+export USE_ZERO_ACCUM_ASNOW="True"
 if [ "$ACC" = "06" ]; then
     export FHR_GROUP_LIST="FULL"
     export MODEL_ACC="06"

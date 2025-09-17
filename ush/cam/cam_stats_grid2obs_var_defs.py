@@ -116,7 +116,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
                 'var1_obs_name': 'HGT',
@@ -126,7 +126,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
@@ -249,7 +249,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
                 'var1_obs_name': 'TMP',
@@ -259,7 +259,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
@@ -470,7 +470,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
                 'var1_obs_name': 'UGRD',
@@ -480,7 +480,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
                 'var2_fcst_name': 'VGRD',
@@ -490,7 +490,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var2_fcst_thresholds': '',
                 'var2_fcst_options': '',
                 'var2_obs_name': 'VGRD',
@@ -500,7 +500,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
             },
@@ -623,7 +623,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
                 'var1_obs_name': 'UGRD',
@@ -633,7 +633,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
@@ -756,7 +756,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': '',
                 'var1_obs_name': 'VGRD',
@@ -766,7 +766,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
@@ -835,7 +835,7 @@ generate_stats_jobs_dict = {
                                      + "P550, P525, P500, P475, P450, P425, "
                                      + "P400, P375, P350, P325, P300, P275, "
                                      + "P250, P225, P200, P175, P150, P125, "
-                                     + "P100, P75, P50'"),
+                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
                 'var1_obs_name': 'SPFH',
@@ -845,7 +845,7 @@ generate_stats_jobs_dict = {
                                     + "P550, P525, P500, P475, P450, P425, "
                                     + "P400, P375, P350, P325, P300, P275, "
                                     + "P250, P225, P200, P175, P150, P125, "
-                                    + "P100, P75, P50'"),
+                                    + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
                 'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
             },
@@ -1764,7 +1764,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_options': 'set_attr_units = \\"hPa\\"; convert(p)=PA_to_HPA(p);',
             },
             'refsmem': {
-                'var1_fcst_name': 'MSLMA',
+                'var1_fcst_name': 'MSLET',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': '',
                 'var1_fcst_options': 'set_attr_units = \\"hPa\\"; convert(p)=PA_to_HPA(p);',
@@ -1840,7 +1840,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_name': 'TCDC',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'lt10,gt10,gt50,gt90',
-                'var1_fcst_options': 'set_attr_level = \\"TOTAL\\"; GRIB2_ipdtmpl_index = [ 9 ]; GRIB2_ipdtmpl_val = [ 10 ];',
+                'var1_fcst_options': 'set_attr_level = \\"TOTAL\\"; GRIB2_ipdtmpl_index = [ 8, 9 ]; GRIB2_ipdtmpl_val = [ {lead?fmt=%H}, 200 ];',
                 'var1_obs_name': 'TCDC',
                 'var1_obs_levels': 'L0',
                 'var1_obs_thresholds': 'lt10,gt10,gt50,gt90',
@@ -1986,7 +1986,7 @@ generate_stats_jobs_dict = {
                 'var1_fcst_name': 'HGT',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'lt152,lt305,lt914,lt1524,lt3048,ge914',
-                'var1_fcst_options': 'GRIB_lvl_typ = 215; censor_thresh = lt0; censor_val = -9999; set_attr_level = \\"CEILING\\";',
+                'var1_fcst_options': 'censor_thresh = lt0; censor_val = -9999; set_attr_level = \\"CEILING\\"; GRIB2_ipdtmpl_index = [ 9 ]; GRIB2_ipdtmpl_val = [ 215 ];',
                 'var1_obs_name': 'CEILING',
                 'var1_obs_levels': 'L0',
                 'var1_obs_thresholds': 'lt152,lt305,lt914,lt1524,lt3048,ge914',

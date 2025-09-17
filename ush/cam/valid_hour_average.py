@@ -973,7 +973,7 @@ def plot_valid_hour_average(df: pd.DataFrame, logger: logging.Logger,
         )
     ]
     yticks=np.divide(yticks,y_precision_scale)
-    ytick_labels = [f'{ytick}' for ytick in yticks]
+    ytick_labels = [f'{ytick:.10g}' for ytick in yticks]
     show_ytick_every = len(yticks)//10+1
     ytick_labels_with_blanks = ['' for item in ytick_labels]
     for i, item in enumerate(ytick_labels[::int(show_ytick_every)]):
@@ -1118,7 +1118,10 @@ def plot_valid_hour_average(df: pd.DataFrame, logger: logging.Logger,
         [f'{date_hour:02d}' for date_hour in date_hours],
         ', ', '', 'Z', 'and ', ''
     )
-    date_start_string = date_range[0].strftime('%d %b %Y')
+    if not df.empty and date_type in df.columns and not df[date_type].isna().all():
+        date_start_string = df[date_type].min().strftime('%d %b %Y')
+    else:
+        date_start_string = date_range[0].strftime('%d %b %Y')
     date_end_string = date_range[1].strftime('%d %b %Y')
     if str(level).upper() in ['CEILING', 'TOTAL', 'PBL']:
         if str(level).upper() == 'CEILING':

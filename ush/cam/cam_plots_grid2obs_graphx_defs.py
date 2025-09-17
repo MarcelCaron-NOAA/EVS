@@ -13,7 +13,63 @@ graphics = {
     'cam':{
         'grid2obs':{
             'ptype':{
-                'domain_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr': {
+                'domain_group1, fhr_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr': {
+                    'performance_diagram':{
+                        'DATE_TYPE':'INIT',
+                        'VALID_BEG':'',
+                        'VALID_END':'',
+                        'INIT_BEG':'',
+                        'INIT_END':'',
+                        'VX_MASK_LISTs':['CONUS','CONUS_East','CONUS_West','CONUS_Central','CONUS_South'],
+                        'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
+                        'FCST_VALID_HOURS':[''],
+                        'FCST_INIT_HOURS':['0','12'],
+                        'VARIABLES':{
+                            'mctc':{
+                                'PTYPE':{
+                                    'STATSs':['sratio,pod,csi'],
+                                    'FCST_LEADS':['3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
+                                    'FCST_LEVELs':['Z0'],
+                                    'OBS_LEVELs':['Z0'],
+                                    'FCST_THRESHs':['>=1.0,>=2.0,>=3.0,>=4.0'],
+                                    'OBS_THRESHs':['>=1.0,>=2.0,>=3.0,>=4.0'],
+                                    'CONFIDENCE_INTERVALS':'False',
+                                    'INTERP':'BILIN',
+                                    'INTERP_PNTSs':[''],
+                                },
+                            },
+                        }
+                    }
+                },
+                'domain_group2, fhr_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr': {
+                    'performance_diagram':{
+                        'DATE_TYPE':'INIT',
+                        'VALID_BEG':'',
+                        'VALID_END':'',
+                        'INIT_BEG':'',
+                        'INIT_END':'',
+                        'VX_MASK_LISTs':['Alaska'],
+                        'EVAL_PERIODS':[os.environ['EVAL_PERIOD']],
+                        'FCST_VALID_HOURS':[''],
+                        'FCST_INIT_HOURS':['6','18'],
+                        'VARIABLES':{
+                            'mctc':{
+                                'PTYPE':{
+                                    'STATSs':['sratio,pod,csi'],
+                                    'FCST_LEADS':['3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48'],
+                                    'FCST_LEVELs':['Z0'],
+                                    'OBS_LEVELs':['Z0'],
+                                    'FCST_THRESHs':['>=1.0,>=2.0,>=3.0,>=4.0'],
+                                    'OBS_THRESHs':['>=1.0,>=2.0,>=3.0,>=4.0'],
+                                    'CONFIDENCE_INTERVALS':'False',
+                                    'INTERP':'BILIN',
+                                    'INTERP_PNTSs':[''],
+                                },
+                            },
+                        }
+                    }
+                },
+                'domain_group1, fhr_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5': {
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -41,7 +97,7 @@ graphics = {
                         }
                     }
                 },
-                'domain_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr': {
+                'domain_group2, fhr_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5': {
                     'performance_diagram':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
