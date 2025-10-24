@@ -278,7 +278,7 @@ def change_model_column_name(df, logger, model):
         return df
     if check_empty(df, logger, 'change_model_column_name'):
         return df
-    else
+    else:
         df['MODEL'] = df['MODEL'].apply(
             lambda x: model
             if plot_util.get_model_stats_key(model_colors.model_alias, model) == x

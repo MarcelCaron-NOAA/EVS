@@ -978,7 +978,7 @@ def plot_lead_average(df: pd.DataFrame, logger: logging.Logger,
         )
     ]
     yticks=np.divide(yticks,y_precision_scale)
-    ytick_labels = [f'{ytick}:.10g' for ytick in yticks]
+    ytick_labels = [f'{ytick:.10g}' for ytick in yticks]
     show_ytick_every = len(yticks)//10+1
     ytick_labels_with_blanks = ['' for item in ytick_labels]
     for i, item in enumerate(ytick_labels[::int(show_ytick_every)]):
