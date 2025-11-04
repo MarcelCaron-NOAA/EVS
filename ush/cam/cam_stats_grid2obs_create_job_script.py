@@ -124,10 +124,10 @@ if job_type == 'generate':
     plot_this_var = False
     if VAR_NAME in var_defs:
         if VERIF_TYPE in var_defs[VAR_NAME]:
-            if 'refsmem' in MODELNAME:
-                if 'refsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
+            if 'arefsmem' in MODELNAME:
+                if 'arefsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
                     plot_this_var = True
-                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['refsmem']
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['arefsmem']
                     FCST_VAR1_NAME = var_def['var1_fcst_name']
                     FCST_VAR1_LEVELS = var_def['var1_fcst_levels']
                     FCST_VAR1_THRESHOLDS = var_def['var1_fcst_thresholds']

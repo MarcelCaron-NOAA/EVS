@@ -60,7 +60,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'WEASD',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',
@@ -102,7 +102,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'SNOD',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',
@@ -134,7 +134,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'ASNOW',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': 'ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048',

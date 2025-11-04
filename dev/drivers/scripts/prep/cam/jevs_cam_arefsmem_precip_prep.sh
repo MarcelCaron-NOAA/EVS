@@ -1,5 +1,5 @@
 #PBS -S /bin/bash
-#PBS -N jevs_cam_refsmem_precip_prep
+#PBS -N jevs_cam_arefsmem_precip_prep
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
@@ -18,7 +18,7 @@ export SENDCOM=YES
 export KEEPDATA=NO
 export SENDDBN=NO
 export SENDDBN_NTC=
-export job=${PBS_JOBNAME:-jevs_cam_refsmem_precip_prep}
+export job=${PBS_JOBNAME:-jevs_cam_arefsmem_precip_prep}
 export jobid=$job.${PBS_JOBID:-$$}
 export SITE=$(cat /etc/cluster_name)
 export USE_CFP=YES
@@ -31,7 +31,7 @@ export COMPONENT="cam"
 export RUN="atmos"
 export VERIF_CASE="precip"
 export mem=${mem:-1}
-export MODELNAME="refsmem${mem}"
+export MODELNAME="arefsmem${mem}"
 
 # EVS Settings
 export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"

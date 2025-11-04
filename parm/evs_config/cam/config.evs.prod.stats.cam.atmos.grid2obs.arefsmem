@@ -2,10 +2,10 @@
 
 # =============================================================================
 # 
-# NAME: config.evs.prod.stats.cam.atmos.grid2obs.refsmem
+# NAME: config.evs.prod.stats.cam.atmos.grid2obs.arefsmem
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
 # PURPOSE: Set up configurations to run EVS REFS Member Grid2Obs - Statistics
-# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_refsmem_grid2obs_stats.sh
+# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_arefsmem_grid2obs_stats.sh
 # 
 # =============================================================================
 
@@ -22,7 +22,7 @@ export COMPLETED_JOBS_DIR="completed_jobs"
 # Time Settings
 
 # Model/Obs Settings
-export COMINfcst=${COMINrefsmem}
+export COMINfcst=${COMINarefsmem}
 export OBSNAME=${VERIF_TYPE}
 
 # Additional Verification Settings
@@ -30,9 +30,9 @@ if [ "$NEST" = "conus" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -58,9 +58,9 @@ elif [ "$NEST" = "subreg" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -86,9 +86,9 @@ elif [ "$NEST" = "ak" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -114,9 +114,9 @@ elif [ "$NEST" = "hi" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -142,9 +142,9 @@ elif [ "$NEST" = "pr" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -170,9 +170,9 @@ elif [ "$NEST" = "firewx" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -198,9 +198,9 @@ elif [ "$NEST" = "spc_otlk" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}

@@ -127,10 +127,10 @@ if job_type in ['generate', 'reformat']:
     plot_this_var = False
     if VAR_NAME in var_defs:
         if VERIF_TYPE in var_defs[VAR_NAME]:
-            if 'refsmem' in MODELNAME:
-                if 'refsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
+            if 'arefsmem' in MODELNAME:
+                if 'arefsmem' in var_defs[VAR_NAME][VERIF_TYPE]:
                     plot_this_var = True
-                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['refsmem']
+                    var_def = var_defs[VAR_NAME][VERIF_TYPE]['arefsmem']
                     FCST_VAR_NAME = var_def['var1_fcst_name']
                     FCST_VAR_LEVELS = var_def['var1_fcst_levels']
                     FCST_VAR_THRESHOLDS = var_def['var1_fcst_thresholds']
@@ -210,7 +210,7 @@ if job_type in ['generate', 'reformat']:
                                MODEL_PCP_COMBINE_grib2_pdt_val2 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-6H} ];"
                                MODEL_PCP_COMBINE_grib2_pdt_idx3 = " GRIB2_ipdtmpl_index = [ 8 ];"
                                MODEL_PCP_COMBINE_grib2_pdt_val3 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H?shift=-24H} ];"
-                            elif MODELNAME == "refsmem":
+                            elif MODELNAME == "arefsmem":
                                MODEL_PCP_COMBINE_grib2_pdt = " GRIB2_pdt = 0;"
                                MODEL_PCP_COMBINE_grib2_pdt_idx1 = " GRIB2_ipdtmpl_index = [ 8 ];"
                                MODEL_PCP_COMBINE_grib2_pdt_val1 = " GRIB2_ipdtmpl_val = [ {lead?fmt=%H} ];"

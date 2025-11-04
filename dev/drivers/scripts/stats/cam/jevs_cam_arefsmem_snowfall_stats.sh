@@ -1,10 +1,9 @@
-#PBS -S /bin/bash
-#PBS -N jevs_cam_refsmem_precip_stats
+#PBS -N jevs_cam_arefsmem_snowfall_stats
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
 #PBS -A VERF-DEV
-#PBS -l walltime=02:40:00
+#PBS -l walltime=00:35:00
 #PBS -l place=vscatter:exclhost,select=1:ncpus=128:ompthreads=1:mem=256GB
 #PBS -l debug=true
 
@@ -28,16 +27,16 @@ export NET="evs"
 export STEP="stats"
 export COMPONENT="cam"
 export RUN="atmos"
-export VERIF_CASE="precip"
+export VERIF_CASE="snowfall"
 export mem=${mem:-1}
-export MODELNAME="refsmem${mem}"
+export MODELNAME="arefsmem${mem}"
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
 
 # EVS Settings
 export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
-export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.refsmem
+export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.arefsmem
 
 # Load Modules
 source $HOMEevs/versions/run.ver

@@ -2,10 +2,10 @@
 
 # =============================================================================
 # 
-# NAME: config.evs.prod.stats.cam.atmos.snowfall.refsmem 
+# NAME: config.evs.prod.stats.cam.atmos.snowfall.arefsmem 
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
 # PURPOSE: Set up configurations to run EVS REFS Member Snowfall - Statistics
-# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_refsmem_snowfall_stats.sh
+# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_arefsmem_snowfall_stats.sh
 # 
 # =============================================================================
 
@@ -25,7 +25,7 @@ export FHR_INCR_FULL="6"
 export FHR_END_SHORT="60"
 
 # Model/Obs Settings
-export COMINfcst=${COMINrefsmem}
+export COMINfcst=${COMINarefsmem}
 
 # Additional Verification Settings
 export USE_ZERO_ACCUM_WEASD="True"
@@ -46,9 +46,9 @@ if [ "$ACC" = "06" ]; then
     export OBS_THRESH="ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048"
     export MODEL_PCP_COMBINE_METHOD="USER_DEFINED"
     if [ "${mem}" = "ctl" ]; then
-        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H?shift=-6H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx2}\${MODEL_PCP_COMBINE_grib2_pdt_val2}'"
+        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H?shift=-6H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx2}\${MODEL_PCP_COMBINE_grib2_pdt_val2}'"
     else
-        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H?shift=-6H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx2}\${MODEL_PCP_COMBINE_grib2_pdt_val2}'"
+        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H?shift=-6H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx2}\${MODEL_PCP_COMBINE_grib2_pdt_val2}'"
     fi
 elif [ "$ACC" = "24" ]; then
     export FHR_GROUP_LIST="FULL"
@@ -65,9 +65,9 @@ elif [ "$ACC" = "24" ]; then
     export OBS_THRESH="ge0.0254,ge0.0508,ge0.1016,ge0.2032,ge0.3048"
     export MODEL_PCP_COMBINE_METHOD="USER_DEFINED"
     if [ "${mem}" = "ctl" ]; then
-        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H?shift=-24H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx3}\${MODEL_PCP_COMBINE_grib2_pdt_val3}'"
+        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%H}z.prslev.3km.f{lead?fmt=%3H?shift=-24H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx3}\${MODEL_PCP_COMBINE_grib2_pdt_val3}'"
     else
-        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H?shift=-24H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx3}\${MODEL_PCP_COMBINE_grib2_pdt_val3}'"
+        export MODEL_PCP_COMBINE_COMMAND="-subtract ${COMINfcst}/arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx1}\${MODEL_PCP_COMBINE_grib2_pdt_val1}' ${COMINfcst}/arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H?shift=-24H}.conus.grib2 'name=\\\"{FCST_VAR_NAME}\\\"; level=\\\"Z0\\\";\${MODEL_PCP_COMBINE_grib2_pdt}\${MODEL_PCP_COMBINE_grib2_pdt_idx3}\${MODEL_PCP_COMBINE_grib2_pdt_val3}'"
     fi
 else
     err_exit "The provided ACC, $ACC, is not supported for $MODELNAME"
@@ -89,9 +89,9 @@ if [ "$BOOL_NBRHD" = True ]; then
         export MIN_IHOUR="00"
         export GRID="OBS"
         if [ "${mem}" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G240_CONUS.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_East.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_West.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_Central.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_South.nc"
     else
@@ -114,9 +114,9 @@ else
         export MIN_IHOUR="00"
         export GRID="G212"
         if [ "${mem}" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G212_CONUS.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_East.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_West.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_Central.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_South.nc"
     else

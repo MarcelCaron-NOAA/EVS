@@ -1,4 +1,4 @@
-#PBS -N jevs_cam_refsmem_radar_stats
+#PBS -N jevs_cam_arefsmem_radar_stats
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
@@ -44,7 +44,7 @@ export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export VERIF_CASE=radar
 export mem=${mem:-1}
-export MODELNAME=refsmem${mem}
+export MODELNAME=arefsmem${mem}
 export modsys=rrfs
 export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${vhr}}
 export jobid=$job.${PBS_JOBID:-$$}

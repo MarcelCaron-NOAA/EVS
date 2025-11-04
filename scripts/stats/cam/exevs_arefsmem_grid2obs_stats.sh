@@ -2,9 +2,9 @@
 
 # =============================================================================
 #
-# NAME: exevs_refsmem_grid2obs_stats.sh
+# NAME: exevs_arefsmem_grid2obs_stats.sh
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
-# PURPOSE: Handle all components of an EVS REFS Member Grid2Obs - Statistics 
+# PURPOSE: Handle all components of an EVS AREFS Member Grid2Obs - Statistics 
 #          job
 # DEPENDENCIES: $HOMEevs/jobs/JEVS_CAM_STATS 
 #
@@ -81,7 +81,7 @@ fi
 python $USHevs/cam/cam_create_child_workdirs.py
 export err=$?; err_chk
 
-# Run All REFS Member grid2obs/stats Reformat Jobs
+# Run All AREFS Member grid2obs/stats Reformat Jobs
 chmod u+x ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/*
 ncount_job=$(ls -l ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/job* 2>/dev/null |wc -l)
 nc=1
@@ -184,7 +184,7 @@ fi
 python $USHevs/cam/cam_create_child_workdirs.py
 export err=$?; err_chk
 
-# Run All REFS Member grid2obs/stats Generate Jobs
+# Run All AREFS Member grid2obs/stats Generate Jobs
 chmod u+x ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/*
 ncount_job=$(ls -l ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/job* 2>/dev/null |wc -l)
 nc=1
@@ -257,7 +257,7 @@ fi
 python $USHevs/cam/cam_create_child_workdirs.py
 export err=$?; err_chk
 
-# Run All REFS Member grid2obs/stats Gather Jobs
+# Run All AREFS Member grid2obs/stats Gather Jobs
 chmod u+x ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/*
 ncount_job=$(ls -l ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/job* 2>/dev/null |wc -l)
 nc=1
@@ -328,7 +328,7 @@ fi
 python $USHevs/cam/cam_create_child_workdirs.py
 export err=$?; err_chk
 
-# Run All REFS Member grid2obs/stats Gather 2 Jobs
+# Run All AREFS Member grid2obs/stats Gather 2 Jobs
 chmod u+x ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/*
 ncount_job=$(ls -l ${DATA}/${VERIF_CASE}/METplus_job_scripts/${job_type}/job* 2>/dev/null |wc -l)
 nc=1

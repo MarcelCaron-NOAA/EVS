@@ -82,7 +82,7 @@ elif [ ${MODELNAME} = hrrr ]; then
    fhr_max=48
    fhr_inc=6
 
-elif [ ${MODELNAME} = namnest ] || [ ${MODELNAME} = rrfs ] || [ ${MODELNAME} = refs ] || [[ "${MODELNAME}" = *"refsmem"* ]]; then
+elif [ ${MODELNAME} = namnest ] || [ ${MODELNAME} = rrfs ] || [ ${MODELNAME} = refs ] || [[ "${MODELNAME}" = *"arefsmem"* ]]; then
    fhr_min=24
    fhr_max=60
    fhr_inc=6

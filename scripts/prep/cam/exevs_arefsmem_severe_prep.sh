@@ -1,8 +1,8 @@
 #!/bin/bash
 ###############################################################################
-# Name of Script: exevs_refsmem_severe_prep.sh
+# Name of Script: exevs_arefsmem_severe_prep.sh
 # Contact(s):     Marcel G. Caron (marcel.caron@noaa.gov)
-# Purpose of Script: This script preprocesses REFS Member UH data for 
+# Purpose of Script: This script preprocesses AREFS Member UH data for 
 #                    CAM severe verification.
 ###############################################################################
 
@@ -30,11 +30,11 @@ export GAUSS_RAD=120
 # Set some model-specific environment variables 
 ############################################################
 
-export MODEL_INPUT_DIR=${COMINrefsmem}
+export MODEL_INPUT_DIR=${COMINarefsmem}
 if [ "${mem}" == "ctl" ]; then
    export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2
 else
-   export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2
+   export MODEL_INPUT_TEMPLATE=arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2
 fi
 
 export MXUPHL25_THRESH1=75.0
@@ -102,7 +102,7 @@ i=1
       if [ "${mem}" == "ctl" ]; then
          export fcst_file=${MODEL_INPUT_DIR}/${modsys}.${INITDATE}/${vhr}/${modsys}.t${vhr}z.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
       else
-         export fcst_file=${MODEL_INPUT_DIR}/refs.${INITDATE}/${vhr}/m00${mem}/${modsys}.t${vhr}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
+         export fcst_file=${MODEL_INPUT_DIR}/arefs.${INITDATE}/${vhr}/m00${mem}/${modsys}.t${vhr}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
       fi
 
       if [ -s $fcst_file ]; then

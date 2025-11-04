@@ -13,7 +13,7 @@ graphics = {
     'cam':{
         'snowfall':{
             'nohrsc':{
-                'fcst_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr':{
+                'fcst_group1, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -121,7 +121,7 @@ graphics = {
                         }
                     },
                 },
-                'fcst_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5':{
+                'fcst_group2, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -229,7 +229,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group1, fcst_group1, var_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr':{
+                'init_group1, fcst_group1, var_group1, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -337,7 +337,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group1, fcst_group1, var_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr':{
+                'init_group1, fcst_group1, var_group2, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -445,7 +445,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group1, fcst_group2, var_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5':{
+                'init_group1, fcst_group2, var_group1, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -553,7 +553,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group2, fcst_group1, var_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr':{
+                'init_group2, fcst_group1, var_group1, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -661,7 +661,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group2, fcst_group1, var_group2, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5, hrrr':{
+                'init_group2, fcst_group1, var_group2, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',
@@ -730,7 +730,7 @@ graphics = {
                         }
                     },
                 },
-                'init_group2, fcst_group2, var_group1, refsmemctl, refsmem1, refsmem2, refsmem3, refsmem4, refsmem5':{
+                'init_group2, fcst_group2, var_group1, arefsmemctl, arefsmem1, arefsmem2, arefsmem3, arefsmem4, arefsmem5':{
                     'threshold_average':{
                         'DATE_TYPE':'INIT',
                         'VALID_BEG':'',

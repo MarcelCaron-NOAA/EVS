@@ -2,9 +2,9 @@
 
 # =============================================================================
 #
-# NAME: exevs_refsmem_precip_prep.sh
+# NAME: exevs_arefsmem_precip_prep.sh
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
-# PURPOSE: Handle all components of an EVS REFS Member Precipitation - Prep job
+# PURPOSE: Handle all components of an EVS AREFS Member Precipitation - Prep job
 # DEPENDENCIES: $HOMEevs/jobs/JEVS_CAM_PREP 
 #
 # =============================================================================

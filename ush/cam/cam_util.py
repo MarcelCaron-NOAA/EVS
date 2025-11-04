@@ -90,8 +90,8 @@ def get_data_type(fname):
             'not':[],
             'type': 'fcst'
         },
-        'REFS Member Forecast': {
-            'and':['rrfs','m00'],
+        'AREFS Member Forecast': {
+            'and':['arafs','m00'],
             'or':[''],
             'not':[],
             'type': 'fcst'

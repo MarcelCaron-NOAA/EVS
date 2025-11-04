@@ -2,10 +2,10 @@
 
 # =============================================================================
 # 
-# NAME: config.evs.prod.stats.cam.atmos.precip.refsmem 
+# NAME: config.evs.prod.stats.cam.atmos.precip.arefsmem 
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
 # PURPOSE: Set up configurations to run EVS REFS Member Precipitation - Statistics
-# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_refsmem_precip_stats.sh
+# DEPENDENCIES: $HOMEevs/scripts/stats/cam/exevs_arefsmem_precip_stats.sh
 # 
 # =============================================================================
 
@@ -25,7 +25,7 @@ export FHR_INCR_FULL="6"
 export FHR_END_SHORT="60"
 
 # Model/Obs Settings
-export COMINfcst=${COMINrefsmem}
+export COMINfcst=${COMINarefsmem}
 
 # Additional Verification Settings
 if [ "$ACC" = "01" ]; then
@@ -107,9 +107,9 @@ if [ "$BOOL_NBRHD" = True ]; then
         export MIN_IHOUR="00"
         export GRID="G240"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G240_CONUS.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_East.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_West.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_Central.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_South.nc"
     elif [ "$NEST" = "ak" ]; then
@@ -121,9 +121,9 @@ if [ "$BOOL_NBRHD" = True ]; then
         export MIN_IHOUR="00"
         export GRID="G091"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Alaska_G091.nc"
     elif [ "$NEST" = "hi" ]; then
@@ -135,9 +135,9 @@ if [ "$BOOL_NBRHD" = True ]; then
         export MIN_IHOUR="00"
         export GRID="G196"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Hawaii_G196.nc"
     elif [ "$NEST" = "pr" ]; then
@@ -149,9 +149,9 @@ if [ "$BOOL_NBRHD" = True ]; then
         export MIN_IHOUR="00"
         export GRID="G194"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Puerto_Rico_G194.nc"
     else
@@ -170,9 +170,9 @@ else
         export MIN_IHOUR="00"
         export GRID="G212"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G212_CONUS.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_East.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_West.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_Central.nc, ${FIXevs}/masks/Bukovsky_G212_CONUS_South.nc"
     elif [ "$NEST" = "ak" ]; then
@@ -184,9 +184,9 @@ else
         export MIN_IHOUR="00"
         export GRID="G216"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Alaska_G216.nc"
     elif [ "$NEST" = "hi" ]; then
@@ -198,9 +198,9 @@ else
         export MIN_IHOUR="00"
         export GRID="G196"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Hawaii_G196.nc"
     elif [ "$NEST" = "pr" ]; then
@@ -212,9 +212,9 @@ else
         export MIN_IHOUR="00"
         export GRID="G194"
         if [ "$mem" = "ctl" ]; then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
         else
-            export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
         fi
         export MASK_POLY_LIST="${FIXevs}/masks/Puerto_Rico_G194.nc"
     else

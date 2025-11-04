@@ -741,35 +741,35 @@ class ModelSpecs():
 				'stats_key':'', 
                 'plot_name':'WAFS'
             },
-            'refsmemctl': {
-                'settings_key':'REFS_MEM_CTL', 
+            'arefsmemctl': {
+                'settings_key':'AREFS_MEM_CTL', 
 				'stats_key':'', 
-                'plot_name':'REFS Control'
+                'plot_name':'ARAFS'
             },
-            'refsmem1': {
-                'settings_key':'REFS_MEM_1', 
+            'arefsmem1': {
+                'settings_key':'AREFS_MEM_1', 
 				'stats_key':'', 
-                'plot_name':'REFS Mem. 1'
+                'plot_name':'AREFS Mem. 1'
             },
-            'refsmem2': {
-                'settings_key':'REFS_MEM_2', 
+            'arefsmem2': {
+                'settings_key':'AREFS_MEM_2', 
 				'stats_key':'', 
-                'plot_name':'REFS Mem. 2'
+                'plot_name':'AREFS Mem. 2'
             },
-            'refsmem3': {
-                'settings_key':'REFS_MEM_3', 
+            'arefsmem3': {
+                'settings_key':'AREFS_MEM_3', 
 				'stats_key':'', 
-                'plot_name':'REFS Mem. 3'
+                'plot_name':'AREFS Mem. 3'
             },
-            'refsmem4': {
-                'settings_key':'REFS_MEM_4', 
+            'arefsmem4': {
+                'settings_key':'AREFS_MEM_4', 
 				'stats_key':'', 
-                'plot_name':'REFS Mem. 4'
+                'plot_name':'AREFS Mem. 4'
             },
-            'refsmem5': {
-                'settings_key':'REFS_MEM_5', 
+            'arefsmem5': {
+                'settings_key':'AREFS_MEM_5', 
 				'stats_key':'', 
-                'plot_name':'REFS Mem. 5'
+                'plot_name':'AREFS Mem. 5'
             },
         }
 
@@ -869,22 +869,22 @@ class ModelSpecs():
             'NAM_NEST': {'color': '#1e3cff',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_CTL': {'color': '#696969',
+            'ARAFS': {'color': '#696969',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_1': {'color': '#00dc00',
+            'AREFS_MEM_1': {'color': '#00dc00',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_2': {'color': '#e69f00',
+            'AREFS_MEM_2': {'color': '#e69f00',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_3': {'color': '#56b4e9',
+            'AREFS_MEM_3': {'color': '#56b4e9',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_4': {'color': '#d269c1',
+            'AREFS_MEM_4': {'color': '#d269c1',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
-            'REFS_MEM_5': {'color': '#8400c8',
+            'AREFS_MEM_5': {'color': '#8400c8',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
             'RRFS_A': {'color': '#00dc00',

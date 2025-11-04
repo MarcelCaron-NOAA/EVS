@@ -2,10 +2,10 @@
 
 # =============================================================================
 # 
-# NAME: config.evs.prod.prep.cam.atmos.precip.refsmem
+# NAME: config.evs.prod.prep.cam.atmos.precip.arefsmem
 # CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
 # PURPOSE: Set up configurations to run EVS REFS Member Precipitation - Prepare
-# DEPENDENCIES: $HOMEevs/scripts/prep/cam/exevs_refsmem_precip_prep.sh
+# DEPENDENCIES: $HOMEevs/scripts/prep/cam/exevs_arefsmem_precip_prep.sh
 # 
 # =============================================================================
 

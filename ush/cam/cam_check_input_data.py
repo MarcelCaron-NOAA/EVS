@@ -73,8 +73,8 @@ if proceed:
             COMINfcst = os.environ['COMINhiresw']
         elif MODELNAME == 'hrrr':
             COMINfcst = os.environ['COMINhrrr']
-        elif 'refsmem' in MODELNAME:
-            COMINfcst = os.environ['COMINrefsmem']
+        elif 'arefsmem' in MODELNAME:
+            COMINfcst = os.environ['COMINarefsmem']
             mem = os.environ['mem']
         else:
             print(f"The provided MODELNAME ({MODELNAME}) is not recognized. Quitting ...")
@@ -409,83 +409,83 @@ if proceed:
                     'conus',
                     'hrrr.t{IHOUR}z.wrfsfcf{FHR}.grib2'
                 ))
-        elif 'refsmem' in MODELNAME:
+        elif 'arefsmem' in MODELNAME:
             if 'ctl' in MODELNAME:
                 if NEST == 'conus':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'rrfs.{IDATE}',
+                        'arafs.{IDATE}',
                         '{IHOUR}',
-                        'rrfs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
                     ))
                 elif NEST == 'ak':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'rrfs.{IDATE}',
+                        'arafs.{IDATE}',
                         '{IHOUR}',
-                        'rrfs.t{IHOUR}z.prslev.3km.f0{FHR}.ak.grib2'
+                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.ak.grib2'
                     ))
                 elif NEST == 'hi':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'rrfs.{IDATE}',
+                        'arafs.{IDATE}',
                         '{IHOUR}',
-                        'rrfs.t{IHOUR}z.prslev.2p5km.f0{FHR}.hi.grib2'
+                        'arafs.t{IHOUR}z.prslev.2p5km.f0{FHR}.hi.grib2'
                     ))
                 elif NEST == 'pr':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'rrfs.{IDATE}',
+                        'arafs.{IDATE}',
                         '{IHOUR}',
-                        'rrfs.t{IHOUR}z.prslev.2p5km.f0{FHR}.pr.grib2'
+                        'arafs.t{IHOUR}z.prslev.2p5km.f0{FHR}.pr.grib2'
                     ))
                 else:
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'rrfs.{IDATE}',
+                        'arafs.{IDATE}',
                         '{IHOUR}',
-                        'rrfs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
                     ))
             else:
                 if NEST == 'conus':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'arefs.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
-                        'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'
                     ))
                 elif NEST == 'ak':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'arefs.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
-                        'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.ak.grib2'
+                        'arafs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.ak.grib2'
                     ))
                 elif NEST == 'hi':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'arefs.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
-                        'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.hi.grib2'
+                        'arafs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.hi.grib2'
                     ))
                 elif NEST == 'pr':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'arefs.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
-                        'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.pr.grib2'
+                        'arafs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.pr.grib2'
                     ))
                 else:
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'arefs.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
-                        'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'
                     ))
         else:
             print(f"The provided MODELNAME ({MODELNAME}) is not recognized."

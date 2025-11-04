@@ -108,7 +108,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'HGT',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -241,7 +241,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'TMP',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -462,7 +462,7 @@ generate_stats_jobs_dict = {
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'UGRD',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -615,7 +615,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'UGRD',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -748,7 +748,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'VGRD',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -827,7 +827,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'SPFH',
                 'var1_fcst_levels': ("'P1000, P975, P950, P925, P900, P875, "
                                      + "P850, P825, P800, P775, P750, P725, "
@@ -912,7 +912,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'le500,ge2000',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'HPBL',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'le500,ge2000',
@@ -985,7 +985,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge250,ge500,ge1000,ge1500,ge2000,ge3000,ge4000',
                 'var1_obs_options': 'cnt_thresh = [ >0 ]; cnt_logic = INTERSECTION;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'CAPE',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'ge250,ge500,ge1000,ge1500,ge2000,ge3000,ge4000',
@@ -1058,7 +1058,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge250,ge500,ge1000,ge1500,ge2000,ge3000,ge4000',
                 'var1_obs_options': 'cnt_thresh = [ >0 ]; cnt_logic = INTERSECTION;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'CAPE',
                 'var1_fcst_levels': 'P0-90',
                 'var1_fcst_thresholds': 'ge250,ge500,ge1000,ge1500,ge2000,ge3000,ge4000',
@@ -1131,7 +1131,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'TMP',
                 'var1_fcst_levels': 'Z2',
                 'var1_fcst_thresholds': '',
@@ -1204,7 +1204,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'UGRD',
                 'var1_fcst_levels': 'Z10',
                 'var1_fcst_thresholds': '',
@@ -1277,7 +1277,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'VGRD',
                 'var1_fcst_levels': 'Z10',
                 'var1_fcst_thresholds': '',
@@ -1390,7 +1390,7 @@ generate_stats_jobs_dict = {
                 'var2_obs_thresholds': '',
                 'var2_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'UGRD',
                 'var1_fcst_levels': 'Z10',
                 'var1_fcst_thresholds': '',
@@ -1471,7 +1471,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'WIND',
                 'var1_fcst_levels': 'Z10',
                 'var1_fcst_thresholds': '',
@@ -1544,7 +1544,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'GUST',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': '',
@@ -1617,7 +1617,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'le15,le20,le25,le30',
                 'var1_obs_options': 'cnt_thresh = [ NA, <=15, <=20, <=25, <=30 ]; cnt_logic = INTERSECTION;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'RH',
                 'var1_fcst_levels': 'Z2',
                 'var1_fcst_thresholds': 'le15,le20,le25,le30',
@@ -1690,7 +1690,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge277.594,ge283.15,ge288.706,ge294.261',
                 'var1_obs_options': 'cnt_thresh = [ NA, >=272.039, >=277.594, >=283.15, >=288.706, >=294.261 ]; cnt_logic = INTERSECTION;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'DPT',
                 'var1_fcst_levels': 'Z2',
                 'var1_fcst_thresholds': 'ge277.594,ge283.15,ge288.706,ge294.261',
@@ -1763,7 +1763,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': '',
                 'var1_obs_options': 'set_attr_units = \\"hPa\\"; convert(p)=PA_to_HPA(p);',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'MSLET',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': '',
@@ -1836,7 +1836,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'lt10,gt10,gt50,gt90',
                 'var1_obs_options': 'GRIB_lvl_typ = 200;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'TCDC',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'lt10,gt10,gt50,gt90',
@@ -1909,7 +1909,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'lt805,lt1609,lt4828,lt8045,lt16090,ge8045',
                 'var1_obs_options': '',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'VIS',
                 'var1_fcst_levels': 'Z0',
                 'var1_fcst_thresholds': 'lt805,lt1609,lt4828,lt8045,lt16090,ge8045',
@@ -1982,7 +1982,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'lt152,lt305,lt914,lt1524,lt3048,ge914',
                 'var1_obs_options': 'GRIB_lvl_typ = 215;',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'HGT',
                 'var1_fcst_levels': 'L0',
                 'var1_fcst_thresholds': 'lt152,lt305,lt914,lt1524,lt3048,ge914',
@@ -2055,7 +2055,7 @@ generate_stats_jobs_dict = {
                 'var1_obs_thresholds': 'ge1.0, ge2.0, ge3.0, ge4.0',
                 'var1_obs_options': 'censor_thresh = [<161, >=161&&<=163, >=164&&<=166, >=167&&<=170, >=171&&<=173, >=174&&<=176, >176]; censor_val=[0.0, 1.0, 3.0, 0.0, 2.0, 4.0, 0.0];',
             },
-            'refsmem': {
+            'arefsmem': {
                 'var1_fcst_name': 'PTYPE',
                 'var1_fcst_levels': '\\"(*,*)\\"',
                 'var1_fcst_thresholds': 'ge1.0, ge2.0, ge3.0, ge4.0',

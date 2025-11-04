@@ -23,7 +23,7 @@ set -x
 ############################################################
 
 export machine=${machine:-"WCOSS2"}
-export MODELS="hrrr, refsmemctl refsmem1 refsmem2 refsmem3 refsmem4 refsmem5"
+export MODELS="arefsmemctl arefsmem1 arefsmem2 arefsmem3 arefsmem4 arefsmem5"
 export VERIF_TYPE="lsr"
 export DATE_TYPE="INIT"
 export eval_period=`echo ${EVAL_PERIOD} | tr '[:upper:]' '[:lower:]'`
@@ -72,7 +72,7 @@ mkdir -p ${OUTPUT_DIR}
 mkdir -p ${DATA}/out/logs # main log output dir
 
 
-model_list="hrrr refsmemctl refsmem1 refsmem2 refsmem3 refsmem4 refsmem5"
+model_list="arefsmemctl arefsmem1 arefsmem2 arefsmem3 arefsmem4 arefsmem5"
 
 for model in ${model_list}; do
    n=0
