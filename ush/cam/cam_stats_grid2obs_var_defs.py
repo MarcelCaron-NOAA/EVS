@@ -803,7 +803,7 @@ generate_stats_jobs_dict = {
                                     + "P250, P225, P200, P175, P150, P125, "
                                     + "P100, P75, P50'"),
                 'var1_obs_thresholds': '',
-                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
+                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000; censor_thresh = >1000.0&&<0.0; censor_val = -9999;',
             },
             'namnest': {
                 'var1_fcst_name': 'SPFH',
@@ -825,7 +825,7 @@ generate_stats_jobs_dict = {
                                     + "P250, P225, P200, P175, P150, P125, "
                                     + "P100, P75, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
-                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
+                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000; censor_thresh = >1000.0&&<0.0; censor_val = -9999;',
             },
             'rrfs': {
                 'var1_fcst_name': 'SPFH',
@@ -847,7 +847,7 @@ generate_stats_jobs_dict = {
                                     + "P250, P225, P200, P175, P150, P125, "
                                     + "P100, P70, P50, P30, P20, P10'"),
                 'var1_obs_thresholds': '',
-                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000',
+                'var1_obs_options': 'set_attr_units = \\"g/kg\\"; convert(x)=x*1000; censor_thresh = >1000.0&&<0.0; censor_val = -9999;',
             },
             'output_types': {
                 'CTC': 'NONE',
