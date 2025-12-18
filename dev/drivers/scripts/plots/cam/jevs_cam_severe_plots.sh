@@ -4,7 +4,7 @@
 #PBS -q dev
 #PBS -A VERF-DEV
 #PBS -l walltime=00:45:00
-#PBS -l place=vscatter:exclhost,select=1:ncpus=64
+#PBS -l place=vscatter:exclhost,select=1:ncpus=64:mem=600MB
 #PBS -l debug=true
 
 
@@ -24,12 +24,13 @@ export COMPONENT=cam
 export STEP=plots
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/test/refs_members/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
 
 source $HOMEevs/dev/modulefiles/$COMPONENT/${COMPONENT}_${STEP}.sh
+export evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 
 ############################################################
@@ -42,8 +43,8 @@ export VERIF_CASE=severe
 export MODELNAME=${COMPONENT}
 export job=${PBS_JOBNAME:-jevs_${MODELNAME}_${VERIF_CASE}_${LINE_TYPE}_${STEP}}
 export jobid=$job.${PBS_JOBID:-$$}
-export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/${USER}/$NET/$evs_ver_2d/refs_members
+export COMOUT=/lfs/h2/emc/ptmp/${USER}/$NET/$evs_ver_2d/refs_members/$STEP/$COMPONENT
 export nproc=64
 ############################################################
 
@@ -51,7 +52,7 @@ export vhr=${vhr:-${vhr}}
 export EVAL_PERIOD=${EVAL_PERIOD:-${EVAL_PERIOD}}
 export LINE_TYPE=${LINE_TYPE:-${LINE_TYPE}}
 
-export SENDMAIL=${SENDMAIL:-YES}
+export SENDMAIL=${SENDMAIL:-NO}
 export SENDCOM=${SENDCOM:-YES}
 export SENDECF=${SENDECF:-YES}
 export SENDDBN=${SENDDBN:-NO}

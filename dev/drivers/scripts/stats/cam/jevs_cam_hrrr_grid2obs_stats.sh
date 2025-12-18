@@ -16,7 +16,7 @@ export machine=WCOSS2
 export SENDMAIL=NO
 export SENDECF=YES
 export SENDCOM=YES
-export KEEPDATA=NO
+export KEEPDATA=YES
 export SENDDBN=NO
 export SENDDBN_NTC=
 export job=${PBS_JOBNAME:-jevs_cam_hrrr_grid2obs_stats}
@@ -34,7 +34,7 @@ export VERIF_CASE="grid2obs"
 export MODELNAME="hrrr"
 
 # EVS Settings
-export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
+export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/test/refs_members/EVS"
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
 export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
 
@@ -48,8 +48,8 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/refs_members
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/refs_members/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
 export MAILTO="andrew.benjamin@noaa.gov,marcel.caron@noaa.gov"
 
