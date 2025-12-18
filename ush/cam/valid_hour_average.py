@@ -358,9 +358,9 @@ def plot_valid_hour_average(df: pd.DataFrame, logger: logging.Logger,
     df_groups = df.groupby(group_by)
     # Aggregate unit statistics before calculating metrics
     if str(line_type).upper() == 'CTC':
-        df_aggregated = df_groups.sum()
+        df_aggregated = df_groups.sum(numeric_only=True)
     else:
-        df_aggregated = df_groups.mean()
+        df_aggregated = df_groups.mean(numeric_only=True)
     if sample_equalization:
         df_aggregated['COUNTS']=df_groups.size()
     # Remove data if they exist for some but not all models at some value of 
@@ -369,7 +369,12 @@ def plot_valid_hour_average(df: pd.DataFrame, logger: logging.Logger,
     df_split = [df_aggregated.xs(str(model)) for model in model_list]
     df_reduced = reduce(
         lambda x,y: pd.merge(
-            x, y, on='ANTI_DATE_HOURS', how='inner'
+            x, 
+            y.drop(columns=[
+                col for col in y.columns 
+                if col in x.columns and col != 'ANTI_DATE_HOURS'
+            ]), 
+            on='ANTI_DATE_HOURS', how='inner'
         ), 
         df_split
     )

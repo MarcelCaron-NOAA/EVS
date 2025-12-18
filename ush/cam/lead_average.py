@@ -327,9 +327,9 @@ def plot_lead_average(df: pd.DataFrame, logger: logging.Logger,
     df_groups = df.groupby(group_by)
     # Aggregate unit statistics before calculating metrics
     if str(line_type).upper() == 'CTC':
-        df_aggregated = df_groups.sum()
+        df_aggregated = df_groups.sum(numeric_only=True)
     else:
-        df_aggregated = df_groups.mean()
+        df_aggregated = df_groups.mean(numeric_only=True)
     if sample_equalization:
         df_aggregated['COUNTS']=df_groups.size()
     df_aggregated = df_aggregated.reindex(

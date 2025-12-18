@@ -338,7 +338,7 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
             return None
     df_groups = df.groupby(group_by)
     # Aggregate unit statistics before calculating metrics
-    df_aggregated = df_groups.sum()
+    df_aggregated = df_groups.sum(numeric_only=True)
     if sample_equalization:
         df_aggregated['COUNTS']=df_groups.size()
     # Remove data if they exist for some but not all models at some value of 
@@ -347,7 +347,12 @@ def plot_performance_diagram(df: pd.DataFrame, logger: logging.Logger,
     df_split = [df_aggregated.xs(str(model)) for model in model_list]
     df_reduced = reduce(
         lambda x,y: pd.merge(
-            x, y, on='FCST_THRESH_VALUE', how='inner'
+            x, 
+            y.drop(columns=[
+                col for col in y.columns 
+                if col in x.columns and col != 'FCST_THRESH_VALUE'
+            ]), 
+            on='FCST_THRESH_VALUE', how='inner'
         ), 
         df_split
     )
