@@ -20,6 +20,7 @@ module load udunits/${udunits_ver}
 module load gsl/${gsl_ver}
 module load netcdf/${netcdf_ver}
 module load nco/${nco_ver}
+module use /apps/ops/para/nco/modulefiles/core
 module load prod_util/${prod_util_ver}
 module load cdo/${cdo_ver}
 module load grib_util/${grib_util_ver}
