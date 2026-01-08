@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
-# =============================================================================
-#
-# NAME: cam_plots_snowfall_graphx_defs.py
-# CONTRIBUTOR(S): Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
-# PURPOSE: Graphics definitions for the CAM Snowfall Plots jobs
-#
-# =============================================================================
+"""
+cam_plots_snowfall_graphx_defs.py
+CONTRIBUTORS: Marcel Caron, marcel.caron@noaa.gov, NOAA/NWS/NCEP/EMC-VPPPGB
+----------------------
+Graphics definitions for the CAM Snowfall Plots jobs, used by the cam
+component for plotting and job configuration.
+
+Environment Variables (Inputs):
+    EVAL_PERIOD (used within graphics definitions)
+
+Outputs:
+    - Provides the 'graphics' dictionary for CAM Snowfall plotting jobs.
+
+This module is intended to be imported and used as part of the cam component's
+plotting and job generation workflow for snowfall plots.
+"""
 
 import os
-from datetime import datetime, timedelta as td
+
 graphics = {
     'cam':{
         'snowfall':{
@@ -63,7 +72,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'WEASD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -76,7 +85,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -171,7 +180,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'WEASD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -184,7 +193,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -279,7 +288,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'SNOD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -292,7 +301,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -387,7 +396,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'ASNOW_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -400,7 +409,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -495,7 +504,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'SNOD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -508,7 +517,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -603,7 +612,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'SNOD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -616,7 +625,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -698,7 +707,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
@@ -780,7 +789,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                                 'SNOD_24':{
                                     'FCST_VALID_HOURS':[''],
@@ -793,7 +802,7 @@ graphics = {
                                     'OBS_THRESHs':['>=0.0254,>=0.0508,>=0.1016,>=0.2032,>=0.3048'],
                                     'CONFIDENCE_INTERVALS':'False',
                                     'INTERP':'NBRHD_SQUARE',
-                                    'INTERP_PNTSs':['1','25','81','441','961','3969'],
+                                    'INTERP_PNTSs':['1'],
                                 },
                             },
                         }
