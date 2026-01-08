@@ -1,11 +1,10 @@
-#PBS -S /bin/bash
-#PBS -N jevs_cam_arefsmem_precip_prep
+#PBS -N jevs_stats_cam_arefsmem_snowfall
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
 #PBS -A VERF-DEV
-#PBS -l walltime=00:10:00
-#PBS -l place=vscatter:exclhost,select=1:ncpus=3:ompthreads=1:mem=128GB
+#PBS -l walltime=00:35:00
+#PBS -l place=vscatter:exclhost,select=1:ncpus=128:ompthreads=1:mem=256GB
 #PBS -l debug=true
 
 set -x
@@ -13,30 +12,31 @@ export model=evs
 export machine=WCOSS2
 
 # ECF Settings
+export SENDMAIL=NO
 export SENDECF=YES
 export SENDCOM=YES
 export KEEPDATA=NO
 export SENDDBN=NO
 export SENDDBN_NTC=
-export job=${PBS_JOBNAME:-jevs_cam_arefsmem_precip_prep}
-export jobid=$job.${PBS_JOBID:-$$}
 export SITE=$(cat /etc/cluster_name)
 export USE_CFP=YES
-export nproc=3
+export nproc=128
 
 # General Verification Settings
 export NET="evs"
-export STEP="prep"
+export STEP="stats"
 export COMPONENT="cam"
 export RUN="atmos"
-export VERIF_CASE="precip"
+export VERIF_CASE="snowfall"
 export mem=${mem:-1}
 export MODELNAME="arefsmem${mem}"
+export job=${PBS_JOBNAME:-jevs_${STEP}_${COMPONENT}_${MODELNAME}_${VERIF_CASE}}
+export jobid=$job.${PBS_JOBID:-$$}
 
 # EVS Settings
 export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
-export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
+export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.arefsmem
 
 # Load Modules
 source $HOMEevs/versions/run.ver
@@ -48,8 +48,10 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
 export vhr=${vhr:-${vhr}}
+export MAILTO="andrew.benjamin@noaa.gov,marcel.caron@noaa.gov"
 
 # Job Settings and Run
-. ${HOMEevs}/jobs/JEVS_CAM_PREP
+. ${HOMEevs}/jobs/JEVS_STATS_CAM

@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Name of Script: exevs_arefsmem_severe_prep.sh
+# Name of Script: exevs_prep_arefsmem_severe.sh
 # Contact(s):     Marcel G. Caron (marcel.caron@noaa.gov)
 # Purpose of Script: This script preprocesses AREFS Member UH data for 
 #                    CAM severe verification.

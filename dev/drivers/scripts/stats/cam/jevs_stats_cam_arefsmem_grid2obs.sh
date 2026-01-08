@@ -1,11 +1,11 @@
 #PBS -S /bin/bash
-#PBS -N jevs_cam_arefsmem_precip_stats
+#PBS -N jevs_stats_cam_arefsmem_grid2obs
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
 #PBS -A VERF-DEV
-#PBS -l walltime=02:40:00
-#PBS -l place=vscatter:exclhost,select=1:ncpus=128:ompthreads=1:mem=256GB
+#PBS -l walltime=04:05:00
+#PBS -l place=vscatter:exclhost,select=1:ncpus=128:ompthreads=1:mem=128GB
 #PBS -l debug=true
 
 set -x
@@ -28,10 +28,10 @@ export NET="evs"
 export STEP="stats"
 export COMPONENT="cam"
 export RUN="atmos"
-export VERIF_CASE="precip"
+export VERIF_CASE="grid2obs"
 export mem=${mem:-1}
 export MODELNAME="arefsmem${mem}"
-export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}}
+export job=${PBS_JOBNAME:-jevs_${STEP}_${COMPONENT}_${MODELNAME}_${VERIF_CASE}}
 export jobid=$job.${PBS_JOBID:-$$}
 
 # EVS Settings
@@ -55,4 +55,4 @@ export vhr=${vhr:-${vhr}}
 export MAILTO="andrew.benjamin@noaa.gov,marcel.caron@noaa.gov"
 
 # Job Settings and Run
-. ${HOMEevs}/jobs/JEVS_CAM_STATS
+. ${HOMEevs}/jobs/JEVS_STATS_CAM

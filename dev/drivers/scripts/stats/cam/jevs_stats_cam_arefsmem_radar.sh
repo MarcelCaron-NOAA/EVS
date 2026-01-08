@@ -1,4 +1,4 @@
-#PBS -N jevs_cam_arefsmem_radar_stats
+#PBS -N jevs_stats_cam_arefsmem_radar
 #PBS -j oe
 #PBS -S /bin/bash
 #PBS -q dev
@@ -46,7 +46,7 @@ export VERIF_CASE=radar
 export mem=${mem:-1}
 export MODELNAME=arefsmem${mem}
 export modsys=rrfs
-export job=${PBS_JOBNAME:-jevs_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${STEP}_${vhr}}
+export job=${PBS_JOBNAME:-jevs_${STEP}_${COMPONENT}_${MODELNAME}_${VERIF_CASE}_${vhr}}
 export jobid=$job.${PBS_JOBID:-$$}
 export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
 export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
@@ -69,7 +69,7 @@ if [ -z "$MAILTO" ]; then
 else
 
    # CALL executable job script here
-   $HOMEevs/jobs/JEVS_CAM_STATS
+   $HOMEevs/jobs/JEVS_STATS_CAM
 
 fi
 
