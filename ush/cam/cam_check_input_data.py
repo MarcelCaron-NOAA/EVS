@@ -450,7 +450,7 @@ if proceed:
                 if NEST == 'conus':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'rrfsens.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
                         'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'
@@ -458,7 +458,7 @@ if proceed:
                 elif NEST == 'ak':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'rrfsens.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
                         'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.ak.grib2'
@@ -466,7 +466,7 @@ if proceed:
                 elif NEST == 'hi':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'rrfsens.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
                         'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.hi.grib2'
@@ -474,7 +474,7 @@ if proceed:
                 elif NEST == 'pr':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'rrfsens.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
                         'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.2p5km.f0{FHR}.pr.grib2'
@@ -482,7 +482,7 @@ if proceed:
                 else:
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
-                        'refs.{IDATE}',
+                        'rrfsens.{IDATE}',
                         '{IHOUR}',
                         f'm00{mem}',
                         'rrfs.t{IHOUR}z.'+f'm00{mem}.'+'prslev.3km.f0{FHR}.conus.grib2'

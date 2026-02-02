@@ -135,7 +135,7 @@ elif [[ "${MODELNAME}" = *"refsmem"* ]]; then
    if [[ "$mem" == "ctl" ]]; then
       export MODEL_INPUT_TEMPLATE=rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.${DOM}.grib2
    else
-      export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.${DOM}.grib2
+      export MODEL_INPUT_TEMPLATE=rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.${DOM}.grib2
    fi
 
 fi
@@ -211,7 +211,7 @@ while [ $fhr -le $fhr_max ]; do
       if [[ "$mem" == "ctl" ]]; then
           export fcst_file=${modsys}.${IDATE}/${INIT_HR}/${modsys}.t${INIT_HR}z.prslev.3km.f$(printf "%03d" $fhr).${DOM}.grib2
       else
-          export fcst_file=refs.${IDATE}/${INIT_HR}/m00${mem}/${modsys}.t${INIT_HR}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).${DOM}.grib2
+          export fcst_file=rrfsens.${IDATE}/${INIT_HR}/m00${mem}/${modsys}.t${INIT_HR}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).${DOM}.grib2
       fi
    fi
 

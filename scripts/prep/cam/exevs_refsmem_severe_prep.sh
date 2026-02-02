@@ -34,7 +34,7 @@ export MODEL_INPUT_DIR=${COMINrefsmem}
 if [ "${mem}" == "ctl" ]; then
    export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%H}/${modsys}.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2
 else
-   export MODEL_INPUT_TEMPLATE=refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2
+   export MODEL_INPUT_TEMPLATE=rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/${modsys}.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2
 fi
 
 export MXUPHL25_THRESH1=75.0
@@ -102,7 +102,7 @@ i=1
       if [ "${mem}" == "ctl" ]; then
          export fcst_file=${MODEL_INPUT_DIR}/${modsys}.${INITDATE}/${vhr}/${modsys}.t${vhr}z.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
       else
-         export fcst_file=${MODEL_INPUT_DIR}/refs.${INITDATE}/${vhr}/m00${mem}/${modsys}.t${vhr}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
+         export fcst_file=${MODEL_INPUT_DIR}/rrfsens.${INITDATE}/${vhr}/m00${mem}/${modsys}.t${vhr}z.m00${mem}.prslev.3km.f$(printf "%03d" $fhr).conus.grib2
       fi
 
       if [ -s $fcst_file ]; then

@@ -32,7 +32,7 @@ if [ "$NEST" = "conus" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -60,7 +60,7 @@ elif [ "$NEST" = "subreg" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -88,7 +88,7 @@ elif [ "$NEST" = "ak" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -116,7 +116,7 @@ elif [ "$NEST" = "hi" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -144,7 +144,7 @@ elif [ "$NEST" = "pr" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -172,7 +172,7 @@ elif [ "$NEST" = "firewx" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
@@ -200,7 +200,7 @@ elif [ "$NEST" = "spc_otlk" ]; then
     if [ "$mem" = "ctl" ]; then
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     else
-        export MODEL_INPUT_TEMPLATE="refs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
