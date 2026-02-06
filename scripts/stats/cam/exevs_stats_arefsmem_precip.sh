@@ -16,7 +16,7 @@ set -x
 export machine=${machine:-"WCOSS2"}
 export PYTHONPATH=$USHevs/$COMPONENT:$PYTHONPATH
 last_cyc="22"
-NEST_LIST="conus ak hi pr"
+NEST_LIST="conus ak hi"
 export BOOL_NBRHD=False
 
 # Reformat MET Data
@@ -25,14 +25,14 @@ export njob=1
 export run_restart=true
 for NEST in $NEST_LIST; do
     export NEST=$NEST
-    for ACC in "01" "03" "24"; do
+    for ACC in "03" "24"; do
         export ACC=$ACC
         if [ "${ACC}" = "01" ]; then
             VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
         elif [ "${ACC}" = "03" ]; then
-            VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+            VHOUR_LIST="00 03 06 09 12 15 18 21"
         elif [ "${ACC}" = "24" ]; then
-            VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+            VHOUR_LIST="00 03 06 09 12 15 18 21"
         else
             err_exit "${ACC} is not supported"
         fi
@@ -136,14 +136,14 @@ export job_type="generate"
 export njob=1
 for NEST in $NEST_LIST; do
     export NEST=$NEST
-    for ACC in "01" "03" "24"; do
+    for ACC in "03" "24"; do
         export ACC=$ACC
         if [ "${ACC}" = "01" ]; then
             VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
         elif [ "${ACC}" = "03" ]; then
-            VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+            VHOUR_LIST="00 03 06 09 12 15 18 21"
         elif [ "${ACC}" = "24" ]; then
-            VHOUR_LIST="00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23"
+            VHOUR_LIST="00 03 06 09 12 15 18 21"
         else
             err_exit "${ACC} is not supported"
         fi

@@ -16,7 +16,7 @@ set -x
 export machine=${machine:-"WCOSS2"}
 export PYTHONPATH=$USHevs/$COMPONENT:$PYTHONPATH
 last_cyc="21"
-NEST_LIST="conus ak spc_otlk firewx hi pr subreg"
+NEST_LIST="conus ak spc_otlk hi subreg"
 VERIF_TYPES="raob metar"
 
 # Reformat MET Data
