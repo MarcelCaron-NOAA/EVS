@@ -34,7 +34,7 @@ export VERIF_CASE="precip"
 export MODELNAME=${COMPONENT}
 
 # EVS Settings
-export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/EVS"
+export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/test/arefs/EVS"
 export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}
 
 # Load Modules
@@ -47,10 +47,10 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 # Developer Settings
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/$USER/evs_test/$envir/tmp
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/arafs
 export vhr=${vhr:-${vhr}}
-export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
-export EVAL_PERIOD="last90days"
+export COMOUT=/lfs/h2/emc/ptmp/$USER/$NET/$evs_ver_2d/arafs/$STEP/$COMPONENT
+export EVAL_PERIOD="last31days"
 
 # Job Settings and Run
 . ${HOMEevs}/jobs/JEVS_PLOTS_CAM
