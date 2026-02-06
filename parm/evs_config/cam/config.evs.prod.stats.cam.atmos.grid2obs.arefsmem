@@ -30,7 +30,7 @@ if [ "$NEST" = "conus" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
@@ -50,15 +50,15 @@ if [ "$NEST" = "conus" ]; then
     export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G240_CONUS.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_East.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_West.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_Central.nc, ${FIXevs}/masks/Bukovsky_G240_CONUS_South.nc"
     export MASK_CUSTOM_LIST=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "subreg" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
@@ -75,18 +75,18 @@ elif [ "$NEST" = "subreg" ]; then
     else
         err_exit "The provided OBSNAME, $OBSNAME, is not supported for $MODELNAME"
     fi
-    export MASK_POLY_LIST="${FIXevs}/masks/Bukovsky_G218_Appalachia.nc, ${FIXevs}/masks/Bukovsky_G218_CPlains.nc, ${FIXevs}/masks/Bukovsky_G218_DeepSouth.nc, ${FIXevs}/masks/Bukovsky_G218_GreatBasin.nc, ${FIXevs}/masks/Bukovsky_G218_GreatLakes.nc, ${FIXevs}/masks/Bukovsky_G218_Mezquital.nc, ${FIXevs}/masks/Bukovsky_G218_MidAtlantic.nc, ${FIXevs}/masks/Bukovsky_G218_NorthAtlantic.nc, ${FIXevs}/masks/Bukovsky_G218_NPlains.nc, ${FIXevs}/masks/Bukovsky_G218_NRockies.nc, ${FIXevs}/masks/Bukovsky_G218_PacificNW.nc, ${FIXevs}/masks/Bukovsky_G218_PacificSW.nc, ${FIXevs}/masks/Bukovsky_G218_Prairie.nc, ${FIXevs}/masks/Bukovsky_G218_Southeast.nc, ${FIXevs}/masks/Bukovsky_G218_Southwest.nc, ${FIXevs}/masks/Bukovsky_G218_SPlains.nc, ${FIXevs}/masks/Bukovsky_G218_SRockies.nc"
+    export MASK_POLY_LIST="${FIXevs}/masks/AR_CA06.nc, ${FIXevs}/masks/AR_PNNC.nc, ${FIXevs}/masks/AR_SCAN.nc, ${FIXevs}/masks/AR_West.nc, ${FIXevs}/masks/Bukovsky_G218_Appalachia.nc, ${FIXevs}/masks/Bukovsky_G218_CPlains.nc, ${FIXevs}/masks/Bukovsky_G218_DeepSouth.nc, ${FIXevs}/masks/Bukovsky_G218_GreatBasin.nc, ${FIXevs}/masks/Bukovsky_G218_GreatLakes.nc, ${FIXevs}/masks/Bukovsky_G218_Mezquital.nc, ${FIXevs}/masks/Bukovsky_G218_MidAtlantic.nc, ${FIXevs}/masks/Bukovsky_G218_NorthAtlantic.nc, ${FIXevs}/masks/Bukovsky_G218_NPlains.nc, ${FIXevs}/masks/Bukovsky_G218_NRockies.nc, ${FIXevs}/masks/Bukovsky_G218_PacificNW.nc, ${FIXevs}/masks/Bukovsky_G218_PacificSW.nc, ${FIXevs}/masks/Bukovsky_G218_Prairie.nc, ${FIXevs}/masks/Bukovsky_G218_Southeast.nc, ${FIXevs}/masks/Bukovsky_G218_Southwest.nc, ${FIXevs}/masks/Bukovsky_G218_SPlains.nc, ${FIXevs}/masks/Bukovsky_G218_SRockies.nc"
     export MASK_CUSTOM_LIST=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "ak" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
     fi
@@ -106,15 +106,15 @@ elif [ "$NEST" = "ak" ]; then
     export MASK_POLY_LIST="${FIXevs}/masks/Alaska_G091.nc"
     export MASK_CUSTOM_LIST=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "hi" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
     fi
@@ -134,15 +134,15 @@ elif [ "$NEST" = "hi" ]; then
     export GRID_POLY_LIST="${FIXevs}/masks/Hawaii_G196.nc"
     export MASK_CUSTOM_LIST=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "pr" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
     fi
@@ -162,15 +162,15 @@ elif [ "$NEST" = "pr" ]; then
     export GRID_POLY_LIST="${FIXevs}/masks/Puerto_Rico_G194.nc"
     export MASK_CUSTOM_LIST=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "firewx" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
@@ -191,14 +191,14 @@ elif [ "$NEST" = "firewx" ]; then
     export NEST_INPUT_TEMPLATE="nam.{init?fmt=%Y%m%d}/nam.t{init?fmt=%2H}z.firewxnest.hiresf{lead?fmt=%2H}.tm00.grib2"
     export MIN_IHOUR="00"
     export FHR_END_FULL="36"
-    export FHR_INCR_FULL="6"
+    export FHR_INCR_FULL="12"
     export FHR_END_SHORT="36"
-    export FHR_INCR_SHORT="6"
+    export FHR_INCR_SHORT="12"
 elif [ "$NEST" = "spc_otlk" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
     if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+        export MODEL_INPUT_TEMPLATE="arafs.{init?fmt=%Y%m%d}/{init?fmt=%H}/arafs.{init?fmt=%Y%m%d%2H}.f{lead?fmt=%3H}.grb2"
     else
         export MODEL_INPUT_TEMPLATE="arefs.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/arafs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
     fi
@@ -218,10 +218,10 @@ elif [ "$NEST" = "spc_otlk" ]; then
     export GRID_POLY_LIST="${FIXevs}/masks/Bukovsky_G240_CONUS.nc"
     export NEST_INPUT_TEMPLATE=""
     export MIN_IHOUR="00"
-    export FHR_END_FULL="60"
-    export FHR_INCR_FULL="6"
-    export FHR_END_SHORT="60"
-    export FHR_INCR_SHORT="6"
+    export FHR_END_FULL="120"
+    export FHR_INCR_FULL="12"
+    export FHR_END_SHORT="120"
+    export FHR_INCR_SHORT="12"
 else
     err_exit "The provided NEST, $NEST, is not supported for $MODELNAME"
 fi
