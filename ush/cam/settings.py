@@ -41,7 +41,7 @@ class Toggle():
             'ci_lev': .95, # confidence level, as a float > 0. and < 1.
             'bs_nrep': 5000, # number of bootstrap repetitions when confidence intervals are computed
             'bs_method': 'FORECASTS', # bootstrap method. 'FORECASTS' bootstraps the lines in the stat files, 'MATCHED_PAIRS' bootstraps the f-o matched pairs
-            'bs_min_samp': 30, # Minimum number of samples allowed for boostrapping to performed (if there are fewer samples, no confidence intervals)
+            'bs_min_samp': 15, # Minimum number of samples allowed for boostrapping to performed (if there are fewer samples, no confidence intervals)
             'display_averages': False, # display mean statistic for each model, averaged across the dimension of the independent variable
             'include_all_requested_thresholds': True, # functional for threshold_average only; label x-axis with all requested thresholds rather than only plotted thresholds
             'sample_equalization': True, # equalize samples along each value of the independent variable where data exist
@@ -116,6 +116,26 @@ class Paths():
             'sample': {
                 'data_dir': f"/path/to/stat/files/directory",
                 'file_template': 'Use.to.overwrite.default.template.format.stat',
+            },
+            'gfs_precip_ctl': {
+                'data_dir': "/lfs/h2/emc/vpppg/noscrub/binbin.zhou/evs/v2.0/stats/global_det",
+                'file_template': 'gfs.{valid?fmt=%Y%m%d}/evs.stats.gfs.precip.v{valid?fmt=%Y%m%d}.stat',
+            },
+            'gfs_precip_deny': {
+                'data_dir': "/lfs/h2/emc/vpppg/noscrub/binbin.zhou/evs/v2.0/stats/global_deny",
+                'file_template': 'gfsdeny.{valid?fmt=%Y%m%d}/evs.stats.gfsdeny.precip.v{valid?fmt=%Y%m%d}.stat',
+            },
+            'gfs_precip3': {
+                'data_dir': "/lfs/h2/emc/vpppg/noscrub/binbin.zhou/evs/v2.0/stats/global_det",
+                'file_template': 'gfs.{valid?fmt=%Y%m%d}/evs.stats.gfs.precip.v{valid?fmt=%Y%m%d}.stat',
+            },
+            'gfs_precip2': {
+                'data_dir': "/lfs/h2/emc/vpppg/noscrub/emc.vpppg/evs/v2.0/stats/global_det",
+                'file_template': 'gfs.{valid?fmt=%Y%m%d}/evs.stats.gfs.atmos.grid2grid.v{valid?fmt=%Y%m%d}.stat',
+            },
+            'gfs_precip': {
+                'data_dir': "",
+                'file_template': 'gfs.{valid?fmt=%Y%m%d}/evs.stats.gfs.precip.v{valid?fmt=%Y%m%d}.stat',
             },
             'hrrrctl': {
                 'data_dir': f"/lfs/h2/emc/vpppg/noscrub/marcel.caron/evs/v2.0/Radiosonde2025A/stats/cam",
@@ -754,35 +774,60 @@ class ModelSpecs():
 				'stats_key':'', 
                 'plot_name':'WAFS'
             },
+            'gfs_precip': {
+                'settings_key':'GFS_BAD', 
+				'stats_key':'GFS_PRECIP', 
+                'plot_name':'GFS (bad)'
+            },
+            'gfs_precip3': {
+                'settings_key':'GFS', 
+				'stats_key':'GFS_PRECIP', 
+                'plot_name':'GFS'
+            },
+            'gfs_precip2': {
+                'settings_key':'GFS', 
+				'stats_key':'gfs', 
+                'plot_name':'GFS'
+            },
+            'gfs_precip_ctl': {
+                'settings_key':'GFS', 
+				'stats_key':'GFS_PRECIP', 
+                'plot_name':'GFS (Control)'
+            },
+            'gfs_precip_deny': {
+                'settings_key':'GFS_DENY', 
+				'stats_key':'GFSdeny_PRECIP', 
+                'plot_name':'GFS (Deny)'
+            },
             'arefsmemctl': {
                 'settings_key':'AREFS_MEM_CTL', 
 				'stats_key':'', 
-                'plot_name':'ARAFS'
+                'plot_name':'AR-AFS'
             },
             'arefsmem1': {
                 'settings_key':'AREFS_MEM_1', 
 				'stats_key':'', 
-                'plot_name':'AREFS Mem. 1'
+                'plot_name':'AR-EFS Mem. 1'
             },
             'arefsmem2': {
                 'settings_key':'AREFS_MEM_2', 
 				'stats_key':'', 
-                'plot_name':'AREFS Mem. 2'
+                'plot_name':'AR-EFS Mem. 2'
             },
             'arefsmem3': {
                 'settings_key':'AREFS_MEM_3', 
 				'stats_key':'', 
-                'plot_name':'AREFS Mem. 3'
+                'plot_name':'AR-EFS Mem. 3'
             },
             'arefsmem4': {
                 'settings_key':'AREFS_MEM_4', 
 				'stats_key':'', 
-                'plot_name':'AREFS Mem. 4'
+                'plot_name':'AR-EFS Mem. 4'
             },
             'arefsmem5': {
                 'settings_key':'AREFS_MEM_5', 
 				'stats_key':'', 
-                'plot_name':'AREFS Mem. 5'
+                'plot_name':'AR-EFS Mem. 5'
             },
         }
 
@@ -876,6 +921,9 @@ class ModelSpecs():
             'HRRR': {'color': '#fb2020',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
+            'AREFS_MEM_CTL': {'color': '#1e3cff',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 1.8},
             'NAM': {'color': '#1e3cff',
                      'marker': 'o', 'markersize': 10,
                      'linestyle': 'solid', 'linewidth': 1.8},
@@ -908,6 +956,12 @@ class ModelSpecs():
                       'linestyle': 'dashed', 'linewidth': 1.8},
             'GFS': {'color': '#000000',
                     'marker': 'o', 'markersize': 10,
+                    'linestyle': 'solid', 'linewidth': 2.},
+            'GFS_DENY': {'color': '#fb2020',
+                     'marker': 'o', 'markersize': 10,
+                     'linestyle': 'solid', 'linewidth': 2},
+            'GFS_BAD': {'color': '#000000',
+                    'marker': '^', 'markersize': 11,
                     'linestyle': 'solid', 'linewidth': 2.},
             'GFS_DASHED': {'color': '#000000',
                            'marker': 'o', 'markersize': 10,
@@ -1275,6 +1329,22 @@ class Reference():
                                   'Antarctic': {
                                       'long_name': 'Antarctic Ocean',
                                       'save_name': 'Antarctic',
+                                  },
+                                  'AR_CA06': {
+                                      'long_name': 'Central California',
+                                      'save_name': 'ar_ca06',
+                                  },
+                                  'AR_PNNC': {
+                                      'long_name': 'Pacific Northwest and Northern California',
+                                      'save_name': 'ar_pnnc',
+                                  },
+                                  'AR_SCAN': {
+                                      'long_name': 'Southern CA, AR, & NM',
+                                      'save_name': 'ar_scan',
+                                  },
+                                  'AR_West': {
+                                      'long_name': 'Western US (AR)',
+                                      'save_name': 'ar_conus_w',
                                   },
                                   'EAST': {
                                       'long_name': 'Eastern US',
@@ -2126,7 +2196,7 @@ class Reference():
                     'interp': 'NEAREST, NBRHD_CIRCLE, NBRHD_SQUARE, BILIN',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 'Alaska' 
+                        'CONUS_South', 'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West' 
                     ],
                     'var_dict': {
                         'REFC': {'fcst_var_names': ['REFC'],
@@ -2167,7 +2237,7 @@ class Reference():
                     'interp': 'NBRHD_CIRCLE, NBRHD_SQUARE',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 'Alaska' 
+                        'CONUS_South', 'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West' 
                     ],
                     'var_dict': {
                         'REFC': {'fcst_var_names': ['REFC'],
@@ -2207,7 +2277,7 @@ class Reference():
                     'interp': 'NBRHD_SQUARE, NBRHD_CIRCLE',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 'Alaska' 
+                        'CONUS_South', 'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West' 
                     ],
                     'var_dict': {
                         'REFC': {'fcst_var_names': ['REFC'],
@@ -2459,7 +2529,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'HGT': {'fcst_var_names': ['HGT'],
@@ -2646,7 +2716,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'UGRD_VGRD': {'fcst_var_names': ['UGRD_VGRD'],
@@ -2694,7 +2764,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'SBCAPE': {'fcst_var_names': ['CAPE'],
@@ -2745,7 +2815,7 @@ class Reference():
                     'interp': 'NEAREST, BILIN',
                     'vx_mask_list' : [
                         'CONUS_East', 'CONUS_West', 'CONUS_Central', 'CONUS_South',
-                        'Alaska', 'Hawaii'
+                        'Alaska', 'Hawaii', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'TMP2m': {'fcst_var_names': ['TMP'],
@@ -2773,7 +2843,7 @@ class Reference():
                     'interp': 'NEAREST, BILIN',
                     'vx_mask_list' : [
                         'CONUS_East', 'CONUS_West', 'CONUS_Central', 'CONUS_South',
-                        'Alaska', 'Hawaii'
+                        'Alaska', 'Hawaii', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'UGRD_VGRD10m': {'fcst_var_names': ['UGRD_VGRD'],
@@ -2798,7 +2868,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'TMP2m': {'fcst_var_names': ['TMP'],
@@ -2884,7 +2954,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'UGRD_VGRD10m': {'fcst_var_names': ['UGRD_VGRD'],
@@ -2908,7 +2978,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                        'DPT2m': {'fcst_var_names': ['DPT'],
@@ -2986,7 +3056,7 @@ class Reference():
                         'Mezquital', 'MidAtlantic', 'NorthAtlantic', 'NPlains', 'NRockies',
                         'PacificNW', 'PacificSW', 'Prairie', 'Southeast', 'Southwest', 'SPlains', 'SRockies',
                         'Alaska', 'Hawaii', 'PuertoRico', 'Guam', 'FireWx', 'DAY1_1200_TSTM',
-                        'DAY1_0100_TSTM'
+                        'DAY1_0100_TSTM', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'TCDC': {'fcst_var_names': ['TCDC'],
@@ -3008,7 +3078,7 @@ class Reference():
                     'interp': 'BILIN',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 'CONUS_South',
-                        'Alaska',
+                        'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'PTYPE': {'fcst_var_names': ['PTYPE'],
@@ -3473,7 +3543,7 @@ class Reference():
                     'interp': 'NEAREST',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 
+                        'CONUS_South', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West' 
                     ],
                     'var_dict': {
                         'APCP_01': {'fcst_var_names': ['APCP', 'APCP_01'],
@@ -3519,7 +3589,7 @@ class Reference():
                     'interp': 'NBRHD_SQUARE, NBRHD_CIRCLE',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 'Alaska', 
+                        'CONUS_South', 'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West' 
                     ],
                     'var_dict': {
                         'APCP_01': {'fcst_var_names': ['APCP', 'APCP_01'],
@@ -3624,7 +3694,7 @@ class Reference():
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
                         'CONUS_South', 'G130', 'G214', 'WEST', 'EAST', 'MDW', 'NPL', 'SPL', 'NEC', 
                         'SEC', 'NWC', 'SWC', 'NMT', 'SMT', 'SWD', 'GRB', 
-                        'LMV', 'GAC', 'APL', 'NAK', 'SAK'
+                        'LMV', 'GAC', 'APL', 'NAK', 'SAK', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'APCP_01': {'fcst_var_names': ['APCP', 'APCP_01'],
@@ -3973,7 +4043,7 @@ class Reference():
                     'interp': 'NBRHD_SQUARE, NBRHD_CIRCLE',
                     'vx_mask_list' : [
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
-                        'CONUS_South', 'Alaska', 
+                        'CONUS_South', 'Alaska', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West', 
                     ],
                     'var_dict': {
                         'WEASD_06': {'fcst_var_names': ['WEASD', 'WEASD_06'],
@@ -4076,7 +4146,7 @@ class Reference():
                         'CONUS', 'CONUS_East', 'CONUS_West', 'CONUS_Central', 
                         'CONUS_South', 'G130', 'G214', 'WEST', 'EAST', 'MDW', 'NPL', 'SPL', 'NEC', 
                         'SEC', 'NWC', 'SWC', 'NMT', 'SMT', 'SWD', 'GRB', 
-                        'LMV', 'GAC', 'APL', 'NAK', 'SAK'
+                        'LMV', 'GAC', 'APL', 'NAK', 'SAK', 'AR_CA06', 'AR_PNNC', 'AR_SCAN', 'AR_West'
                     ],
                     'var_dict': {
                         'WEASD_06': {'fcst_var_names': ['WEASD', 'WEASD_06'],

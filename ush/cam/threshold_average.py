@@ -793,7 +793,7 @@ def plot_threshold_average(df: pd.DataFrame, logger: logging.Logger,
                 color='dimgrey', ha='center'
             )
         ax.annotate(
-            '#SAMPLES', xy=(0.,1.), xycoords='axes fraction',
+            '#EVENTS', xy=(0.,1.), xycoords='axes fraction',
             xytext=(-50, 21), textcoords='offset points', va='top',
             fontsize=11, color='dimgrey', ha='center'
         )

@@ -435,35 +435,35 @@ if proceed:
                         COMINfcst, 
                         'arafs.{IDATE}',
                         '{IHOUR}',
-                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.{IDATE}{IHOUR}.f0{FHR}.grb2'
                     ))
                 elif NEST == 'ak':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
                         'arafs.{IDATE}',
                         '{IHOUR}',
-                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.ak.grib2'
+                        'arafs.{IDATE}{IHOUR}.f0{FHR}.grb2'
                     ))
                 elif NEST == 'hi':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
                         'arafs.{IDATE}',
                         '{IHOUR}',
-                        'arafs.t{IHOUR}z.prslev.2p5km.f0{FHR}.hi.grib2'
+                        'arafs.{IDATE}{IHOUR}.f0{FHR}.grb2'
                     ))
                 elif NEST == 'pr':
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
                         'arafs.{IDATE}',
                         '{IHOUR}',
-                        'arafs.t{IHOUR}z.prslev.2p5km.f0{FHR}.pr.grib2'
+                        'arafs.{IDATE}{IHOUR}.f0{FHR}.grb2'
                     ))
                 else:
                     fcst_templates.append(os.path.join(
                         COMINfcst, 
                         'arafs.{IDATE}',
                         '{IHOUR}',
-                        'arafs.t{IHOUR}z.prslev.3km.f0{FHR}.conus.grib2'
+                        'arafs.{IDATE}{IHOUR}.f0{FHR}.grb2'
                     ))
             else:
                 if NEST == 'conus':
