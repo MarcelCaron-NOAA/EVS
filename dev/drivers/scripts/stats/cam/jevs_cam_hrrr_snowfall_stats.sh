@@ -33,7 +33,7 @@ export VERIF_CASE="snowfall"
 export MODELNAME="hrrr"
 
 # EVS Settings
-export HOMEevs="/lfs/h2/emc/vpppg/noscrub/$USER/test/refs_members/EVS"
+export HOMEevs="/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/refs_members/EVS"
 export HOMEevs=${HOMEevs:-${PACKAGEROOT}/evs.${evs_ver}}
 export config=$HOMEevs/parm/evs_config/cam/config.evs.prod.${STEP}.${COMPONENT}.${RUN}.${VERIF_CASE}.${MODELNAME}
 

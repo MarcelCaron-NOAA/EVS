@@ -24,7 +24,7 @@ export COMPONENT=cam
 export STEP=plots
 export RUN=atmos
 
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/$USER/test/refs_members/EVS
+export HOMEevs=/lfs/h2/emc/vpppg/save/$USER/EVS_rrfs/refs_members/EVS
 source $HOMEevs/versions/run.ver
 module reset
 module load prod_envir/${prod_envir_ver}
