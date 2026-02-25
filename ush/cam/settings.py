@@ -3687,7 +3687,7 @@ class Reference():
                     }
                 },
                 'CTC': {
-                    'plot_stats_list': ('me, ets, fss, csi, fbias, fbar,'
+                    'plot_stats_list': ('accuracy, me, ets, fss, csi, fbias, fbar,'
                                         + ' obar, pod, faratio, farate, sratio'),
                     'interp': 'NEAREST',
                     'vx_mask_list' : [
