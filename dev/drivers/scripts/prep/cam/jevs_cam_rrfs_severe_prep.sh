@@ -40,7 +40,7 @@ export vhr=${vhr:-${vhr}}
 ############################################################
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
-export KEEPDATA=YES
+export KEEPDATA=NO
 export VERIF_CASE=severe
 export MODELNAME=rrfs
 export modsys=rrfs
