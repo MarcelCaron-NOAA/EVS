@@ -29,17 +29,31 @@ export OBSNAME=${VERIF_TYPE}
 if [ "$NEST" = "conus" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH SBCAPE MLCAPE HPBL"
         export VHOUR_LIST="00 06 12 18"
         export GRID="G240"
+        if (( var_set_num == 0 )); then
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+            export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
+        else
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+            export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc TCDC VIS CEILING PTYPE"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -57,17 +71,31 @@ if [ "$NEST" = "conus" ]; then
 elif [ "$NEST" = "subreg" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST=""
         export VHOUR_LIST="00 06 12 18"
         export GRID="G218"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        else
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc VIS CEILING"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -85,17 +113,31 @@ elif [ "$NEST" = "subreg" ]; then
 elif [ "$NEST" = "ak" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH SBCAPE MLCAPE HPBL"
         export VHOUR_LIST="00 06 12 18"
         export GRID="G091"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
+            fi
+        else
+            export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc TCDC VIS CEILING PTYPE"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -113,17 +155,31 @@ elif [ "$NEST" = "ak" ]; then
 elif [ "$NEST" = "hi" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         export VHOUR_LIST="00 06 12 18"
         export GRID="G196"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            fi
+        else
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -141,17 +197,31 @@ elif [ "$NEST" = "hi" ]; then
 elif [ "$NEST" = "pr" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         export VHOUR_LIST="00 06 12 18"
         export GRID="G194"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            fi
+        else
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m MSLP UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -169,17 +239,31 @@ elif [ "$NEST" = "pr" ]; then
 elif [ "$NEST" = "firewx" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="HPBL"
-        export VHOUR_LIST="00 06 12 18"
         export GRID="G240"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        else
+            export VAR_NAME_LIST="HPBL"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST="TMP2m DPT2m RH2m UGRD10m VGRD10m UGRD_VGRD10m WIND10m GUSTsfc"
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
@@ -197,17 +281,31 @@ elif [ "$NEST" = "firewx" ]; then
 elif [ "$NEST" = "spc_otlk" ]; then
     export SKIP_IF_OUTPUT_EXISTS="no"
     export FHR_GROUP_LIST="FULL"
-    if [ "$mem" = "ctl" ]; then
-        export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    else
-        export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
-    fi
     if [ "$OBSNAME" = "raob" ]; then
         export COMINobs=${COMINobsproc}
-        export VAR_NAME_LIST="SBCAPE MLCAPE"
         export VHOUR_LIST="00 06 12 18"
         export GRID="G240"
+        if (( var_set_num == 0 )); then
+            export VAR_NAME_LIST=""
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        else
+            export VAR_NAME_LIST="SBCAPE MLCAPE"
+            if [ "$mem" = "ctl" ]; then
+                export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            else
+                export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            fi
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
+        if [ "$mem" = "ctl" ]; then
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        else
+            export MODEL_INPUT_TEMPLATE="rrfsens.{init?fmt=%Y%m%d}/{init?fmt=%H}/m00${mem}/rrfs.t{init?fmt=%2H}z.m00${mem}.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+        fi
         export COMINobs=${COMINobsproc}
         export VAR_NAME_LIST=""
         export VHOUR_LIST="00 03 06 09 12 15 18 21"
