@@ -92,10 +92,10 @@ elif [ "$NEST" = "ak" ]; then
         export GRID="G091"
         export VHOUR_LIST="00 06 12 18"
         if (( var_set_num == 0 )); then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.ak.grib2"
             export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         else
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
             export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
@@ -121,10 +121,10 @@ elif [ "$NEST" = "hi" ]; then
         export GRID="G196"
         export VHOUR_LIST="00 06 12 18"
         if (( var_set_num == 0 )); then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.hi.grib2"
             export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         else
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
             export VAR_NAME_LIST=""
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
@@ -150,10 +150,10 @@ elif [ "$NEST" = "pr" ]; then
         export GRID="G194"
         export VHOUR_LIST="00 06 12 18"
         if (( var_set_num == 0 )); then
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.prslev.2p5km.f{lead?fmt=%3H}.pr.grib2"
             export VAR_NAME_LIST="HGT TMP UGRD VGRD UGRD_VGRD SPFH"
         else
-            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
+            export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
             export VAR_NAME_LIST=""
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
