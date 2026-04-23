@@ -127,25 +127,34 @@ for NEST in $NEST_LIST; do
     export NEST=$NEST
     for VERIF_TYPE in $VERIF_TYPES; do
         export VERIF_TYPE=$VERIF_TYPE
-        source $config
-        source $USHevs/cam/cam_stats_grid2obs_filter_valid_hours_list.sh
-        for VAR_NAME in $VAR_NAME_LIST; do
-            export VAR_NAME=$VAR_NAME
-            for VHOUR in $VHOUR_LIST; do
-                export VHOUR=$VHOUR
-                # Check User's Configuration Settings
-                python $USHevs/cam/cam_check_settings.py
-                export err=$?; err_chk
-         
-                # Create Output Directories
-                python $USHevs/cam/cam_create_output_dirs.py
-                export err=$?; err_chk
-         
-                # Create Generate Job Script 
-                python $USHevs/cam/cam_stats_grid2obs_create_job_script.py
-                export err=$?; err_chk
-                export njob=$((njob+1))
+        export var_set_num=0
+        if ["${VERIF_TYPE}" = "raob" ]; then
+            var_set_max=2 # Run the loop twice
+        else
+            var_set_max=1 # Run the loop once
+        fi
+        while (( var_set_num < var_set_max )); do
+            source $config
+            source $USHevs/cam/cam_stats_grid2obs_filter_valid_hours_list.sh
+            for VAR_NAME in $VAR_NAME_LIST; do
+                export VAR_NAME=$VAR_NAME
+                for VHOUR in $VHOUR_LIST; do
+                    export VHOUR=$VHOUR
+                    # Check User's Configuration Settings
+                    python $USHevs/cam/cam_check_settings.py
+                    export err=$?; err_chk
+             
+                    # Create Output Directories
+                    python $USHevs/cam/cam_create_output_dirs.py
+                    export err=$?; err_chk
+             
+                    # Create Generate Job Script 
+                    python $USHevs/cam/cam_stats_grid2obs_create_job_script.py
+                    export err=$?; err_chk
+                    export njob=$((njob+1))
+                done
             done
+            ((++var_set_num))
         done
     done 
 done
