@@ -260,8 +260,8 @@ if [ "$data" = "apcp24h_conus" ] ; then
       fcst_time=`$NDATE -$fhr $obsv_vcyc`
       fyyyymmdd=${fcst_time:0:8}
       fcyc=${fcst_time:8:2}
-      mkdir -p $WORK/refs.${fyyyymmdd}
-      export modelpath=${COMREFS}/refs.${fyyyymmdd}/ensprod
+      mkdir -p $WORK/refs.${fyyyymmdd}/${fcyc}
+      export modelpath=${COMREFS}/refs.${fyyyymmdd}/${fcyc}/ensprod
       export prod 
 
       fhr_3=$((fhr-3))
@@ -279,7 +279,7 @@ if [ "$data" = "apcp24h_conus" ] ; then
       #if [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_3}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_6}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_9}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_12}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_15}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_18}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.conus.${prod}.f${fhr_21}.grib2 ] ; then
 
       #####################################################################################################################
-      # Restart: first check if refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc exists 
+      # Restart: first check if refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc exists 
       #    in the $COMOUTrestart directory, if not, run METplus to create it
       #    otherwise, copy it from the $COMOUTrestart directory
       ###################################################################################################################
@@ -287,18 +287,18 @@ if [ "$data" = "apcp24h_conus" ] ; then
          ${METPLUS_PATH}/ush/run_metplus.py -c ${PARMevs}/metplus_config/machine.conf -c ${PRECIP_CONF}/PcpCombine_fcstREFS_APCP24h.conf
          export err=$?; err_chk
 	 if [ -s $output_base/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc ] ; then
-             cp $output_base/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/.
+             cp $output_base/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/${fcyc}/.
            if [ $SENDCOM = YES ] ; then
 	     [[ ! -d ${COMOUTsmall}/precip_mean24 ]] && mkdir -p ${COMOUTsmall}/precip_mean24
-             cp $WORK/refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc ${COMOUTsmall}/precip_mean24/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc
+             cp $WORK/refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc ${COMOUTsmall}/precip_mean24/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc
 	     #Save restart files
-	     cp $WORK/refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc
+	     cp $WORK/refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc
 	   fi
          fi
        else
          #Restart: copy restart files to the working directory
-	 [[ ! -d $WORK/refs.${fyyyymmdd} ]] && mkdir -p $WORK/refs.${fyyyymmdd}
-         cp  $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc
+	 [[ ! -d $WORK/refs.${fyyyymmdd}/${fcyc} ]] && mkdir -p $WORK/refs.${fyyyymmdd}/${fcyc}
+         cp  $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc
 	 [[ ! -d $COMOUTsmall/precip_mean24 ]] && mkdir $COMOUTsmall/precip_mean24
          if [ -s $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc ] ; then
            cp $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G227.24h.f${fhr}.nc $COMOUTsmall/precip_mean24
@@ -331,8 +331,8 @@ if [ "$data" = "apcp24h_alaska" ] ; then
       fcst_time=`$NDATE -$fhr $obsv_vcyc`
       fyyyymmdd=${fcst_time:0:8}
       export fcyc=${fcst_time:8:2} #Alaska only has 06 cycle run 
-      mkdir -p refs.${fyyyymmdd}
-      export modelpath=${COMREFS}/refs.${fyyyymmdd}/ensprod
+      mkdir -p refs.${fyyyymmdd}/${fcyc}
+      export modelpath=${COMREFS}/refs.${fyyyymmdd}/${fcyc}/ensprod
       export prod
 
       fhr_3=$((fhr-3))
@@ -347,10 +347,10 @@ if [ "$data" = "apcp24h_alaska" ] ; then
      for prod in mean avrg pmmn lpmm ; do
 
 
-      if [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_3}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_6}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_9}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_12}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_15}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_18}.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.ak.${prod}.f${fhr_21}.grib2 ] ; then
+      if [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_3}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_6}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_9}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_12}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_15}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_18}.ak.grib2 ] && [ -s $modelpath/refs.t${fcyc}z.${prod}.f${fhr_21}.ak.grib2 ] ; then
 
       #################################################################################################
-      # Restart: first check if refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc exists
+      # Restart: first check if refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G227.24h.f${fhr}.nc exists
       #    in the $COMOUTrestart directory, if not, run METplus to create it
       #    otherwise, copy it from the $COMOUTrestart directory
       ##################################################################################################
@@ -358,16 +358,16 @@ if [ "$data" = "apcp24h_alaska" ] ; then
          ${METPLUS_PATH}/ush/run_metplus.py -c ${PARMevs}/metplus_config/machine.conf -c ${PRECIP_CONF}/PcpCombine_fcstREFS_APCP24h.conf
          export err=$?; err_chk
          if [ -s $output_base/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc ] ; then
-            mv $output_base/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/.
+            mv $output_base/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/${fcyc}/.
             #Save restart files
 	    if [ $SENDCOM = YES ] ; then
-              cp $WORK/refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G255.24h.f${fhr}.nc
+              cp $WORK/refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G255.24h.f${fhr}.nc
 	    fi
          fi
        else
          #Restart: copy restart files to the working directory
-	 [[ ! -d $WORK/refs.${fyyyymmdd} ]] && mkdir -p $WORK/refs.${fyyyymmdd}
-         cp  $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G255.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc
+	 [[ ! -d $WORK/refs.${fyyyymmdd}/${fcyc} ]] && mkdir -p $WORK/refs.${fyyyymmdd}/${fcyc}
+         cp  $COMOUTrestart/prepare/refs${prod}.${fyyyymmdd}.t${fcyc}z.G255.24h.f${fhr}.nc $WORK/refs.${fyyyymmdd}/${fcyc}/refs${prod}.t${fcyc}z.G255.24h.f${fhr}.nc
        fi
 
       fi
@@ -695,7 +695,7 @@ if [ "$data" = "sfc" ] ; then
       echo "    typeset -Z2 hh" >> run_prepare.${day}.${cyc}.${domain}.sh
       echo "    hh=\$fhr      " >> run_prepare.${day}.${cyc}.${domain}.sh
       echo "      for mbr in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 ; do" >> run_prepare.${day}.${cyc}.${domain}.sh
-      echo "        refs=$COMREFS/refs.${day}/verf_g2g/refs.m\${mbr}.t${cyc}z.${domain}.f\${hh}" >> run_prepare.${day}.${cyc}.${domain}.sh
+      echo "        refs=$COMREFS/refs.${day}/${cyc}/verf_g2g/refs.m\${mbr}.t${cyc}z.${domain}.f\${hh}" >> run_prepare.${day}.${cyc}.${domain}.sh
       echo "        if [ -s \$refs ] ; then" >> run_prepare.${day}.${cyc}.${domain}.sh
       echo "          $WGRIB2 \$refs|grep --file=$DATA/pat|$WGRIB2 -i \$refs -grib  \$work/refs.m\${mbr}.t${cyc}z.${domain}.f\${hh}" >> run_prepare.${day}.${cyc}.${domain}.sh
       echo "          if [ \$mbr = 01 ] || [ \$mbr = 02 ] || [ \$mbr = 03 ] || [ \$mbr = 04 ] || [ \$mbr = 05 ] || [ \$mbr = 06 ] || [ \$mbr = 13 ] ; then " >> run_prepare.${day}.${cyc}.${domain}.sh

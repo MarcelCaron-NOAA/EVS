@@ -75,7 +75,7 @@ if [ ${MODELNAME} = href ]; then
    fhr_inc=1
 
    export MODEL_INPUT_DIR=${COMINhref}
-   export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/ensprod/${modsys}.t{init?fmt=%2H}z.${DOM}.${ENSPROD}.f{lead?fmt=%2H}.grib2
+   export MODEL_INPUT_TEMPLATE=${modsys}.{init?fmt=%Y%m%d}/{init?fmt=%2H}/ensprod/${modsys}.t{init?fmt=%2H}z.${ENSPROD}.f{lead?fmt=%2H}.${DOM}.grib2
 
 elif [ ${MODELNAME} = hrrr ]; then
 

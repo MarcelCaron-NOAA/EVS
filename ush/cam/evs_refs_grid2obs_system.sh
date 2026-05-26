@@ -49,7 +49,7 @@ for dom in CONUS Alaska ; do
 	iday=`$NDATE -$fhr $VDATE$valid_at|cut -c 1-8`
 
           
-	input_fcst="$WORK/refs.${iday}/verf_g2g/refs.*.t${ihr}z.conus.f${fhr}"
+	input_fcst="$WORK/refs.${iday}/${ihr}/verf_g2g/refs.*.t${ihr}z.conus.f${fhr}"
         input_obsv="$WORK/prepbufr.${VDATE}/prepbufr.t${valid_at}z.G227.nc"
 
 	if [ -s $input_fcst ] && [ -s $input_obsv ] ; then
@@ -79,8 +79,8 @@ for dom in CONUS Alaska ; do
          echo  "export MODEL=REFS" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export regrid=G227 " >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export modelhead=refs" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
-         echo  "export modelgrid=conus.f" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
-         echo  "export modeltail=''" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
+         echo  "export modelgrid=f" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
+         echo  "export modeltail='.conus'" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export extradir='verf_g2g/'" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
  
          echo  "export verif_grid=''" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
@@ -201,7 +201,7 @@ for dom in CONUS Alaska ; do
         ihr=`$NDATE -$fhr $VDATE$valid_at|cut -c 9-10`
 	iday=`$NDATE -$fhr $VDATE$valid_at|cut -c 1-8`
 
-	input_fcst="$WORK/refs.${iday}/verf_g2g/refs.*.t${ihr}z.ak.f${fhr}"
+	input_fcst="$WORK/refs.${iday}/${ihr}/verf_g2g/refs.*.t${ihr}z.ak.f${fhr}"
 	input_obsv="$WORK/prepbufr.${VDATE}/prepbufr.t${valid_at}z.G198.nc"
 	                                   
         if [ -s $input_fcst ] && [ -s $input_obsv ] ; then
@@ -229,8 +229,8 @@ for dom in CONUS Alaska ; do
          echo  "export MODEL=REFS" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export regrid=NONE " >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export modelhead=refs" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
-         echo  "export modelgrid=ak.f" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
-         echo  "export modeltail=''" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
+         echo  "export modelgrid=f" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
+         echo  "export modeltail='.ak'" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
          echo  "export extradir='verf_g2g/'" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
 
          echo  "export verif_grid=''" >> run_refs_${domain}.${valid_at}.${fhr}_system.sh
