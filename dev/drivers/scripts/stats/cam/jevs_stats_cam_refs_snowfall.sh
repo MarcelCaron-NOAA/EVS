@@ -12,7 +12,7 @@ set -x
 export OMP_NUM_THREADS=1
 
 export NET=evs
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+export HOMEevs=${REFSevs:-/lfs/h2/emc/vpppg/noscrub/${USER}/EVS}
 source $HOMEevs/versions/run.ver
 
 export STEP=stats
@@ -30,9 +30,9 @@ evs_ver_2d=$(echo $evs_ver | cut -d'.' -f1-2)
 
 export vhr=00
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
 export envir=prod
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/refs/$STEP/$COMPONENT
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export job=${PBS_JOBNAME:-jevs_${STEP}_${MODELNAME}_${VERIF_CASE}}
 export jobid=$job.${PBS_JOBID:-$$}
@@ -42,7 +42,7 @@ export verif_precip=no
 export verif_snowfall=yes
 export gather=yes
 
-export MAILTO='andrew.benjamin@noaa.gov,binbin.zhou@noaa.gov'
+export MAILTO='marcel.caron@noaa.gov'
 
 if [ -z "$MAILTO" ]; then
 

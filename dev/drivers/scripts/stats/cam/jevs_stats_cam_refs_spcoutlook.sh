@@ -12,7 +12,7 @@ set -x
 export OMP_NUM_THREADS=1
 
 export NET=evs
-export HOMEevs=/lfs/h2/emc/vpppg/noscrub/${USER}/EVS
+export HOMEevs=${REFSevs:-/lfs/h2/emc/vpppg/noscrub/${USER}/EVS}
 source $HOMEevs/versions/run.ver
 
 export STEP=stats
@@ -32,14 +32,14 @@ export vhr=00
 
 export gather=yes
 
-export COMIN=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d
-export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/$STEP/$COMPONENT
+export COMIN=/lfs/h2/emc/vpppg/noscrub/emc.vpppg/$NET/$evs_ver_2d
+export COMOUT=/lfs/h2/emc/vpppg/noscrub/$USER/$NET/$evs_ver_2d/refs/$STEP/$COMPONENT
 export job=${PBS_JOBNAME:-jevs_${STEP}_${MODELNAME}_${VERIF_CASE}}
 export envir=prod
 export DATAROOT=/lfs/h2/emc/stmp/${USER}/evs_test/$envir/tmp
 export jobid=$job.${PBS_JOBID:-$$}
 
-export MAILTO='andrew.benjamin@noaa.gov,binbin.zhou@noaa.gov'
+export MAILTO='marcel.caron@noaa.gov'
 if [ -z "$MAILTO" ]; then
 
   echo "MAILTO variable is not defined. Exiting without continuing."
