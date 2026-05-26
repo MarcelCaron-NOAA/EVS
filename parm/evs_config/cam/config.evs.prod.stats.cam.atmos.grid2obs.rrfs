@@ -39,6 +39,7 @@ if [ "$NEST" = "conus" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
             export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
@@ -68,6 +69,7 @@ elif [ "$NEST" = "subreg" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
             export VAR_NAME_LIST=""
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
@@ -97,6 +99,7 @@ elif [ "$NEST" = "ak" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
             export VAR_NAME_LIST="SBCAPE MLCAPE HPBL"
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.ak.grib2"
@@ -126,6 +129,7 @@ elif [ "$NEST" = "hi" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
             export VAR_NAME_LIST=""
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.hi.grib2"
@@ -155,6 +159,7 @@ elif [ "$NEST" = "pr" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
             export VAR_NAME_LIST=""
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.2p5km.f{lead?fmt=%3H}.pr.grib2"
@@ -184,6 +189,7 @@ elif [ "$NEST" = "firewx" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
             export VAR_NAME_LIST="HPBL"
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
@@ -213,6 +219,7 @@ elif [ "$NEST" = "spc_otlk" ]; then
         else
             export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
             export VAR_NAME_LIST="SBCAPE MLCAPE"
+        fi
     elif [ "$OBSNAME" = "metar" ]; then
         export COMINobs=${COMINobsproc}
         export MODEL_INPUT_TEMPLATE="rrfs.{init?fmt=%Y%m%d}/{init?fmt=%2H}/rrfs.t{init?fmt=%2H}z.2dfld.3km.f{lead?fmt=%3H}.conus.grib2"
