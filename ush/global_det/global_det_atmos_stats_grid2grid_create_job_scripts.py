@@ -95,8 +95,22 @@ reformat_data_jobs_dict = {
                                    gda_util.python_command(
                                        'global_det_atmos_stats_grid2grid_'
                                        +'create_wind_shear.py', []
+                                   )]},
+        'WindSpeed': {'env': {'var1_name': 'UGRD',
+                              'var1_levels': 'P850, P250',
+                              'var2_name': 'VGRD',
+                              'var2_levels': 'P850, P250',
+                              'grid': 'G004',
+                              'met_config_overrides': ''},
+                      'commands': [gda_util.metplus_command(
+                                       'GridStat_fcstGLOBAL_DET_'
+                                       +'obsModelAnalysis_WindsNetCDF.conf'
+                                   ),
+                                   gda_util.python_command(
+                                       'global_det_atmos_stats_grid2grid_'
+                                       +'create_wind_speed.py', []
                                    )]}
-    },
+    },    
     'sea_ice': {
         'ConcentrationNH': {'env': {'var1_name': 'ICEC',
                                     'var1_levels': 'Z0',
@@ -551,6 +565,14 @@ generate_stats_jobs_dict = {
                       'commands': [gda_util.metplus_command(
                                        'GridStat_fcstGLOBAL_DET_'
                                        +'obsModelAnalysis_WindShear.conf'
+                                   )]},
+        'WindSpeed': {'env': {'var1_name': 'WSPD_P850',
+                              'var1_levels': 'P850',
+                              'var2_name': 'WSPD_P250',
+                              'var2_levels': 'P250'},
+                      'commands': [gda_util.metplus_command(
+                                       'GridStat_fcstGLOBAL_DET_'
+                                       +'obsModelAnalysis_WindSpeed.conf'
                                    )]}
     },
     'sea_ice': {
@@ -1001,11 +1023,21 @@ if JOB_GROUP in ['reformat_data', 'assemble_data', 'generate_stats']:
                                 and job_env_dict['MODEL'] == 'jma':
                             write_job_cmds = False
                     elif JOB_GROUP == 'generate_stats':
+                        #remove variable that AIGFS does not have
+                        if verif_type == 'means'\
+                                and job_env_dict['MODEL'] == 'aigfs'\
+                                and verif_type_job \
+                                in ['CAPESfcBased',\
+                                    'CloudWater','GeoHeightTropopause','PBLHeight',\
+                                    'PrecipWater','PresSfc','PresTropopause', 'RelHum2m',\
+                                    'SnowWaterEqv','SpefHum2m','TempTropopause','TempSoilTopLayer',\
+                                    'TotalOzone','VolSoilMoistTopLayer']:
+                            write_job_cmds = False
                         # Models below do not have Ozone Mixing Ratio
                         if verif_type == 'pres_levs' \
                                 and job_env_dict['MODEL'] \
                                 in ['cmc', 'cmc_regional', 'dwd', 'ecmwf',
-                                    'fnmoc', 'jma', 'metfra', 'ukmet'] \
+                                    'fnmoc', 'jma', 'metfra', 'ukmet', 'aigfs'] \
                                 and verif_type_job == 'Ozone':
                             write_job_cmds = False
                         # IMD does not have Ozone Mixing Ratio at 925mb
